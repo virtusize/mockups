@@ -1,0 +1,50 @@
+
+body {
+    margin: 0;
+}
+
+.top-border {
+    background: #242424;
+    height: 34px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.background {
+    background: url('../img/asos-background.png') no-repeat top center;
+    width: 1000px;
+    height: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+}
+
+.vs-button {
+    background: url('../img/button.png') no-repeat;
+    display: block;
+    overflow: hidden;
+    text-indent: -200%;
+    width: 96px;
+    height: 18px;
+    position: absolute;
+    left: 588px;
+    top: 488px;
+}
+
+.vs-button:hover + .vs-button-hover,
+.vs-button-hover:hover {
+    display: block;
+}
+
+.vs-button-hover {
+    background: url('../img/button-on.png') no-repeat;
+    display: none;
+    cursor: pointer;
+    width: 147px;
+    height: 105px;
+    position: absolute;
+    left: 566px;
+    top: 401px;
+}
