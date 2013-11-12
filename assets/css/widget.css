@@ -36,3 +36,69 @@
     top: 0;
     left: 0;
 }
+
+.widget .view {
+    position: relative;
+    left: 50px;
+    top: 0;
+}
+
+/* ---- COMPARE ---- */
+
+.compare .right {
+    background: url('../img/compare-right-first.png') no-repeat;
+    width: 330px;
+    height: 315px;
+    position: absolute;
+    left: 540px;
+}
+
+.compare #size-selector {
+    position: absolute;
+    top: 85px;
+    left: -5px;
+    width: 356px;
+    padding: 0;
+}
+
+.compare .size-item {
+    float: left;
+}
+
+.btn-pill {
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    display: block;
+    padding: 0 8px;
+    margin: 3px 4px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #3A3A3A;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #FFF;
+    border: 2px solid #C7C7C7;
+    font: 14px 'Open sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+}
+
+.btn-pill:hover,
+.btn-pill:focus {
+    background-color: #F3F3F3;
+}
+
+.checked .btn-pill {
+    color: #FFF;
+    background-color: #0098E6;
+    border-color: #0098E6;
+}
+
+.widget .compare .btn-continue {
+    background: url('../img/continue-btn.png') no-repeat;
+    width: 260px;
+    height: 56px;
+    position: absolute;
+    left: 40px;
+    top: 380px;
+}

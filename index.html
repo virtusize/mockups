@@ -15,18 +15,55 @@
 
     <div class="top-border"></div>
     <div class="background">
-        <a href="#" title="Fit visualiser" class="vs-button button ir">Fit visualiser</a>
+        <a href="javascript:void(0);" title="Fit visualiser" class="vs-button button ir">Fit visualiser</a>
         <div class="vs-button-hover button"></div>
     </div>
 
     <div id="virtusize-overlay-wrapper" class="wrapper">
         <div id="virtusize-overlay" class="overlay">
             <div id="virtusize-widget-iframe" class="widget">
-                <a href="#" class="close ir" title="Close">x</a>
+                <a href="javascript:void(0);" class="close ir" title="Close">x</a>
                 <div class="menu"></div>
+                <div class="view"></div>
             </div>
         </div>
     </div>
+
+
+    <!-- TEMPLATES -->
+
+    <script type = "text/template" id="tmpl-compare-first">
+        <div class="compare">
+            <div class="right">
+                <div id="size-selector">
+                    <div id="sizes-container">
+                        <ul class="size-pills">
+                            <li class="size-item" style="width: 118px;">
+                                <a href="javascript:void(0);" class="btn-pill">X-small</a>
+                            </li>
+                            <li class="size-item checked" style="width: 118px;">
+                                <a href="javascript:void(0);" class="btn-pill">Small</a>
+                            </li>
+                            <li class="size-item" style="width: 118px;">
+                                <a href="javascript:void(0);" class="btn-pill">Medium</a>
+                            </li>
+                            <li class="size-item" style="width: 118px;">
+                                <a href="javascript:void(0);" class="btn-pill">Large</a>
+                            </li>
+                            <li class="size-item" style="width: 118px;">
+                                <a href="javascript:void(0);" class="btn-pill">X-large</a>
+                            </li>
+                            <li class="size-item" style="width: 118px;">
+                                <a href="javascript:void(0);" class="btn-pill">XX-large</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>                            
+                <a href="javascript:void(0);" class="btn-continue ir" title="Continue">Continue</a>
+            </div>
+        </div>
+    </script>
+
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
