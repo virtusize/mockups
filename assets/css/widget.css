@@ -1,0 +1,38 @@
+
+/* ---- WIDGET ---- */
+
+.widget {
+    overflow: hidden;
+    background-color: #FFF;
+    border: none;
+    position: relative;
+    width: 944px;
+    height: 528px;
+    margin: -291.5px auto 0px;
+    display: block;
+    top: 50%;
+
+    -webkit-box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 10px 35px 0 rgba(0,0,0,0.5);
+    -ms-box-shadow: 0 10px 35px 0 rgba(0,0,0,0.5);
+    -o-box-shadow: 0 10px 35px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.5);
+}
+
+.widget .close {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAQAAAADpb+tAAAAK0lEQVR4AWNg+M+ACf5DCUxBdIn/2FT8xzAPjHFZREg1ptk4XYLD3Th8CQBNPRTsX9ek9QAAAABJRU5ErkJggg==') no-repeat;
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    right: 11px;
+    top: 11px;
+}
+
+.widget .menu {
+    background: url('../img/menu.png') no-repeat;
+    width: 50px;
+    height: 528px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
