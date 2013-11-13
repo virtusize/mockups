@@ -125,11 +125,15 @@
 }
 
 .compare .item {
-    background-color: #ECECEC;
     padding: 12px;
     display: block;
     width: 310px;
     border-radius: 3px;
+    margin-bottom: 3px;
+}
+
+.compare .item:first-child {
+    background-color: #ECECEC;
 }
 
 .compare.intro .btn-continue {

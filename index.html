@@ -62,7 +62,9 @@
                     </div>
                 </div>
                 <ul class="item-list">
-                    <li class="item">{{ item }}</li>
+                    <% _.each(products, function(name) { %>
+                        <li class="item"><%= name %></li>
+                    <% }); %>
                 </ul>
                 <a href="javascript:void(0);" id="continue" class="btn-continue ir" title="Continue">Continue</a>
             </div>

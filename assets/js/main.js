@@ -1,24 +1,19 @@
 
 (function($) {
 
-    // Underscore setting
-    _.templateSettings = {
-        interpolate: /\{\{(.+?)\}\}/g
-    };
-
     var $button = $(".button"),
         $overlay = $("#virtusize-overlay-wrapper"),
         $widget = $(".widget"),
         $view = $widget.find(".view"),
 
-        item = false,
+        itemList = [],
 
         get_tmpl = function(id, data) {
             return _.template($("#" + id).html())(data);
         },
         get_compare = function($view) {
-            $view.html(get_tmpl("tmpl-compare", {item: item}));
-            if (!item) {
+            $view.html(get_tmpl("tmpl-compare", {products: itemList}));
+            if (!itemList.length) {
                 $view.find(".compare").addClass("intro");
             }
         };
@@ -51,7 +46,7 @@
             var $this = $(this),
                 $left = $(".compare .left"),
                 size = $this.data("size"),
-                url = (!item) ? "-intro" : "",
+                url = (!itemList.length) ? "-intro" : "",
                 path = "url('assets/img/compare%u-%s.png')".replace("%s", size).replace("%u", url);
 
             $(".compare .size-item.checked").removeClass("checked");
@@ -67,13 +62,14 @@
         // Purchase history
 
         .on("click", ".ph #button", function(e) {
+            $(".ph .select.on").each(function() {
+                itemList.push($(this).data("name"));
+            });
             get_compare($view);
         })
 
         .on("click", ".ph .select", function(e) {
-            var $this = $(this);
-            $this.toggleClass("on");
-            item = $this.data("name");
+            $(this).toggleClass("on");
             $(".ph #button").toggleClass("active", $(".ph .select.on").length > 0);
         });
 
