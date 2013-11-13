@@ -34,27 +34,29 @@
 
     <script type = "text/template" id="tmpl-compare-first">
         <div class="compare panel">
+            <a href="javascript:void(0);" title="Close" class="notice ir" id="notice">Close</a>
+            <div class="left"></div>
             <div class="right">
                 <div id="size-selector">
                     <div id="sizes-container">
                         <ul class="size-pills">
                             <li class="size-item" style="width: 118px;">
-                                <a href="javascript:void(0);" class="btn-pill">X-small</a>
+                                <a href="javascript:void(0);" class="btn-pill" data-size="xsmall">X-small</a>
                             </li>
                             <li class="size-item checked" style="width: 118px;">
-                                <a href="javascript:void(0);" class="btn-pill">Small</a>
+                                <a href="javascript:void(0);" class="btn-pill" data-size="small">Small</a>
                             </li>
                             <li class="size-item" style="width: 118px;">
-                                <a href="javascript:void(0);" class="btn-pill">Medium</a>
+                                <a href="javascript:void(0);" class="btn-pill" data-size="medium">Medium</a>
                             </li>
                             <li class="size-item" style="width: 118px;">
-                                <a href="javascript:void(0);" class="btn-pill">Large</a>
+                                <a href="javascript:void(0);" class="btn-pill" data-size="large">Large</a>
                             </li>
                             <li class="size-item" style="width: 118px;">
-                                <a href="javascript:void(0);" class="btn-pill">X-large</a>
+                                <a href="javascript:void(0);" class="btn-pill" data-size="xlarge">X-large</a>
                             </li>
                             <li class="size-item" style="width: 118px;">
-                                <a href="javascript:void(0);" class="btn-pill">XX-large</a>
+                                <a href="javascript:void(0);" class="btn-pill" data-size="xxlarge">XX-large</a>
                             </li>
                         </ul>
                     </div>
@@ -83,7 +85,6 @@
                     <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Stripe">ASOS Smart Stripe</a>
                 </li>
             </ul>
-
             <a href="javascript:void(0);" class="button ir" id="button">Text</a>
             <div class="ir n-f-m">Enter your own measurements</div>
         </div>
