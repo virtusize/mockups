@@ -11,23 +11,21 @@
         $widget = $(".widget"),
         $view = $widget.find(".view"),
 
-        first = true,
+        item = false,
 
-        get_tmpl = function(id) {
-            return _.template($("#" + id).html())();
+        get_tmpl = function(id, data) {
+            return _.template($("#" + id).html())(data);
+        },
+        get_compare = function($view) {
+            $view.html(get_tmpl("tmpl-compare", {item: item}));
+            if (!item) {
+                $view.find(".compare").addClass("intro");
+            }
         };
 
     $button.on("click", function(e) {
         $overlay.show();
-
-        if (first) {
-            // Compare w/o garment
-            $view.html(get_tmpl("tmpl-compare-first"));
-            first = false;
-        }
-        else {
-            // Compare w/ garment
-        }
+        get_compare($view);
     });
 
     $widget.find(".close").on("click", function(e) {
@@ -39,9 +37,9 @@
 
     $(document)
 
-        // Compare, w/o garment
+        // Compare
 
-        .on("click", ".compare #continue", function(e) {
+        .on("click", ".compare.intro #continue", function(e) {
             $view.html(get_tmpl("tmpl-purchase-history"));
         })
 
@@ -52,13 +50,15 @@
         .on("click", ".compare .btn-pill", function(e) {
             var $this = $(this),
                 $left = $(".compare .left"),
-                size = $this.data("size");
+                size = $this.data("size"),
+                url = (!item) ? "-intro" : "",
+                path = "url('assets/img/compare%u-%s.png')".replace("%s", size).replace("%u", url);
 
             $(".compare .size-item.checked").removeClass("checked");
             $this.parent().addClass("checked");
             $left
                 .fadeOut(300, function() {
-                    $left.css("background-image", "url('assets/img/compare-intro-%s.png')".replace("%s", size));
+                    $left.css("background-image", path);
                 })
                 .fadeIn();
         })
@@ -67,16 +67,13 @@
         // Purchase history
 
         .on("click", ".ph #button", function(e) {
-            if ($(this).hasClass("active")) {
-                alert("next!");
-            }
-            else {
-                $view.html(get_tmpl("tmpl-compare-first"));
-            }
+            get_compare($view);
         })
 
         .on("click", ".ph .select", function(e) {
-            $(this).toggleClass("on");
+            var $this = $(this);
+            $this.toggleClass("on");
+            item = $this.data("name");
             $(".ph #button").toggleClass("active", $(".ph .select.on").length > 0);
         });
 

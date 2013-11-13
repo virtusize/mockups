@@ -32,7 +32,7 @@
 
     <!-- TEMPLATES -->
 
-    <script type = "text/template" id="tmpl-compare-first">
+    <script type = "text/template" id="tmpl-compare">
         <div class="compare panel">
             <a href="javascript:void(0);" title="Close" class="notice ir" id="notice">Close</a>
             <div class="left"></div>
@@ -61,6 +61,9 @@
                         </ul>
                     </div>
                 </div>
+                <ul class="item-list">
+                    <li class="item">{{ item }}</li>
+                </ul>
                 <a href="javascript:void(0);" id="continue" class="btn-continue ir" title="Continue">Continue</a>
             </div>
         </div>
@@ -70,19 +73,19 @@
         <div class="ph panel">
             <ul class="product-list">
                 <li class="product one">
-                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Shirt">ASOS Smart Shirt</a>
+                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Shirt" data-name="ASOS Smart Shirt">ASOS Smart Shirt</a>
                 </li>
                 <li class="product two">
-                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Shirt">ASOS Smart Shirt</a>
+                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Shirt" data-name="ASOS Smart Shirt">ASOS Smart Shirt</a>
                 </li>
                 <li class="product three">
-                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Shirt">ASOS Smart Shirt</a>
+                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Shirt" data-name="ASOS Smart Shirt">ASOS Smart Shirt</a>
                 </li>
                 <li class="product four">
-                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Denim Shirt">ASOS Denim Shirt</a>
+                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Denim Shirt" data-name="ASOS Denim Shirt">ASOS Denim Shirt</a>
                 </li>
                 <li class="product five">
-                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Stripe">ASOS Smart Stripe</a>
+                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Stripe" data-name="ASOS Smart Stripe">ASOS Smart Stripe</a>
                 </li>
             </ul>
             <a href="javascript:void(0);" class="button ir" id="button">Text</a>

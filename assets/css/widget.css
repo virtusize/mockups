@@ -56,7 +56,7 @@
     position: absolute;
     width: 514px;
     height: 528px;
-    background: url('../img/compare-intro-small.png') no-repeat;
+    background: url('../img/compare-small.png') no-repeat;
 }
 
 .compare .notice {
@@ -72,7 +72,7 @@
 .compare .right {
     background: url('../img/compare-right-first.png') no-repeat;
     width: 330px;
-    height: 315px;
+    height: 220px;
     position: absolute;
     left: 540px;
 }
@@ -118,13 +118,39 @@
     border-color: #0098E6;
 }
 
-.widget .compare .btn-continue {
+.compare .item-list {
+    position: absolute;
+    top: 225px;
+    font: 300 14px/14px 'Open sans', 'Helvetica Neue', sans-serif;
+}
+
+.compare .item {
+    background-color: #ECECEC;
+    padding: 12px;
+    display: block;
+    width: 310px;
+    border-radius: 3px;
+}
+
+.compare.intro .btn-continue {
     background: url('../img/continue-btn.png') no-repeat;
     width: 260px;
     height: 56px;
     position: absolute;
     left: 40px;
     top: 380px;
+}
+
+.compare.intro .right {
+    height: 315px;
+}
+
+.compare.intro .item-list {
+    display: none;
+}
+
+.compare.intro .left {
+    background-image: url('../img/compare-intro-small.png');
 }
 
 
