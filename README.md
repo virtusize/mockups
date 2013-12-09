@@ -4,7 +4,7 @@
 
 [virtusize.de/mockups/](http://virtusize.de/mockups/)
 
-## Mockup structure
+## Mockup structure for purchase history
 
 - Standalone
 - Mostly static
