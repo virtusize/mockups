@@ -19,17 +19,47 @@
         return pathSubString('L', [point]);
     }
 
-    function pantiesPathString(pts) {
+    function quadTo(ctrl, point) {
+        return pathSubString('Q', [ctrl, point]);
+    }
+
+    function pantiesOutlinePathString(pts) {
         var pathStringList = [
                 moveTo(pts.p1),
-                lineTo(pts.p2),
-                lineTo(pts.p3),
+                quadTo(pts.c1A, pts.p2),
+                quadTo(pts.c2B, pts.p3),
                 lineTo(pts.p4),
                 lineTo(flipX(pts.p4)),
                 lineTo(flipX(pts.p3)),
-                lineTo(flipX(pts.p2)),
-                lineTo(flipX(pts.p1)),
+                quadTo(flipX(pts.c2B), flipX(pts.p2)),
+                quadTo(flipX(pts.c1A), flipX(pts.p1)),
                 'Z'
+            ];
+
+        return pathStringList.join('');
+    }
+
+    function pantiesDetailsPathString(pts) {
+        var pathStringList = [
+                moveTo(pts.p1),
+                quadTo(pts.c1F, pts.p2),
+                moveTo(flipX(pts.p1)),
+                quadTo(flipX(pts.c1F), flipX(pts.p2)),
+
+                moveTo(pts.p5),
+                quadTo(pts.c5H, pts.p6),
+                quadTo(pts.c6I, pts.p7),
+                quadTo(pts.c7J, pts.p5),
+                quadTo(flipX(pts.c5H), flipX(pts.p6)),
+                quadTo(flipX(pts.c6I), flipX(pts.p7)),
+                quadTo(flipX(pts.c7J), pts.p5),
+
+                quadTo(pts.c5K, pts.p8),
+                quadTo(pts.c8L, pts.p9),
+                quadTo(pts.c9M, pts.p5),
+                quadTo(flipX(pts.c5K), flipX(pts.p8)),
+                quadTo(flipX(pts.c8L), flipX(pts.p9)),
+                quadTo(flipX(pts.c9M), pts.p5)
             ];
 
         return pathStringList.join('');
@@ -64,12 +94,28 @@
             c9M: {x: 11.999999999999996, y: -91.14359353944897},
             s1: {s: 13}
         },
-        pantiesShape1 = svg.path(pantiesPathString(pts));
+        pantiesOutline1 = svg.path(pantiesOutlinePathString(pts)),
+        pantiesDetails1 = svg.path(pantiesDetailsPathString(pts)),
+        pantiesCircle1 = svg.circle(pts.p5.x, pts.p5.y, pts.s1.s);
 
-    pantiesShape1.transform(theMatrix);
-    pantiesShape1.attr({
+    pantiesOutline1.transform(theMatrix);
+    pantiesOutline1.attr({
         stroke: '#00aa00',
         fill: 'none',
         strokeWidth: 4 / scaleFactor
+    });
+
+    pantiesDetails1.transform(theMatrix);
+    pantiesDetails1.attr({
+        stroke: '#00aa00',
+        fill: 'none',
+        strokeWidth: 2 / scaleFactor
+    });
+
+    pantiesCircle1.transform(theMatrix);
+    pantiesCircle1.attr({
+        stroke: '#00aa00',
+        fill: 'none',
+        strokeWidth: 2 / scaleFactor
     });
 })(window, window._, window.Snap);
