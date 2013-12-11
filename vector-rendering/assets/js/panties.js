@@ -68,9 +68,9 @@
     /*
     * The SVG view box center point should be computed using the bounding box
     */
-    var svg = Snap('svg.demo'),
-        svgCX = parseInt(svg.attr('width')) / 2,
-        svgCY = parseInt(svg.attr('height')) / 2,
+    var paper = Snap('svg.demo'),
+        svgCX = parseInt(paper.attr('width')) / 2,
+        svgCY = parseInt(paper.attr('height')) / 2,
         scaleFactor = 0.9,
         theMatrix = new Snap.Matrix().translate(svgCX, svgCY).scale(scaleFactor),
         pts = {
@@ -94,28 +94,31 @@
             c9M: {x: 11.999999999999996, y: -91.14359353944897},
             s1: {s: 13}
         },
-        pantiesOutline1 = svg.path(pantiesOutlinePathString(pts)),
-        pantiesDetails1 = svg.path(pantiesDetailsPathString(pts)),
-        pantiesCircle1 = svg.circle(pts.p5.x, pts.p5.y, pts.s1.s);
+        panties1Outline = paper.path(pantiesOutlinePathString(pts)),
+        panties1Details = paper.path(pantiesDetailsPathString(pts)),
+        panties1DetailCircle = paper.circle(pts.p5.x, pts.p5.y, pts.s1.s),
+//        panties1ClipCircle = paper.circle(pts.p5.x, pts.p5.y, pts.s1.s),
+        panties1 = paper.group(panties1Outline),
+        panties1DetailGroup = panties1.group(panties1Details, panties1DetailCircle),
+        allShapes = paper.group(panties1);
 
-    pantiesOutline1.transform(theMatrix);
-    pantiesOutline1.attr({
-        stroke: '#00aa00',
+    allShapes.transform(theMatrix);
+
+    panties1.attr({
         fill: 'none',
+        stroke: '#00aa00'
+    });
+
+    panties1Outline.attr({
         strokeWidth: 4 / scaleFactor
     });
 
-    pantiesDetails1.transform(theMatrix);
-    pantiesDetails1.attr({
-        stroke: '#00aa00',
-        fill: 'none',
+    panties1DetailGroup.attr({
         strokeWidth: 2 / scaleFactor
     });
 
-    pantiesCircle1.transform(theMatrix);
-    pantiesCircle1.attr({
-        stroke: '#00aa00',
-        fill: 'none',
-        strokeWidth: 2 / scaleFactor
-    });
+    // Oddly, this makes *all* details go away, even inside circle. Coordinate mismatch?
+//    panties1Details.attr({
+//        mask: panties1ClipCircle
+//    });
 })(window, window._, window.Snap);
