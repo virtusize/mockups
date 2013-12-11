@@ -1,28 +1,38 @@
 (function (window, _, Snap) {
-    function pointToPathString(pathCmd, point, mirrorX) {
-        var xCoord = mirrorX ? -point.x : point.x,
-            yCoord = point.y;
+    function pathSubString(pathCmd, pointList) {
+        for (var i = 0; i < pointList.length; i++) {
+            pointList[i] = pointList[i].x + ',' + pointList[i].y;
+        }
 
-        return pathCmd + xCoord + ',' + yCoord;
+        return pathCmd + pointList.join(',');
+    }
+
+    function flipX(point) {
+        return {x: -point.x, y: point.y};
+    }
+
+    function moveTo(point) {
+        return pathSubString('M', [point]);
+    }
+
+    function lineTo(point) {
+        return pathSubString('L', [point]);
     }
 
     function pantiesPathString(pts) {
-        var pathStringArray = [],
-            M = 'M',
-            L = 'L',
-            Z = 'Z';
+        var pathStringList = [
+                moveTo(pts.p1),
+                lineTo(pts.p2),
+                lineTo(pts.p3),
+                lineTo(pts.p4),
+                lineTo(flipX(pts.p4)),
+                lineTo(flipX(pts.p3)),
+                lineTo(flipX(pts.p2)),
+                lineTo(flipX(pts.p1)),
+                'Z'
+            ];
 
-        pathStringArray.push(pointToPathString(M, pts.p1, false));
-        pathStringArray.push(pointToPathString(L, pts.p2, false));
-        pathStringArray.push(pointToPathString(L, pts.p3, false));
-        pathStringArray.push(pointToPathString(L, pts.p4, false));
-        pathStringArray.push(pointToPathString(L, pts.p4, true));
-        pathStringArray.push(pointToPathString(L, pts.p3, true));
-        pathStringArray.push(pointToPathString(L, pts.p2, true));
-        pathStringArray.push(pointToPathString(L, pts.p1, true));
-        pathStringArray.push(Z);
-
-        return pathStringArray.join('');
+        return pathStringList.join('');
     }
 
     /*
