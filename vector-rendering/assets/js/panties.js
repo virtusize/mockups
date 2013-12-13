@@ -81,6 +81,12 @@
         return paper.group(maskRect, maskCirc);
     }
 
+    function descaleStrokeWidth(fragment, scaleFactor) {
+        var descaledStrokeWidth = fragment.attr('stroke-width') / scaleFactor;
+
+        fragment.attr({'stroke-width': descaledStrokeWidth});
+    }
+
     /*
     * The SVG view box center point should be computed using the bounding box
     */
@@ -120,19 +126,12 @@
 
     allShapes.transform(theMatrix);
 
-    panties1.attr({
-        fill: 'none',
-        stroke: '#00aa00'
-    });
+    panties1.attr({'class': 'item no1'});
+    panties1Outline.attr({'class': 'outline'});
+    panties1DetailGroup.attr({'class': 'details'});
 
-    panties1Outline.attr({
-        fill: 'rgba(0,128,0,0.3)',
-        strokeWidth: 4 / scaleFactor
-    });
-
-    panties1DetailGroup.attr({
-        strokeWidth: 2 / scaleFactor
-    });
+    descaleStrokeWidth(panties1Outline, scaleFactor);
+    descaleStrokeWidth(panties1DetailGroup, scaleFactor);
 
     panties1Details.attr({
         mask: panties1Mask
