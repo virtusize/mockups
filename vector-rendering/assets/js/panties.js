@@ -65,6 +65,22 @@
         return pathStringList.join('');
     }
 
+    function pantiesMaskGroup(paper, pts, scaledStrokeWidth, pantiesShape) {
+        var bBox = pantiesShape.getBBox(),
+            colorPass = '#fff',
+            colorBlock = '#000',
+            maskRect = paper.rect(bBox.x, bBox.y, bBox.w, bBox.h).attr({
+                fill: colorPass
+            }),
+            maskCirc = paper.circle(pts.p5.x, pts.p5.y, pts.s1.s).attr({
+                fill: colorBlock,
+                stroke: colorBlock,
+                strokeWidth: scaledStrokeWidth
+            });
+
+        return paper.group(maskRect, maskCirc);
+    }
+
     /*
     * The SVG view box center point should be computed using the bounding box
     */
@@ -97,9 +113,9 @@
         panties1Outline = paper.path(pantiesOutlinePathString(pts)),
         panties1Details = paper.path(pantiesDetailsPathString(pts)),
         panties1DetailCircle = paper.circle(pts.p5.x, pts.p5.y, pts.s1.s),
-//        panties1ClipCircle = paper.circle(pts.p5.x, pts.p5.y, pts.s1.s),
         panties1 = paper.group(panties1Outline),
         panties1DetailGroup = panties1.group(panties1Details, panties1DetailCircle),
+        panties1Mask = pantiesMaskGroup(paper, pts, 2 / scaleFactor, panties1),
         allShapes = paper.group(panties1);
 
     allShapes.transform(theMatrix);
@@ -110,6 +126,7 @@
     });
 
     panties1Outline.attr({
+        fill: 'rgba(0,128,0,0.3)',
         strokeWidth: 4 / scaleFactor
     });
 
@@ -117,8 +134,7 @@
         strokeWidth: 2 / scaleFactor
     });
 
-    // Oddly, this makes *all* details go away, even inside circle. Coordinate mismatch?
-//    panties1Details.attr({
-//        mask: panties1ClipCircle
-//    });
+    panties1Details.attr({
+        mask: panties1Mask
+    });
 })(window, window._, window.Snap);
