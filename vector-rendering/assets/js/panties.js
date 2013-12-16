@@ -147,6 +147,23 @@
         return mainGroup;
     }
 
+    function setupHoverClick(fragment, fragmentToPlaceAfter) {
+        fragment.hover(
+            function () {
+                svgAddClass(this, 'dashy');
+            },
+            function () {
+                svgRemoveClass(this, 'dashy');
+            }
+        );
+
+        fragment.click(
+            function () {
+                this.after(fragmentToPlaceAfter);
+            }
+        );
+    }
+
     /*
     * The SVG view box center point should be computed using the bounding box
     */
@@ -183,4 +200,7 @@
         allShapes = paper.group(panties1, panties2);
 
     allShapes.transform(theMatrix);
+
+    setupHoverClick(panties1, panties2);
+    setupHoverClick(panties2, panties1);
 })(window, window._, window.Snap);
