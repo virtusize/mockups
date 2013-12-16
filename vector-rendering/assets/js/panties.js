@@ -1,4 +1,39 @@
 (function (window, _, Snap) {
+    function spacePad(inputString) {
+        return ' ' + inputString + ' ';
+    }
+
+    function svgGetClasses(fragment) {
+        return fragment.attr('class') || '';
+    }
+
+    function svgSetClasses(fragment, classNames) {
+        return fragment.attr({'class': classNames});
+    }
+
+    function svgHasClass(fragment, className) {
+        var currentClasses = svgGetClasses(fragment),
+            indexOfClassName = spacePad(currentClasses).indexOf(spacePad(className));
+
+        return indexOfClassName != -1;
+    }
+
+    function svgAddClass(fragment, className) {
+        if (!svgHasClass(fragment, className)) {
+            svgSetClasses(fragment, (svgGetClasses(fragment) + ' ' + className).trim());
+        }
+
+        return fragment;
+    }
+
+    function svgRemoveClass(fragment, className) {
+        if (svgHasClass(fragment, className)) {
+            svgSetClasses(fragment, spacePad(svgGetClasses(fragment)).replace(spacePad(className), '').trim());
+        }
+
+        return fragment;
+    }
+
     function pathSubString(pathCmd, pointList) {
         for (var i = 0; i < pointList.length; i++) {
             pointList[i] = pointList[i].x + ',' + pointList[i].y;
@@ -98,9 +133,9 @@
             mainGroup = paper.group(outline),
             detailsGroup = mainGroup.group(details, detailCircle);
 
-        mainGroup.attr({'class': 'item ' + uniqueClass});
-        outline.attr({'class': 'outline'});
-        detailsGroup.attr({'class': 'details'});
+        svgAddClass(mainGroup, 'item ' + uniqueClass);
+        svgAddClass(outline, 'outline');
+        svgAddClass(detailsGroup, 'details');
 
         descaleStrokeWidth(outline, scaleFactor);
         descaleStrokeWidth(detailsGroup, scaleFactor);
