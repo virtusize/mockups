@@ -65,8 +65,8 @@
         return pathStringList.join('');
     }
 
-    function pantiesMaskGroup(paper, pts, scaledStrokeWidth, pantiesShape) {
-        var bBox = pantiesShape.getBBox(),
+    function pantiesMaskGroup(paper, pts, scaledStrokeWidth, outlinePath) {
+        var bBox = outlinePath.getBBox(),
             colorPass = '#fff',
             colorBlock = '#000',
             maskRect = paper.rect(bBox.x, bBox.y, bBox.w, bBox.h).attr({
@@ -81,10 +81,35 @@
         return paper.group(maskRect, maskCirc);
     }
 
+    function getStrokeWidth(fragment) {
+        return fragment.attr('stroke-width');
+    }
+
     function descaleStrokeWidth(fragment, scaleFactor) {
-        var descaledStrokeWidth = fragment.attr('stroke-width') / scaleFactor;
+        var descaledStrokeWidth = getStrokeWidth(fragment) / scaleFactor;
 
         fragment.attr({'stroke-width': descaledStrokeWidth});
+    }
+
+    function pantiesGroup(paper, pts, scaleFactor, uniqueClass) {
+        var outline = paper.path(pantiesOutlinePathString(pts)),
+            details = paper.path(pantiesDetailsPathString(pts)),
+            detailCircle = paper.circle(pts.p5.x, pts.p5.y, pts.s1.s),
+            mainGroup = paper.group(outline),
+            detailsGroup = mainGroup.group(details, detailCircle);
+
+        mainGroup.attr({'class': 'item ' + uniqueClass});
+        outline.attr({'class': 'outline'});
+        detailsGroup.attr({'class': 'details'});
+
+        descaleStrokeWidth(outline, scaleFactor);
+        descaleStrokeWidth(detailsGroup, scaleFactor);
+
+        details.attr({
+            mask: pantiesMaskGroup(paper, pts, getStrokeWidth(detailsGroup) / scaleFactor, outline)
+        });
+
+        return mainGroup;
     }
 
     /*
@@ -118,41 +143,9 @@
             c9M: {x: 11.999999999999996, y: -91.14359353944897},
             s1: {s: 13}
         },
-        panties1Outline = paper.path(pantiesOutlinePathString(pts)),
-        panties1Details = paper.path(pantiesDetailsPathString(pts)),
-        panties1DetailCircle = paper.circle(pts.p5.x, pts.p5.y, pts.s1.s),
-        panties1 = paper.group(panties1Outline),
-        panties1DetailGroup = panties1.group(panties1Details, panties1DetailCircle),
-        panties1Mask = pantiesMaskGroup(paper, pts, 2 / scaleFactor, panties1),
-        panties2Outline = paper.path(pantiesOutlinePathString(pts)),
-        panties2Details = paper.path(pantiesDetailsPathString(pts)),
-        panties2DetailCircle = paper.circle(pts.p5.x, pts.p5.y, pts.s1.s),
-        panties2 = paper.group(panties2Outline).transform(theMatrix2),
-        panties2DetailGroup = panties2.group(panties2Details, panties2DetailCircle),
-        panties2Mask = pantiesMaskGroup(paper, pts, 2 / scaleFactor / scaleFactor2, panties2),
+        panties1 = pantiesGroup(paper, pts, scaleFactor, 'no1'),
+        panties2 = pantiesGroup(paper, pts, scaleFactor * scaleFactor2, 'no2').transform(theMatrix2),
         allShapes = paper.group(panties1, panties2);
 
     allShapes.transform(theMatrix);
-
-    panties1.attr({'class': 'item no1'});
-    panties1Outline.attr({'class': 'outline'});
-    panties1DetailGroup.attr({'class': 'details'});
-
-    descaleStrokeWidth(panties1Outline, scaleFactor);
-    descaleStrokeWidth(panties1DetailGroup, scaleFactor);
-
-    panties1Details.attr({
-        mask: panties1Mask
-    });
-
-    panties2.attr({'class': 'item no2'});
-    panties2Outline.attr({'class': 'outline'});
-    panties2DetailGroup.attr({'class': 'details'});
-
-    descaleStrokeWidth(panties2Outline, scaleFactor * scaleFactor2);
-    descaleStrokeWidth(panties2DetailGroup, scaleFactor * scaleFactor2);
-
-    panties2Details.attr({
-        mask: panties2Mask
-    });
 })(window, window._, window.Snap);
