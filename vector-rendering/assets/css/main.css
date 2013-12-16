@@ -27,3 +27,11 @@ svg .item.no1 {
 svg .no1 .outline {
     fill: rgba(0,128,0,0.3);
 }
+
+svg .item.no2 {
+    stroke: #aa0000;
+}
+
+svg .no2 .outline {
+    fill: rgba(128,0,0,0.3);
+}

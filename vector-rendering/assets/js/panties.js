@@ -94,7 +94,9 @@
         svgCX = parseInt(paper.attr('width')) / 2,
         svgCY = parseInt(paper.attr('height')) / 2,
         scaleFactor = 0.9,
+        scaleFactor2 = 1.2,
         theMatrix = new Snap.Matrix().translate(svgCX, svgCY).scale(scaleFactor),
+        theMatrix2 = new Snap.Matrix().translate(0, 25).scale(scaleFactor2),
         pts = {
             p1: {x: 17.5, y: 125},
             p2: {x: 192.5, y: -32.5},
@@ -122,7 +124,13 @@
         panties1 = paper.group(panties1Outline),
         panties1DetailGroup = panties1.group(panties1Details, panties1DetailCircle),
         panties1Mask = pantiesMaskGroup(paper, pts, 2 / scaleFactor, panties1),
-        allShapes = paper.group(panties1);
+        panties2Outline = paper.path(pantiesOutlinePathString(pts)),
+        panties2Details = paper.path(pantiesDetailsPathString(pts)),
+        panties2DetailCircle = paper.circle(pts.p5.x, pts.p5.y, pts.s1.s),
+        panties2 = paper.group(panties2Outline).transform(theMatrix2),
+        panties2DetailGroup = panties2.group(panties2Details, panties2DetailCircle),
+        panties2Mask = pantiesMaskGroup(paper, pts, 2 / scaleFactor / scaleFactor2, panties2),
+        allShapes = paper.group(panties1, panties2);
 
     allShapes.transform(theMatrix);
 
@@ -135,5 +143,16 @@
 
     panties1Details.attr({
         mask: panties1Mask
+    });
+
+    panties2.attr({'class': 'item no2'});
+    panties2Outline.attr({'class': 'outline'});
+    panties2DetailGroup.attr({'class': 'details'});
+
+    descaleStrokeWidth(panties2Outline, scaleFactor * scaleFactor2);
+    descaleStrokeWidth(panties2DetailGroup, scaleFactor * scaleFactor2);
+
+    panties2Details.attr({
+        mask: panties2Mask
     });
 })(window, window._, window.Snap);
