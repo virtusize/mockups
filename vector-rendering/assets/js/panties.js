@@ -1,4 +1,4 @@
-(function (window, _, Snap) {
+(function (window, Snap) {
     function spacePad(inputString) {
         return ' ' + inputString + ' ';
     }
@@ -203,4 +203,4 @@
 
     setupHoverClick(panties1, panties2);
     setupHoverClick(panties2, panties1);
-})(window, window._, window.Snap);
+})(window, window.Snap);
