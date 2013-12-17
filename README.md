@@ -21,3 +21,4 @@
 - Showcase of basic shape rendering, making use of masking
 - Shape styles done with CSS, implementing both transparency and dashed strokes
 - Shapes support basic hover and click events
+- Centered text rendering in SVG, with option to load web font

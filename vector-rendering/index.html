@@ -8,8 +8,14 @@
 <body>
     <h1>Demo with Snap.svg</h1>
     <p>Initially the red panties are above the green. Click on a shape to move it below the other one.</p>
+    <p>
+        <a href="#" onclick="renderText()">render text</a> -
+        <a href="#" onclick="loadWebFonts(false)">load Open Sans (latin)</a> -
+        <a href="#" onclick="loadWebFonts(true)">load Open Sans (latin ext)</a>
+    </p>
     <svg class="demo" version="1.1" xmlns="http://www.w3.org/2000/"></svg>
     <script src="assets/js/snap.svg-min.js"></script>
     <script src="assets/js/panties.js"></script>
+    <script src="assets/js/text.js"></script>
 </body>
 </html>

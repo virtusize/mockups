@@ -1,5 +1,15 @@
 body {
     font-family: sans-serif;
+    font-size: 15px;
+}
+
+a {
+    font-size: 14px;
+    color: #00a;
+}
+
+a:hover {
+    color: #088;
 }
 
 svg {
@@ -39,4 +49,10 @@ svg .item.no2 {
 
 svg .no2 .outline {
     fill: rgba(128,0,0,0.3);
+}
+
+svg .text {
+    font-family: 'Open Sans', serif, sans-serif;
+    font-size: 17px;
+    text-anchor: middle;
 }
