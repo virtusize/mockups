@@ -20,7 +20,7 @@
         var scriptSet = includeExtLatin ? 'latin,latin-ext' : 'latin';
 
         window.WebFontConfig = {
-            google: { families: [ 'Open+Sans:400,700:' + scriptSet ] },
+            google: { families: [ 'Devonshire:400:' + scriptSet ] },
             active: function(){},
             inactive: function(){ alert('Font loading unsuccessful =/'); }
         };
