@@ -34,70 +34,83 @@
         return fragment;
     }
 
-    function pathSubString(pathCmd, pointList) {
-        for (var i = 0; i < pointList.length; i++) {
-            pointList[i] = pointList[i].x + ',' + pointList[i].y;
-        }
-
-        return pathCmd + pointList.join(',');
+    function PathStringBuilder() {
+        this.subStrings = [];
     }
+
+    // Extend PathStringBuilder with a set of functions
+    (function pathStringBuilderExtender(pathStringBuilderPrototype, pathFunctions) {
+        for (var funcName in pathFunctions) {
+            pathStringBuilderPrototype[funcName] = pathFunctions[funcName];
+        }
+    })(PathStringBuilder.prototype, {
+        subPath: function (pathCmd, pointList) {
+            for (var i = 0; i < pointList.length; i++) {
+                pointList[i] = pointList[i].x + ',' + pointList[i].y;
+            }
+            return pathCmd + pointList.join(',');
+        },
+        moveTo: function (point) {
+            this.subStrings.push(this.subPath('M', [point]));
+            return this;
+        },
+        lineTo: function (point) {
+            this.subStrings.push(this.subPath('L', [point]));
+            return this;
+        },
+        quadTo: function (ctrl, point) {
+            this.subStrings.push(this.subPath('Q', [ctrl, point]));
+            return this;
+        },
+        close: function () {
+            this.subStrings.push('Z');
+            return this;
+        },
+        finalize: function() {
+            return this.subStrings.join('');
+        }
+    });
 
     function flipX(point) {
         return {x: -point.x, y: point.y};
     }
 
-    function moveTo(point) {
-        return pathSubString('M', [point]);
-    }
-
-    function lineTo(point) {
-        return pathSubString('L', [point]);
-    }
-
-    function quadTo(ctrl, point) {
-        return pathSubString('Q', [ctrl, point]);
-    }
-
     function pantiesOutlinePathString(pts) {
-        var pathStringList = [
-                moveTo(pts.p1),
-                quadTo(pts.c1A, pts.p2),
-                quadTo(pts.c2B, pts.p3),
-                lineTo(pts.p4),
-                lineTo(flipX(pts.p4)),
-                lineTo(flipX(pts.p3)),
-                quadTo(flipX(pts.c2B), flipX(pts.p2)),
-                quadTo(flipX(pts.c1A), flipX(pts.p1)),
-                'Z'
-            ];
-
-        return pathStringList.join('');
+        return new PathStringBuilder()
+            .moveTo(pts.p1)
+            .quadTo(pts.c1A, pts.p2)
+            .quadTo(pts.c2B, pts.p3)
+            .lineTo(pts.p4)
+            .lineTo(flipX(pts.p4))
+            .lineTo(flipX(pts.p3))
+            .quadTo(flipX(pts.c2B), flipX(pts.p2))
+            .quadTo(flipX(pts.c1A), flipX(pts.p1))
+            .close()
+            .finalize();
     }
 
     function pantiesDetailsPathString(pts) {
-        var pathStringList = [
-                moveTo(pts.p1),
-                quadTo(pts.c1F, pts.p2),
-                moveTo(flipX(pts.p1)),
-                quadTo(flipX(pts.c1F), flipX(pts.p2)),
+        return new PathStringBuilder()
+            .moveTo(pts.p1)
+            .quadTo(pts.c1F, pts.p2)
+            .moveTo(flipX(pts.p1))
+            .quadTo(flipX(pts.c1F), flipX(pts.p2))
 
-                moveTo(pts.p5),
-                quadTo(pts.c5H, pts.p6),
-                quadTo(pts.c6I, pts.p7),
-                quadTo(pts.c7J, pts.p5),
-                quadTo(flipX(pts.c5H), flipX(pts.p6)),
-                quadTo(flipX(pts.c6I), flipX(pts.p7)),
-                quadTo(flipX(pts.c7J), pts.p5),
+            .moveTo(pts.p5)
+            .quadTo(pts.c5H, pts.p6)
+            .quadTo(pts.c6I, pts.p7)
+            .quadTo(pts.c7J, pts.p5)
+            .quadTo(flipX(pts.c5H), flipX(pts.p6))
+            .quadTo(flipX(pts.c6I), flipX(pts.p7))
+            .quadTo(flipX(pts.c7J), pts.p5)
 
-                quadTo(pts.c5K, pts.p8),
-                quadTo(pts.c8L, pts.p9),
-                quadTo(pts.c9M, pts.p5),
-                quadTo(flipX(pts.c5K), flipX(pts.p8)),
-                quadTo(flipX(pts.c8L), flipX(pts.p9)),
-                quadTo(flipX(pts.c9M), pts.p5)
-            ];
-
-        return pathStringList.join('');
+            .quadTo(pts.c5K, pts.p8)
+            .quadTo(pts.c8L, pts.p9)
+            .quadTo(pts.c9M, pts.p5)
+            .quadTo(flipX(pts.c5K), flipX(pts.p8))
+            .quadTo(flipX(pts.c8L), flipX(pts.p9))
+            .quadTo(flipX(pts.c9M), pts.p5)
+            .finalize()
     }
 
     function pantiesMaskGroup(paper, pts, scaledStrokeWidth, outlinePath) {
