@@ -29,3 +29,13 @@ svg .item.no1.details.fill {
     /*fill: rgba(0,128,0,0.3);*/
     fill: #b3d9b3;
 }
+
+svg .item.no2 {
+    stroke: #aa0000;
+}
+
+svg .item.no2.outline,
+svg .item.no2.details.fill {
+    fill: rgba(128,0,0,0.3);
+    /*fill: #d9b3b3;*/
+}

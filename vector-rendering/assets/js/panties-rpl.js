@@ -1,4 +1,17 @@
 (function (Raphael) {
+    function scalePts(ptsOrig, scale) {
+        var pts = {};
+
+        for (var point in ptsOrig) {
+            pts[point] = {};
+            for (var k in ptsOrig[point]) {
+                pts[point][k] = ptsOrig[point][k] * scale;
+            }
+        }
+
+        return pts;
+    }
+
     function spacePad(inputString) {
         return ' ' + inputString + ' ';
     }
@@ -105,43 +118,75 @@
             .finalize()
     }
 
-    function pantiesGroup(paper, pts, uniqueClass) {
+    function pantiesGroup(paper, pts, hasDetails, uniqueClass) {
         paper.setStart();
 
-        var outline = paper.path(pantiesOutlinePathString(pts)),
-            details = paper.path(pantiesDetailsPathString(pts)),
-            detailCircle = paper.circle(pts.p5.x, pts.p5.y, pts.s1.s);
+        var outline = paper.path(pantiesOutlinePathString(pts));
+
+        if (hasDetails) {
+            var details = paper.path(pantiesDetailsPathString(pts)),
+                detailCircle = paper.circle(pts.p5.x, pts.p5.y, pts.s1.s);
+        }
 
         if (Raphael.type == 'SVG') {
             // Only set class for SVG, will break VML rendering
             svgAddClass(outline, 'item outline ' + uniqueClass);
-            svgAddClass(details, 'item details ' + uniqueClass);
-            svgAddClass(detailCircle, 'item details fill ' + uniqueClass);
+
+            if (hasDetails) {
+                svgAddClass(details, 'item details ' + uniqueClass);
+                svgAddClass(detailCircle, 'item details fill ' + uniqueClass);
+            }
         } else {
-            // In a real case, the color values should be parsed from CSS
-            var colors = {
+            // In a real case, style values should be parsed from CSS
+            var styles = {
                     'no1': {
                         'fill': '#b3d9b3', // Opaque version of rgba(0,128,0,0.3) on white bg
+//                        'fill': '#007700',
+                        'opacity': '1.0',
                         'stroke': '#00aa00',
+                        'outline-sw': '4',
+                        'details-sw': '2'
+                    },
+                    'no2': {
+//                        'fill': '#d9b3b3', // Opaque version of rgba(128,0,0,0.3) on white bg
+                        'fill': '#770000',
+                        'opacity': '0.3',
+                        'stroke': '#aa0000',
                         'outline-sw': '4',
                         'details-sw': '2'
                     }
                 };
 
-            outline.attr({
-                'fill': colors.no1['fill'],
-                'stroke': colors.no1['stroke'],
-                'stroke-width': colors.no1['outline-sw']
-            });
-            details.attr({
-                'stroke': colors.no1['stroke'],
-                'stroke-width': colors.no1['details-sw']
-            });
-            detailCircle.attr({
-                'fill': colors.no1['fill'],
-                'stroke': colors.no1['stroke'],
-                'stroke-width': colors.no1['details-sw']
-            });
+            if (styles[uniqueClass]['opacity'] == '1.0') {
+                outline.attr({
+                    'fill': styles[uniqueClass]['fill'],
+                    'stroke': styles[uniqueClass]['stroke'],
+                    'stroke-width': styles[uniqueClass]['outline-sw']
+                });
+            } else {
+                var outlineStroke = outline.clone();
+
+                outline.attr({
+                    'fill': styles[uniqueClass]['fill'],
+                    'opacity': styles[uniqueClass]['opacity']
+                });
+                outlineStroke.attr({
+                    'stroke': styles[uniqueClass]['stroke'],
+                    'stroke-width': styles[uniqueClass]['outline-sw']
+                });
+            }
+
+            if (hasDetails) {
+                details.attr({
+                    'stroke': styles[uniqueClass]['stroke'],
+                    'stroke-width': styles[uniqueClass]['details-sw']
+                });
+                detailCircle.attr({
+                    'fill': styles[uniqueClass]['fill'],
+                    'stroke': styles[uniqueClass]['stroke'],
+                    'stroke-width': styles[uniqueClass]['details-sw']
+                });
+            }
         }
 
         return paper.setFinish();
@@ -151,7 +196,9 @@
         paperH = 600,
         paper = Raphael('canvas', paperW, paperH),
         scaleFactor = 0.9,
+        scaleFactor2 = 1.3,
         theMatrix = new Raphael.matrix(),
+        theMatrix2,
         pts = {
             p1: {x: 17.5, y: 125},
             p2: {x: 192.5, y: -32.5},
@@ -173,10 +220,15 @@
             c9M: {x: 11.999999999999996, y: -91.14359353944897},
             s1: {s: 13}
         },
-        panties1 = pantiesGroup(paper, pts, 'no1');
+        pts2 = scalePts(pts, scaleFactor2),
+        panties1 = pantiesGroup(paper, pts, true, 'no1'),
+        panties2 = pantiesGroup(paper, pts2, false, 'no2');
 
     theMatrix.translate(paperW/2, paperH/2);
     theMatrix.scale(scaleFactor);
+    theMatrix2 = theMatrix.clone();
+    theMatrix2.translate(0, 37);
 
     panties1.transform(theMatrix.toTransformString());
+    panties2.transform(theMatrix2.toTransformString());
 })(window.Raphael.ninja());
