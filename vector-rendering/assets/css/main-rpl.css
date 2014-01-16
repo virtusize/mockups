@@ -16,6 +16,10 @@ svg .outline {
     stroke-width: 4;
 }
 
+svg .outline.fat-stroke {
+    stroke-width: 8;
+}
+
 svg .details {
     stroke-width: 2;
 }

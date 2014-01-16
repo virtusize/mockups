@@ -39,6 +39,14 @@
         return fragment;
     }
 
+    function svgRemoveClass(fragment, className) {
+        if (svgHasClass(fragment, className)) {
+            svgSetClasses(fragment, spacePad(svgGetClasses(fragment)).replace(spacePad(className), '').trim());
+        }
+
+        return fragment;
+    }
+
     function PathStringBuilder() {
         this.subStrings = [];
     }
@@ -129,13 +137,15 @@
         }
 
         if (Raphael.type == 'SVG') {
-            // Only set class for SVG, will break VML rendering
+            // Only edit classes for SVG, will break VML rendering
             svgAddClass(outline, 'item outline ' + uniqueClass);
 
             if (hasDetails) {
                 svgAddClass(details, 'item details ' + uniqueClass);
                 svgAddClass(detailCircle, 'item details fill ' + uniqueClass);
             }
+
+            setupHoverSVG(outline);
         } else {
             // In a real case, style values should be parsed from CSS
             var styles = {
@@ -163,6 +173,8 @@
                     'stroke': styles[uniqueClass]['stroke'],
                     'stroke-width': styles[uniqueClass]['outline-sw']
                 });
+
+                setupHoverVML(outline, outline, styles[uniqueClass]['outline-sw']);
             } else {
                 var outlineStroke = outline.clone();
 
@@ -174,6 +186,8 @@
                     'stroke': styles[uniqueClass]['stroke'],
                     'stroke-width': styles[uniqueClass]['outline-sw']
                 });
+
+                setupHoverVML(outline, outlineStroke, styles[uniqueClass]['outline-sw']);
             }
 
             if (hasDetails) {
@@ -190,6 +204,40 @@
         }
 
         return paper.setFinish();
+    }
+
+    function setupHoverSVG(fragment) {
+       fragment.hover(
+            function () {
+                svgAddClass(this, 'fat-stroke');
+            },
+            function () {
+                svgRemoveClass(this, 'fat-stroke');
+            }
+        );
+    }
+
+    function setupHoverVML(triggerFragment, targetFragment, strokeWidth) {
+        triggerFragment.hover(
+            function () {
+                targetFragment.attr({
+                    'stroke-width': strokeWidth * 2
+                });
+            },
+            function () {
+                targetFragment.attr({
+                    'stroke-width': strokeWidth
+                });
+            }
+        );
+    }
+
+    function setupClick(fragment, fragmentToPlaceAfter) {
+        fragment.click(
+            function () {
+                this.insertBefore(fragmentToPlaceAfter);
+            }
+        );
     }
 
     var paperW = 600,
@@ -231,4 +279,7 @@
 
     panties1.transform(theMatrix.toTransformString());
     panties2.transform(theMatrix2.toTransformString());
+
+    setupClick(panties1, panties2);
+    setupClick(panties2, panties1);
 })(window.Raphael.ninja());
