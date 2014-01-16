@@ -1,0 +1,31 @@
+body {
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+svg,
+#canvas div {
+    border: 1px solid black;
+}
+
+svg .item {
+    fill: none;
+}
+
+svg .outline {
+    stroke-width: 4;
+}
+
+svg .details {
+    stroke-width: 2;
+}
+
+svg .item.no1 {
+    stroke: #00aa00;
+}
+
+svg .item.no1.outline,
+svg .item.no1.details.fill {
+    /*fill: rgba(0,128,0,0.3);*/
+    fill: #b3d9b3;
+}
