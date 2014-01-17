@@ -31,11 +31,12 @@
         var paper = raphaelData.paper,
             rawTextSimple = 'Simple: Just plain English, no surprises',
             rawTextFancy = 'Fancy: Ö, en älg [sv], Moż się waćpoł [pl], このアイテムを追加 [ja]',
-            textSimple = paper.text(0, -250, rawTextSimple),
-            textFancy = paper.text(0, -200, rawTextFancy),
+            textSimple = paper.text(0, -275, rawTextSimple),
+            textFancy = paper.text(0, -225, rawTextFancy),
+            textFancy2 = paper.text(0, -175, rawTextFancy.replace('Fancy', 'Fancy (CS)')),
             allTextStuff = paper.set();
 
-        allTextStuff.push(textSimple, textFancy);
+        allTextStuff.push(textSimple, textFancy, textFancy2);
         allTextStuff.transform(raphaelData.theMatrix.toTransformString());
 
         if (raphaelData.isSVG) {
@@ -43,15 +44,19 @@
         } else {
             // In a real case, style values should be parsed from CSS
             var styles = {
-                    'font-family': 'Devonshire, serif, sans-serif', // Seems Arial is always shown
+                    'font-family': '"Times"', // only locally fonts available, unless using Cufón
                     'font-size': '17px',
-                    'text-anchor': 'middle' // Seems 'middle' is default and can't be changed anyway
+                    'text-anchor': 'middle' // start | middle | end
                 };
 
             allTextStuff.attr({
                 'font-family': styles['font-family'],
                 'font-size': styles['font-size'],
                 'text-anchor': styles['text-anchor']
+            });
+
+            textFancy2.attr({
+                'font-family': '"Comic Sans MS", ' + styles['font-family']
             });
         }
     }
