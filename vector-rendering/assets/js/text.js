@@ -1,4 +1,4 @@
-(function (window, document, Snap) {
+(function (window, document, Snap, raphaelData) {
     function renderText() {
         var paper = Snap('svg.demo'),
             paperCX = parseInt(paper.attr('width')) / 2,
@@ -14,6 +14,46 @@
             'class': 'text',
             'text-anchor': 'middle'
         });
+    }
+
+    function renderTextRaphael() {
+        /**
+         * Forcefully set a class and delete some default properties
+         * that prevent CSS styles to work
+         */
+        function prepareTextSVG(textFragment) {
+            textFragment.node.setAttribute('class', 'text');
+            textFragment.node.removeAttribute('font');
+            textFragment.node.removeAttribute('text-anchor');
+            textFragment.node.removeAttribute('style');
+        }
+
+        var paper = raphaelData.paper,
+            rawTextSimple = 'Simple: Just plain English, no surprises',
+            rawTextFancy = 'Fancy: Ö, en älg [sv], Moż się waćpoł [pl], このアイテムを追加 [ja]',
+            textSimple = paper.text(0, -250, rawTextSimple),
+            textFancy = paper.text(0, -200, rawTextFancy),
+            allTextStuff = paper.set();
+
+        allTextStuff.push(textSimple, textFancy);
+        allTextStuff.transform(raphaelData.theMatrix.toTransformString());
+
+        if (raphaelData.isSVG) {
+            allTextStuff.forEach(prepareTextSVG);
+        } else {
+            // In a real case, style values should be parsed from CSS
+            var styles = {
+                    'font-family': 'Devonshire, serif, sans-serif', // Seems Arial is always shown
+                    'font-size': '17px',
+                    'text-anchor': 'middle' // Seems 'middle' is default and can't be changed anyway
+                };
+
+            allTextStuff.attr({
+                'font-family': styles['font-family'],
+                'font-size': styles['font-size'],
+                'text-anchor': styles['text-anchor']
+            });
+        }
     }
 
     function loadWebFonts(includeExtLatin) {
@@ -36,6 +76,7 @@
     }
 
     window.renderText = renderText;
+    window.renderTextRaphael = renderTextRaphael;
     window.loadWebFonts = loadWebFonts;
 
-})(window, window.document, window.Snap);
+})(window, window.document, window.Snap, window.raphaelData);

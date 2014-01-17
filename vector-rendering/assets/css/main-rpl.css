@@ -3,6 +3,15 @@ body {
     font-size: 15px;
 }
 
+a {
+    font-size: 14px;
+    color: #00a;
+}
+
+a:hover {
+    color: #088;
+}
+
 svg,
 #canvas div {
     border: 1px solid black;
@@ -42,4 +51,10 @@ svg .item.no2.outline,
 svg .item.no2.details.fill {
     fill: rgba(128,0,0,0.3);
     /*fill: #d9b3b3;*/
+}
+
+svg .text {
+    font-family: Devonshire, serif, sans-serif;
+    font-size: 17px;
+    text-anchor: middle;
 }

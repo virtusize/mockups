@@ -282,4 +282,11 @@
 
     setupClick(panties1, panties2);
     setupClick(panties2, panties1);
+
+    // For the text rendering script, so it doesn't create another SVG/VML element
+    window.raphaelData = {
+        paper: paper,
+        theMatrix: theMatrix,
+        isSVG: Raphael.type == 'SVG'
+    };
 })(window.Raphael.ninja());
