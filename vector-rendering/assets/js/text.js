@@ -11,8 +11,7 @@
             allTextStuff = paper.group(textSimple, textFancy);
 
         allTextStuff.transform(theMatrix).attr({
-            'class': 'text',
-            'text-anchor': 'middle'
+            'class': 'text'
         });
     }
 

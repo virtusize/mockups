@@ -54,5 +54,5 @@ svg .no2 .outline {
 svg .text {
     font-family: Devonshire, serif, sans-serif;
     font-size: 17px;
-    text-anchor: middle;
+    text-anchor: middle; /* start | middle | end */
 }
