@@ -4,7 +4,7 @@
 
 [virtusize.github.io/mockups/purchase-history/](http://virtusize.github.io/mockups/purchase-history/)  
 [virtusize.github.io/mockups/vector-rendering/](http://virtusize.github.io/mockups/vector-rendering/) (Snap)  
-[virtusize.github.io/mockups/vector-rendering/raphael.html](http://virtusize.github.io/mockups/vector-rendering/raphael.html) (Raphaël)
+[virtusize.github.io/mockups/vector-rendering/raphael.html](http://virtusize.github.io/mockups/vector-rendering/raphael.html) (Raphaël)  
 Widget v5 panels: [Select item](http://virtusize.github.io/mockups/v5/) [Compare](http://virtusize.github.io/mockups/v5/compare.html) [Wardrobe](http://virtusize.github.io/mockups/v5/wardrobe.html)
 
 ## Mockup structure for purchase history
