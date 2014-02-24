@@ -2,9 +2,9 @@
 
 ## Demo
 
-[virtusize.de/mockups/purchase-history/](http://virtusize.de/mockups/purchase-history/)  
-[virtusize.de/mockups/vector-rendering/](http://virtusize.de/mockups/vector-rendering/) (Snap)  
-[virtusize.de/mockups/vector-rendering/raphael.html](http://virtusize.de/mockups/vector-rendering/raphael.html) (Raphaël)
+[virtusize.github.io/mockups/purchase-history/](http://virtusize.github.io/mockups/purchase-history/)  
+[virtusize.github.io/mockups/vector-rendering/](http://virtusize.github.io/mockups/vector-rendering/) (Snap)  
+[virtusize.github.io/mockups/vector-rendering/raphael.html](http://virtusize.github.io/mockups/vector-rendering/raphael.html) (Raphaël)
 
 ## Mockup structure for purchase history
 
