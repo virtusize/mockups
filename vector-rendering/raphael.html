@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vector rendering</title>
+    <link rel="stylesheet" href="assets/css/main-rpl.css">
+</head>
+<body>
+    <h1>Demo with Raphaël</h1>
+    <p>Initially the red panties are above the green. Click on a shape to move it below the other one.</p>
+    <p>The text uses a serif font, until you load the web font. In VML (IE8), Times and Comic Sans are used.</p>
+    <p>
+        <a href="#" onclick="renderTextRaphael()">render text</a> -
+        <a href="#" onclick="loadWebFonts(false)">load web font (latin)</a> -
+        <a href="#" onclick="loadWebFonts(true)">load web font (latin ext)</a>
+    </p>
+    <div id="canvas"></div>
+    <script src="assets/js/raphael-min.js"></script>
+    <script src="assets/js/panties-rpl.js"></script>
+    <script src="assets/js/text.js"></script>
+</body>
+</html>

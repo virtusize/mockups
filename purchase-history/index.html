@@ -1,0 +1,103 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="shortcut icon" href="//www.asos.com/favicon.ico" />
+    <title>ASOS | ASOS Smart Shirt in Long Sleeve in Cotton at ASOS</title>
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/widget.css">
+</head>
+<body>
+
+    <div class="top-border"></div>
+    <div class="background">
+        <a href="javascript:void(0);" title="Fit visualiser" class="vs-button button ir">Fit visualiser</a>
+        <div class="vs-button-hover button"></div>
+    </div>
+
+    <div id="virtusize-overlay-wrapper" class="wrapper">
+        <div id="virtusize-overlay" class="overlay">
+            <div id="virtusize-widget-iframe" class="widget">
+                <a href="javascript:void(0);" class="close ir" title="Close">x</a>
+                <div class="menu"></div>
+                <div class="view"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- TEMPLATES -->
+
+    <script type = "text/template" id="tmpl-compare">
+        <div class="compare panel">
+            <a href="javascript:void(0);" title="Close" class="notice ir" id="notice">Close</a>
+            <div class="left"></div>
+            <div class="right">
+                <div id="size-selector">
+                    <div id="sizes-container">
+                        <ul class="size-pills">
+                            <li class="size-item" style="width: 118px;">
+                                <a href="javascript:void(0);" class="btn-pill" data-size="xsmall">X-small</a>
+                            </li>
+                            <li class="size-item checked" style="width: 118px;">
+                                <a href="javascript:void(0);" class="btn-pill" data-size="small">Small</a>
+                            </li>
+                            <li class="size-item" style="width: 118px;">
+                                <a href="javascript:void(0);" class="btn-pill" data-size="medium">Medium</a>
+                            </li>
+                            <li class="size-item" style="width: 118px;">
+                                <a href="javascript:void(0);" class="btn-pill" data-size="large">Large</a>
+                            </li>
+                            <li class="size-item" style="width: 118px;">
+                                <a href="javascript:void(0);" class="btn-pill" data-size="xlarge">X-large</a>
+                            </li>
+                            <li class="size-item" style="width: 118px;">
+                                <a href="javascript:void(0);" class="btn-pill" data-size="xxlarge">XX-large</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="item-list">
+                    <% _.each(products, function(name) { %>
+                        <li class="item"><%= name %></li>
+                    <% }); %>
+                </ul>
+                <a href="javascript:void(0);" id="continue" class="btn-continue ir" title="Continue">Continue</a>
+            </div>
+        </div>
+    </script>
+
+    <script type = "text/template" id="tmpl-purchase-history">
+        <div class="ph panel">
+            <ul class="product-list">
+                <li class="product one">
+                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Shirt" data-name="ASOS Smart Shirt">ASOS Smart Shirt</a>
+                </li>
+                <li class="product two">
+                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Shirt" data-name="ASOS Smart Shirt">ASOS Smart Shirt</a>
+                </li>
+                <li class="product three">
+                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Shirt" data-name="ASOS Smart Shirt">ASOS Smart Shirt</a>
+                </li>
+                <li class="product four">
+                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Denim Shirt" data-name="ASOS Denim Shirt">ASOS Denim Shirt</a>
+                </li>
+                <li class="product five">
+                    <a href="javascript:void(0);" class="ir select" title="Select ASOS Smart Stripe" data-name="ASOS Smart Stripe">ASOS Smart Stripe</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0);" class="button ir" id="button">Text</a>
+            <div class="ir n-f-m">Enter your own measurements</div>
+        </div>
+    </script>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>

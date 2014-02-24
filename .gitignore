@@ -1,0 +1,12 @@
+build/
+build/**
+.DS_Store
+.idea/
+node_modules/
+node_modules/**
+
+# Ignore Vim swap files.
+*~
+*.swp
+*.swo
+*.swn
