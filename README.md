@@ -7,6 +7,11 @@
 [virtusize.github.io/mockups/vector-rendering/raphael.html](http://virtusize.github.io/mockups/vector-rendering/raphael.html) (Raphaël)  
 Widget v5 panels: [Select item](http://virtusize.github.io/mockups/v5/) [Compare](http://virtusize.github.io/mockups/v5/compare.html) [Wardrobe](http://virtusize.github.io/mockups/v5/wardrobe.html)
 
+## How to deploy
+
+There is a  `gh-pages` branch, which holds the published version.
+Everything merged and pushed to that branch will automatically be released.
+
 ## Mockup structure for purchase history
 
 - Standalone
