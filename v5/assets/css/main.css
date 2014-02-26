@@ -65,8 +65,8 @@ li {
     background-color: #FFF;
     border: none;
     position: relative;
-    width: 944px;
-    height: 528px;
+    width: 920px;
+    height: 600px;
     margin: -291.5px auto 0px;
     display: block;
     top: 50%;
@@ -90,12 +90,17 @@ li {
 
 .widget .view {
     position: relative;
-    left: 50px;
-    top: 0;
+    width: 100%;
 }
 
 .widget .view,
 .widget .panel {
-    width: 894px;
-    height: 528px;
+    height: 569px;
 }
+
+.widget .header {
+    width: 100%;
+    height: 31px;
+    background-color: #ececec;
+}
+
