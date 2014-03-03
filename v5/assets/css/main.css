@@ -1,8 +1,13 @@
 
 /* ---- FAKE ASOS PAGE ---- */
 
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
+    background-color: #999;
 }
 
 ul {
@@ -67,9 +72,7 @@ li {
     position: relative;
     width: 920px;
     height: 600px;
-    margin: -291.5px auto 0px;
     display: block;
-    top: 50%;
 
     -webkit-box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0 10px 35px 0 rgba(0,0,0,0.5);

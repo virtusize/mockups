@@ -17,9 +17,13 @@ Everything merged and pushed to that branch will automatically be released.
 - Standalone
 - Mostly static
 - Frontend only: HTML, CSS and jQuery
-- Only compare view and purchase history view
+- Only start, compare and wardrobe view
 - Focus on flow and interaction
 - Going old-school: mostly images in the design, no fancy CSS
+- To make it work create links to frontend assets like this:
+  cd v5
+  ln -s [path to frontend]/src/core/styles ./assets/core
+  ln -s [path to frontend]/src/widget/styles ./assets/less
 
 ## Mockup structure for vector rendering
 
