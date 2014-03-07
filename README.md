@@ -20,7 +20,7 @@ Everything merged and pushed to that branch will automatically be released.
 - Only start, compare and wardrobe view
 - Focus on flow and interaction
 - Going old-school: mostly images in the design, no fancy CSS
-- To make it work create links to frontend assets like this:
+- To make it work checkout feature/v5-styles branch and create links to frontend assets like this:
   cd v5
   ln -s [path to frontend]/src/core/styles ./assets/core
   ln -s [path to frontend]/src/widget/styles ./assets/less
