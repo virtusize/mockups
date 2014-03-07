@@ -5,7 +5,7 @@
 [virtusize.github.io/mockups/purchase-history/](http://virtusize.github.io/mockups/purchase-history/)  
 [virtusize.github.io/mockups/vector-rendering/](http://virtusize.github.io/mockups/vector-rendering/) (Snap)  
 [virtusize.github.io/mockups/vector-rendering/raphael.html](http://virtusize.github.io/mockups/vector-rendering/raphael.html) (Raphaël)  
-Widget v5 panels: [Select item](http://virtusize.github.io/mockups/v5/) [Compare](http://virtusize.github.io/mockups/v5/compare.html) [Wardrobe](http://virtusize.github.io/mockups/v5/wardrobe.html)
+Widget v5 panels: [Start](http://virtusize.github.io/mockups/v5/) - [Compare](http://virtusize.github.io/mockups/v5/compare.html) - [Wardrobe](http://virtusize.github.io/mockups/v5/wardrobe.html)
 
 ## How to deploy
 
@@ -17,13 +17,23 @@ Everything merged and pushed to that branch will automatically be released.
 - Standalone
 - Mostly static
 - Frontend only: HTML, CSS and jQuery
-- Only start, compare and wardrobe view
+- Only compare view and purchase history view
 - Focus on flow and interaction
 - Going old-school: mostly images in the design, no fancy CSS
-- To make it work checkout feature/v5-styles branch and create links to frontend assets like this:
-  cd v5
-  ln -s [path to frontend]/src/core/styles ./assets/core
-  ln -s [path to frontend]/src/widget/styles ./assets/less
+
+## Mockup structure for widget v5
+
+- Mostly standalone
+- Mostly static
+- Frontend only: HTML, LESS/CSS and jQuery
+- Only start, compare and wardrobe panels
+- Focus on flow and interaction
+- No JavaScript, but production level CSS/LESS
+- To set up dependencies to the frontend styles, do this:
+    - check out feature/v5-styles branch
+    - cd v5
+    - ln -s [path to frontend]/src/core/styles ./assets/core
+    - ln -s [path to frontend]/src/widget/styles ./assets/less
 
 ## Mockup structure for vector rendering
 
