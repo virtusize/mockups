@@ -2,9 +2,11 @@
 (function($) {
 
     /**
-     * Start
+     * Start/Wardrobe
      */
-    $('#ph-scroll-container').tinyscrollbar({trackSize: 375});
+    setTimeout(function(){
+        $('#ph-scroll-container').tinyscrollbar({trackSize: 375});
+    }, 0);
 
     //Product compare component
     $('.store .overlay').on('mouseenter', function(){
