@@ -9,16 +9,16 @@
     }, 0);
 
     //Product compare component
-    $('.store .overlay').on('mouseenter', function(){
+    $('.comparison .store .overlay').on('mouseenter', function(){
         $('.compare-symbol').addClass('js-hover')
     });
-    $('.store .overlay').on('mouseleave', function(){
+    $('.comparison .store .overlay').on('mouseleave', function(){
         $('.compare-symbol').removeClass('js-hover')
     });
-    $('.compare-symbol').on('mouseenter', function(){
+    $('.comparison .compare-symbol').on('mouseenter', function(){
         $('.store .overlay').addClass('js-hover')
     });
-    $('.compare-symbol').on('mouseleave', function(){
+    $('.comparison .compare-symbol').on('mouseleave', function(){
         $('.store .overlay').removeClass('js-hover')
     });
 
@@ -30,5 +30,19 @@
             $('#wardrobe-dropdown-scroll-container').tinyscrollbar();
         }, 0);
     });
+
+    /* Compare */
+    $('.left .size-dropdown.dropdown .dropdown-toggle').one('mouseenter', function(){
+        setTimeout(function(){
+            $('#product-pane-size-dropdown-scroll-container').tinyscrollbar();
+        }, 220);
+    });
+    $('.right .item-dropdown.dropdown .dropdown-toggle').one('mouseenter', function(){
+        setTimeout(function(){
+            $('#product-pane-item-dropdown-scroll-container').tinyscrollbar();
+        }, 220);
+    });
+
+
 
 })(jQuery);
