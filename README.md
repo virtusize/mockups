@@ -4,7 +4,13 @@
 
 [virtusize.github.io/mockups/purchase-history/](http://virtusize.github.io/mockups/purchase-history/)  
 [virtusize.github.io/mockups/vector-rendering/](http://virtusize.github.io/mockups/vector-rendering/) (Snap)  
-[virtusize.github.io/mockups/vector-rendering/raphael.html](http://virtusize.github.io/mockups/vector-rendering/raphael.html) (Raphaël)
+[virtusize.github.io/mockups/vector-rendering/raphael.html](http://virtusize.github.io/mockups/vector-rendering/raphael.html) (Raphaël)  
+Widget v5 panels: [Start](http://virtusize.github.io/mockups/v5/) - [Compare](http://virtusize.github.io/mockups/v5/compare.html) - [Wardrobe](http://virtusize.github.io/mockups/v5/wardrobe.html)
+
+## How to deploy
+
+There is a  `gh-pages` branch, which holds the published version.
+Everything merged and pushed to that branch will automatically be released.
 
 ## Mockup structure for purchase history
 
@@ -14,6 +20,15 @@
 - Only compare view and purchase history view
 - Focus on flow and interaction
 - Going old-school: mostly images in the design, no fancy CSS
+
+## Mockup structure for widget v5
+
+- Mostly standalone
+- Mostly static
+- Frontend only: HTML, LESS/CSS and jQuery
+- Only start, compare and wardrobe panels
+- Focus on flow and interaction
+- No JavaScript, but production level CSS/LESS
 
 ## Mockup structure for vector rendering
 

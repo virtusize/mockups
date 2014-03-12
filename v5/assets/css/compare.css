@@ -1,0 +1,121 @@
+div.compare > .left {
+  width: 160px;
+  height: 550px;
+  background: #fff;
+  float: left;
+  position: relative;
+  z-index: 10;
+  /*
+        .size-dropdown.dropdown.close .dropdown-menu {
+            display: block;
+            opacity: 0;
+            top: -80px;
+            animation: moveFromTop3 100ms cubic-bezier(.06,.59,.32,.99), fadeout 200ms;;
+            -webkit-animation: moveFromTop3 100ms cubic-bezier(.06,.59,.32,.99), fadeout 200ms;
+
+            .viewport {
+                animation: shrinkY 100ms cubic-bezier(.06,.59,.32,.99);
+                -webkit-animation: shrinkY 100ms cubic-bezier(.06,.59,.32,.99);
+            }
+        }
+*/
+
+}
+div.compare > .left .product-component .dropdown:hover .dropdown-menu {
+  display: block;
+  top: -80px;
+  opacity: 1;
+  animation: moveFromBottom3 100ms cubic-bezier(0.06, 0.59, 0.32, 0.99), fadein 200ms;
+  -webkit-animation: moveFromBottom3 100ms cubic-bezier(0.06, 0.59, 0.32, 0.99), fadein 200ms;
+}
+div.compare > .left .product-component .dropdown:hover .dropdown-menu .scrollbar {
+  animation: fadein 200ms ease-in;
+  -webkit-animation: fadein 200ms ease-in;
+}
+div.compare > .left .product-component .dropdown:hover .dropdown-menu .viewport,
+div.compare > .left .product-component .dropdown:hover .dropdown-menu .scrollbar {
+  animation: growY 100ms cubic-bezier(0.06, 0.59, 0.32, 0.99);
+  -webkit-animation: growY 100ms cubic-bezier(0.06, 0.59, 0.32, 0.99);
+}
+div.compare > .left div.out-of-stock {
+  position: absolute;
+  bottom: 50px;
+  padding: 5px;
+}
+div.compare > .left button.finalize {
+  position: absolute;
+  bottom: 0;
+}
+div.compare .product-pane {
+  width: 180px;
+  height: 320px;
+  position: relative;
+  margin-top: 10px;
+}
+div.compare .product-pane.store {
+  left: -20px;
+}
+div.compare > .center {
+  width: 600px;
+  height: 550px;
+  background: #fff;
+  float: left;
+  position: relative;
+}
+div.compare > .center .title-container {
+  position: relative;
+  overflow: hidden;
+  min-height: 51px;
+  margin-top: 7px;
+}
+div.compare > .center .title-container > div {
+  float: left;
+}
+div.compare > .center .title-container > div.store-product-title,
+div.compare > .center .title-container > div.user-product-title {
+  width: 50%;
+  text-align: center;
+}
+div.compare > .center .title-container > div.compare-symbol {
+  position: absolute;
+  left: 50%;
+  margin-left: -25.5px;
+}
+div.compare > .center .canvas-container {
+  text-align: center;
+  position: absolute;
+  bottom: 100px;
+  left: 34px;
+}
+div.compare > .center .view-toggle {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+}
+div.compare > .right {
+  width: 160px;
+  height: 550px;
+  background: #fff;
+  float: left;
+  position: relative;
+}
+div.compare > .right .product-component .dropdown:hover .dropdown-menu {
+  display: block;
+  top: -80px;
+  opacity: 1;
+  animation: moveFromBottom3 100ms cubic-bezier(0.06, 0.59, 0.32, 0.99), fadein 200ms;
+  -webkit-animation: moveFromBottom3 100ms cubic-bezier(0.06, 0.59, 0.32, 0.99), fadein 200ms;
+}
+div.compare > .right .product-component .dropdown:hover .dropdown-menu .scrollbar {
+  animation: fadein 200ms ease-in;
+  -webkit-animation: fadein 200ms ease-in;
+}
+div.compare > .right .product-component .dropdown:hover .dropdown-menu .viewport,
+div.compare > .right .product-component .dropdown:hover .dropdown-menu .scrollbar {
+  animation: growY 100ms cubic-bezier(0.06, 0.59, 0.32, 0.99);
+  -webkit-animation: growY 100ms cubic-bezier(0.06, 0.59, 0.32, 0.99);
+}
+div.compare > .right button.wardrobe {
+  position: absolute;
+  bottom: 0;
+}
