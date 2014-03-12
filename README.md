@@ -29,11 +29,11 @@ Everything merged and pushed to that branch will automatically be released.
 - Only start, compare and wardrobe panels
 - Focus on flow and interaction
 - No JavaScript, but production level CSS/LESS
-- To set up dependencies to the frontend styles, do this:
-    - check out feature/v5-styles branch
+- To set up dependencies to the widget styles, do this:
+    - check out feature/v5-styles branch in widget
     - cd v5
-    - ln -s [path to frontend]/src/core/styles ./assets/core
-    - ln -s [path to frontend]/src/widget/styles ./assets/less
+    - ln -s [path to widget]/src/core/styles ./assets/core
+    - ln -s [path to widget]/src/widget/styles ./assets/less
 
 ## Mockup structure for vector rendering
 

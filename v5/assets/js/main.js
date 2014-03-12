@@ -32,12 +32,12 @@
     });
 
     /* Compare */
-    $('.left .size-dropdown.dropdown .dropdown-toggle').one('mouseenter', function(){
+    $('.left .product-component .dropdown .dropdown-toggle').one('mouseenter', function(){
         setTimeout(function(){
             $('#product-pane-size-dropdown-scroll-container').tinyscrollbar();
         }, 220);
     });
-    $('.right .item-dropdown.dropdown .dropdown-toggle').one('mouseenter', function(){
+    $('.right .product-component .dropdown .dropdown-toggle').one('mouseenter', function(){
         setTimeout(function(){
             $('#product-pane-item-dropdown-scroll-container').tinyscrollbar();
         }, 220);
