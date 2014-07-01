@@ -1,0 +1,241 @@
+@import "bootstrap/bootstrap";
+@import "variables";
+
+// Cerulean 3.2.0
+// Bootswatch
+// -----------------------------------------------------
+.btn-shadow(@color) {
+    #gradient > .vertical-three-colors(lighten(@color, 8%), @color, 60%, darken(@color, 4%));
+    filter: none;
+    border-bottom: 1px solid darken(@color, 10%);
+}
+
+// Navbar =====================================================================
+
+.navbar {
+    .btn-shadow(@navbar-default-bg);
+    filter: none;
+    .box-shadow(0 1px 10px rgba(0, 0, 0, 0.1));
+    background-image: none;
+    border: none;
+
+    &-default {
+        background-color: #16c6b9;
+
+        .badge {
+            background-color: #fff;
+            color: @navbar-default-bg;
+        }
+    }
+
+    &-inverse {
+//        #gradient > .vertical-three-colors(lighten(@navbar-inverse-bg, 8%), lighten(@navbar-inverse-bg, 4%), 60%, darken(@navbar-inverse-bg, 2%));
+        filter: none;
+        border-bottom: 1px solid darken(@navbar-inverse-bg, 10%);
+
+        .badge {
+            background-color: #fff;
+            color: @navbar-inverse-bg;
+        }
+    }
+
+    .navbar-nav > li > a,
+    &-brand {
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (max-width: @grid-float-breakpoint-max) {
+
+    .navbar {
+
+        .dropdown-header {
+            color: #fff;
+        }
+    }
+}
+
+// Buttons ====================================================================
+
+.btn {
+
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
+    .caret {
+        border-top-color: #fff;
+    }
+}
+
+.btn-default {
+
+    .btn-shadow(@btn-default-bg);
+
+    &:hover {
+        color: @btn-default-color;
+    }
+
+    .caret {
+        border-top-color: @text-color;
+    }
+}
+
+.btn-default {
+    .btn-shadow(@btn-default-bg);
+}
+
+.btn-primary {
+    .btn-shadow(@btn-primary-bg);
+}
+
+.btn-success {
+    .btn-shadow(@btn-success-bg);
+}
+
+.btn-info {
+    .btn-shadow(@btn-info-bg);
+}
+
+.btn-warning {
+    .btn-shadow(@btn-warning-bg);
+}
+
+.btn-danger {
+    .btn-shadow(@btn-danger-bg);
+}
+
+// Typography =================================================================
+
+.page-header {
+    border: none;
+}
+
+// Tables =====================================================================
+
+// Forms ======================================================================
+
+// Navs =======================================================================
+
+// Indicators =================================================================
+
+// Progress bars ==============================================================
+
+// Containers =================================================================
+
+.panel-primary,
+.panel-success,
+.panel-warning,
+.panel-danger,
+.panel-info {
+
+    .panel-heading,
+    .panel-title {
+        color: #fff;
+    }
+}
+
+
+footer {
+    background-color: #575757;
+    color: #c8c8c8;
+    padding: 55px 0;
+
+    a {
+        color: inherit;
+    }
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.unbrite {
+    background: #ececec;
+    padding-top: 25px;
+}
+
+.brite {
+    padding-top: 25px;
+}
+
+.well {
+    padding: 0;
+
+    > div {
+        padding: 19px;
+    }
+
+    > h1, > h2, > h3, > h4, > h5, > h6,
+    > .h1, > .h2, > .h3, > .h4, > .h5, > .h6 {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 3px 12px 12px;
+    }
+
+}
+
+.well-lg {
+    padding: 0;
+
+    > div {
+        padding: 24px;
+    }
+}
+.well-sm {
+    padding: 0;
+
+    > div {
+        padding: 9px;
+    }
+}
+
+.statistics {
+    &.number {
+        color: #7fdbc0;
+    }
+
+    &.lg {
+        font-size: 48px;
+        font-weight: 100;
+    }
+
+    &.md {
+        font-size: 30px;
+        font-weight: 400;
+    }
+
+    &.dark {
+        background: #fafafa;
+        padding: 15px;
+        border-top: 1px solid @well-border;
+    }
+}
+
+.fg-7 {
+    color: #c8c8c8;
+}
+
+.fg-3 {
+    color: #0098e6;
+}
+
+h5 {
+    font-weight: 600;
+}
+
+.relative {
+    position: relative;
+
+    .settings {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 12px;
+
+        &.help {
+            padding: 4px 11px;
+            border-radius: 20px;
+            margin: 5px;
+            border: 1px solid @well-border;
+        }
+    }
+}
