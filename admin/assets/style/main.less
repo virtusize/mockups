@@ -168,7 +168,8 @@ footer {
     > h1, > h2, > h3, > h4, > h5, > h6,
     > .h1, > .h2, > .h3, > .h4, > .h5, > .h6 {
         border-bottom: 1px solid #e0e0e0;
-        padding: 3px 12px 12px;
+        padding: 7px 12px 18px;
+        margin-bottom: 0;
     }
 
 }
@@ -229,7 +230,19 @@ h5 {
         position: absolute;
         top: 0;
         right: 0;
-        padding: 12px;
+        padding: 11px;
+
+        button {
+            background: #fff;
+            border: 1px solid @well-border;
+            border-radius: 20px;
+            min-width: 27px;
+            line-height: 21px;
+
+            &:hover {
+                background: @well-border;
+            }
+        }
 
         &.help {
             padding: 4px 11px;
@@ -237,5 +250,73 @@ h5 {
             margin: 5px;
             border: 1px solid @well-border;
         }
+    }
+}
+
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+    border-bottom-width: 1px;
+}
+
+.table-bordered.table-inner-border {
+    border: none;
+    margin: 0;
+
+    &.product-table {
+        thead th {
+            text-align: center;
+            font-weight: 100;
+            font-size: 12px;
+        }
+
+        colgroup {
+            col.identifier {
+                width: 150px;
+            }
+
+            col.timestamp {
+                width: 150px;
+            }
+
+            col.tools {
+                width: 108px;
+            }
+        }
+
+        tbody tr td:first-child {
+            color: #0098e6;
+            text-align: center;
+        }
+    }
+
+    > thead > tr > th:last-child,
+    > thead > tr > td:last-child {
+        border-right-width: 0;
+    }
+
+    > tbody > tr > td {
+        border-top: none;
+        border-bottom: none;
+    }
+}
+
+button.glyphicon {
+    background: transparent;
+    border: none;
+
+    &:hover {
+        color: #0098e6;
+    }
+}
+
+.table-striped-even {
+    > tbody > tr:nth-child(even) {
+        > td {
+            background-color: @table-bg-accent;
+        }
+
+    }
+
+    > thead > tr > th {
+        background-color: @table-bg-accent;
     }
 }
