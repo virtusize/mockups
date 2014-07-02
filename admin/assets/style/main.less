@@ -85,6 +85,45 @@
     }
 }
 
+//Override Bootstrap buton mixin
+.button-variant(@color; @background; @border) {
+    color: @color;
+    background-color: @background;
+    border-color: @border;
+
+&:hover,
+&:focus,
+&:active,
+&.active,
+.open > .dropdown-toggle& {
+    color: @color;
+    background-color: lighten(@background, 1%);
+    border-color: lighten(@border, 0%);
+}
+&:active,
+&.active,
+.open > .dropdown-toggle& {
+    background-image: none;
+}
+&.disabled,
+&[disabled],
+fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        background-color: @background;
+        border-color: @border;
+    }
+}
+
+.badge {
+    color: @background;
+    background-color: @color;
+}
+}
+
 // Typography =================================================================
 
 .page-header {
@@ -127,6 +166,16 @@
 
 // Forms ======================================================================
 
+//Reset bootstraps stupid box shadow on focus.
+.form-control {
+    box-shadow: none;
+
+     // Customize the `:focus` state to imitate native WebKit styles.
+    &:focus {
+        border-color: @input-border;
+        box-shadow: none;
+    }
+}
 // Navs =======================================================================
 
 // Indicators =================================================================
@@ -182,6 +231,10 @@ footer {
 
 .container.vertical-spaced {
     padding-top: 25px;
+}
+
+.container.vertical-spaced-bottom {
+    padding-bottom: 25px;
 }
 
 //== Wells
