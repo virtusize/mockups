@@ -2,6 +2,18 @@
 @import "variables";
 
 
+/* vertical alignment styles */
+.col-top {
+    vertical-align:top;
+}
+.col-middle {
+    vertical-align:middle;
+}
+.col-bottom {
+    vertical-align:bottom;
+}
+
+
 // Navbar =====================================================================
 
 .navbar {
@@ -185,8 +197,8 @@ footer {
     > h1, > h2, > h3, > h4, > h5, > h6,
     > .h1, > .h2, > .h3, > .h4, > .h5, > .h6 {
         border-bottom: 1px solid @color-11;
-        padding: 7px 12px 18px;
-        margin-bottom: 0;
+        padding: 17px 12px 18px;
+        margin: 0;
     }
 }
 
@@ -221,6 +233,38 @@ footer {
         right: 0;
         padding: 11px;
 
+        &.left {
+            right: auto;
+            left: 0;
+        }
+
+        &.btn-group button {
+            color: @color-10;
+            font-size: 10px;
+            line-height: 10px;
+            padding: 9px 12px;
+            width: 45px;
+            z-index: 0;
+
+            &:hover {
+                z-index: 0;
+            }
+
+            &.btn-primary {
+                background-color: @btn-primary-bg;
+                border-color: @btn-primary-bg;
+                color: @color-15;
+            }
+
+            &.btn:first-child {
+                border-right: none;
+            }
+            &.btn:last-child {
+                border-left: none;
+            }
+        }
+
+
         button {
             background: #fff;
             border: 1px solid @color-11;
@@ -249,6 +293,10 @@ footer {
 //## Customizes the `.table` component for use in wells.
 @table-bg-accent: @color-13;
 
+thead tr th {
+    font-weight: inherit;
+}
+
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
     border-bottom-width: 1px;
@@ -257,38 +305,6 @@ footer {
 .table-bordered.table-inner-border {
     border: none;
     margin: 0;
-
-    &.product-table {
-        thead th {
-            text-align: center;
-            font-weight: 100;
-            font-size: 12px;
-        }
-
-        colgroup {
-            col.identifier {
-                width: 150px;
-            }
-
-            col.timestamp {
-                width: 150px;
-            }
-
-            col.tools {
-                width: 108px;
-            }
-        }
-
-        tbody tr td:first-child {
-            color: #0098e6;
-            text-align: center;
-        }
-
-        .product-type,
-        .date {
-            color: @color-7;
-        }
-    }
 
     > thead > tr > th:last-child,
     > thead > tr > td:last-child {
@@ -347,4 +363,55 @@ button.glyphicon {
     border-top-width: 1px;
     border-top-style: solid;
     border-top-color: inherit;
+}
+
+.fixed-height-0 {
+    height: 195px;
+    overflow-y: hidden;
+}
+
+.well.fixed-height-0 > div.statistics-number {
+    padding: 37px 10px;
+}
+
+.product-table {
+    thead th {
+        text-align: center;
+        font-weight: 100;
+        font-size: 12px;
+    }
+
+    colgroup {
+        col.identifier {
+            width: 150px;
+        }
+
+        col.timestamp {
+            width: 150px;
+        }
+
+        col.tools {
+            width: 108px;
+        }
+    }
+
+    tbody tr td:first-child {
+        text-align: center;
+    }
+
+    .product-type,
+    .date {
+        color: @color-7;
+    }
+}
+
+.measurements-table {
+    thead th {
+        text-align: center;
+    }
+
+    tbody td {
+        color: @color-7;
+    }
+
 }
