@@ -93,6 +93,10 @@
     }
 }
 
+.btn.btn-rounded {
+    border-radius: @padding-base-vertical + @font-size-base;
+}
+
 .btn-default {
 
     &:hover {
@@ -539,9 +543,19 @@ div.row > div > div:not(.well) .btn {
     float: left;
     height: 100px;
     min-width: 100px;
-    padding: 3px;
+    padding: 0;
     text-align: center;
     color: @color-7;
+    background-color: @color-15;
+    box-sizing: content-box;
+    border: 1px solid @color-12;
+    margin: -1px;
+
+    &:hover {
+        color: @color-15;
+        background-color: @brand-primary;
+        cursor: pointer;
+    }
 
     .vicons {
         font-size: 48px;
@@ -551,6 +565,11 @@ div.row > div > div:not(.well) .btn {
 @media (min-width: @screen-xs-min) {
     .product-illustration {
         width: 100%/4;
+    }
+
+    .measure-guide-image {
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -564,11 +583,24 @@ div.row > div > div:not(.well) .btn {
     .product-illustration {
         width: 100%/7;
     }
+
+    .measure-guide-instructions {
+        width: 516px;
+    }
+
+    .measure-guide-image {
+        width: auto;
+        text-align: auto;
+    }
 }
 
 @media (min-width: @screen-lg-min) {
     .product-illustration {
         width: 100%/9;
+    }
+
+    .measure-guide-instructions {
+        width: 716px;
     }
 }
 
@@ -601,4 +633,23 @@ button.margin-left {
 
 .cancel-submit-group button {
     width: 175px;
+}
+
+.measure-guide-instructions {
+    h5 {
+        margin-bottom: 25px;
+    }
+
+    table {
+        tbody tr td {
+            vertical-align: top;
+            padding: 8px 12px;
+        }
+
+        margin-bottom: 25px;
+    }
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
