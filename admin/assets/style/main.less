@@ -81,6 +81,18 @@
     }
 }
 
+.btn-xl {
+    // line-height: ensure even-numbered height of button next to large input
+    .button-size(@padding-large-vertical; 2*@padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+}
+
+.btn.btn-lg,
+.btn.btn-xl {
+    &.btn-rounded {
+        border-radius: @padding-large-vertical + @font-size-large;
+    }
+}
+
 .btn-default {
 
     &:hover {
@@ -242,6 +254,11 @@ footer {
 
 .container.vertical-spaced {
     padding-top: 25px;
+}
+
+.row.vertical-spaced {
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .container.vertical-spaced-bottom {
