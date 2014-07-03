@@ -2,17 +2,24 @@
 @import "variables";
 
 
-/* vertical alignment styles */
-.col-top {
-    vertical-align:top;
-}
-.col-middle {
-    vertical-align:middle;
-}
-.col-bottom {
-    vertical-align:bottom;
-}
+// Grid =====================================================================
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1,
+.col-xs-2, .col-sm-2, .col-md-2, .col-lg-2,
+.col-xs-3, .col-sm-3, .col-md-3, .col-lg-3,
+.col-xs-4, .col-sm-4, .col-md-4, .col-lg-4,
+.col-xs-5, .col-sm-5, .col-md-5, .col-lg-5,
+.col-xs-6, .col-sm-6, .col-md-6, .col-lg-6,
+.col-xs-7, .col-sm-7, .col-md-7, .col-lg-7,
+.col-xs-8, .col-sm-8, .col-md-8, .col-lg-8,
+.col-xs-9, .col-sm-9, .col-md-9, .col-lg-9,
+.col-xs-10, .col-sm-10, .col-md-10, .col-lg-10,
+.col-xs-11, .col-sm-11, .col-md-11, .col-lg-11,
+.col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
 
+    &.col-no-padding {
+        padding: 0;
+    }
+}
 
 // Navbar =====================================================================
 
@@ -85,7 +92,7 @@
     }
 }
 
-//Override Bootstrap buton mixin
+//Override Bootstrap button mixin
 .button-variant(@color; @background; @border) {
     color: @color;
     background-color: @background;
@@ -128,6 +135,10 @@ fieldset[disabled] & {
 
 .page-header {
     border: none;
+}
+
+*, *:after, *:before {
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .fg-0  {color: @color-0;}
@@ -274,6 +285,16 @@ footer {
     padding: 10px;
 }
 
+.well.float-container {
+    overflow: hidden;
+}
+
+.well footer {
+    background-color: transparent;
+    color: inherit;
+    padding: 17px;
+}
+
 //== Settings buttons and help symbols
 //
 //##
@@ -285,6 +306,11 @@ footer {
         top: 0;
         right: 0;
         padding: 11px;
+
+        &.settings-bottom {
+            top:auto;
+            bottom: 0;
+        }
 
         &.left {
             right: auto;
@@ -325,6 +351,22 @@ footer {
             min-width: 27px;
             line-height: 18px;
             padding-top: 4px;
+
+            &.spaced {
+                line-height: 20px;
+                padding: 4px 14px;
+            }
+
+            &.centered-small-char {
+                padding-top: 2px;
+                padding-bottom: 6px;
+            }
+
+            &.btn-primary {
+                background-color: @btn-primary-bg;
+                border-color: @btn-primary-bg;
+                color: @color-15;
+            }
 
             &:hover {
                 background: @color-14;
@@ -370,18 +412,6 @@ thead tr th {
     }
 }
 
-//== Buttons
-//
-//## Custom buttons.
-button.glyphicon {
-    background: transparent;
-    border: none;
-
-    &:hover {
-        color: @color-10;
-    }
-}
-
 .table-striped-even {
     > tbody > tr:nth-child(even) {
         > td {
@@ -395,6 +425,25 @@ button.glyphicon {
     }
 }
 
+col.one-char {
+    width: 30px;
+}
+
+//== Buttons
+//
+//## Custom buttons.
+button.glyphicon {
+    background: transparent;
+    border: none;
+
+    &:hover {
+        color: @color-10;
+    }
+}
+
+div.row > div > div:not(.well) .btn {
+    margin-bottom: 50px;
+}
 
 //== Specific elements
 //
@@ -466,5 +515,73 @@ button.glyphicon {
     tbody td {
         color: @color-7;
     }
+}
 
+
+.well > div.product-illustration {
+    float: left;
+    height: 100px;
+    min-width: 100px;
+    padding: 3px;
+    text-align: center;
+    color: @color-7;
+
+    .vicons {
+        font-size: 48px;
+    }
+}
+
+@media (min-width: @screen-xs-min) {
+    .product-illustration {
+        width: 100%/4;
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+    .product-illustration {
+        width: 100%/5;
+    }
+}
+
+@media (min-width: @screen-md-min) {
+    .product-illustration {
+        width: 100%/7;
+    }
+}
+
+@media (min-width: @screen-lg-min) {
+    .product-illustration {
+        width: 100%/9;
+    }
+}
+
+// Symbols font
+@font-face {
+    font-family: 'viconsregular';
+    src: url('fonts/vicons-regular-webfont.eot');
+    src: local('â—º'),
+    url('fonts/vicons-regular-webfont.woff') format('woff'),
+    url('fonts/vicons-regular-webfont.ttf') format('truetype'),
+    url('fonts/vicons-regular-webfont.svg#viconsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.vicons {
+    font-family: viconsregular;
+    font-weight: 100;
+}
+
+button.margin-left {
+    margin-left: 10px;
+}
+
+.rotate-90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.cancel-submit-group button {
+    width: 175px;
 }
