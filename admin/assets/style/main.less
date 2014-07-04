@@ -108,43 +108,63 @@
     }
 }
 
-//Override Bootstrap button mixin
+
+
+//Override Bootstrap button mixin to get different hoover effect
 .button-variant(@color; @background; @border) {
     color: @color;
     background-color: @background;
     border-color: @border;
 
-&:hover,
-&:focus,
-&:active,
-&.active,
-.open > .dropdown-toggle& {
-    color: @color;
-    background-color: lighten(@background, 1%);
-    border-color: lighten(@border, 0%);
-}
-&:active,
-&.active,
-.open > .dropdown-toggle& {
-    background-image: none;
-}
-&.disabled,
-&[disabled],
-fieldset[disabled] & {
-    &,
     &:hover,
     &:focus,
     &:active,
-    &.active {
-        background-color: @background;
-        border-color: @border;
+    &.active,
+    .open > .dropdown-toggle& {
+        color: @color;
+        background-color: lighten(@background, 1%);
+        border-color: lighten(@border, 0%);
+    }
+    &:active,
+    &.active,
+    .open > .dropdown-toggle& {
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: @background;
+            border-color: @border;
+        }
+    }
+
+    .badge {
+        color: @background;
+        background-color: @color;
     }
 }
 
-.badge {
-    color: @background;
-    background-color: @color;
-}
+.modal .modal-dialog .modal-content .modal-body {
+    overflow: hidden;
+    padding: 0;
+
+    p {
+        padding: 20px;
+    }
+
+    .btn.btn-block.split-2 {
+        width: 50%;
+        float: left;
+
+        & + .btn.btn-block.split-2 {
+            margin-top: 0;
+        }
+    }
 }
 
 // Typography =================================================================
