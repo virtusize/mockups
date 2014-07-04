@@ -58,6 +58,17 @@
     &-brand {
         text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
     }
+    
+    .dropdown.open {
+        .dropdown-toggle {
+            z-index: 9999999;
+            box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown-menu {
+            box-shadow: 0 0px 4px rgba(0, 0, 0, 0.3);
+        }
+    }
 }
 
 @media (max-width: @grid-float-breakpoint-max) {
