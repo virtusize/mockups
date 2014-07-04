@@ -91,47 +91,6 @@
 
 // Buttons ====================================================================
 
-.btn {
-
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-
-    .caret {
-        border-top-color: #fff;
-    }
-}
-
-.btn-xl {
-    // line-height: ensure even-numbered height of button next to large input
-    .button-size(@padding-large-vertical; 2*@padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
-}
-
-.btn.btn-lg,
-.btn.btn-xl {
-    &.btn-rounded {
-        border-radius: @padding-large-vertical + @font-size-large;
-    }
-}
-
-.btn.btn-rounded {
-    border-radius: @padding-base-vertical + @font-size-base;
-}
-
-.btn-default {
-
-    &:hover {
-        color: @btn-default-color;
-    }
-
-    .caret {
-        border-top-color: @text-color;
-    }
-}
-
-*:focus {
-    outline: none;
-}
-
-
 //Override Bootstrap button mixin to get different hoover effect
 .button-variant(@color; @background; @border) {
     color: @color;
@@ -170,6 +129,54 @@
         background-color: @color;
     }
 }
+
+
+.btn {
+
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
+    .caret {
+        border-top-color: #fff;
+    }
+}
+
+.btn-inverse {
+    .button-variant(@color-15; @color-6; @color-6);
+}
+
+.btn-xl {
+    // line-height: ensure even-numbered height of button next to large input
+    .button-size(@padding-large-vertical; 2*@padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+}
+
+.btn.btn-lg,
+.btn.btn-xl {
+    &.btn-rounded {
+        border-radius: @padding-large-vertical + @font-size-large;
+    }
+}
+
+.btn.btn-rounded {
+    border-radius: @padding-base-vertical + @font-size-base;
+}
+
+.btn-default {
+
+    &:hover {
+        color: @btn-default-color;
+    }
+
+    .caret {
+        border-top-color: @text-color;
+    }
+}
+
+*:focus {
+    outline: none;
+}
+
+
+
 
 .modal .modal-dialog .modal-content .modal-body {
     overflow: hidden;
@@ -444,6 +451,20 @@ footer {
             border: 1px solid @color-11;
         }
     }
+
+    &.well-no-border .settings {
+        padding: 0;
+    }
+
+    &.well-no-border .breadcrumbs + .settings {
+        .btn {
+            padding: 8px 18px;
+        }
+
+        .btn-group {
+            margin-left: 1px;
+        }
+   }
 }
 
 //== Tables
