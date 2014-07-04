@@ -89,8 +89,10 @@
                         <div class="fg-10 font-size-1 text-uppercase">Savings in percentage</div>
                         <div class="fg-8 font-size-5 text-center">-33%</div>
                     </div>
-                    <div class="settings">
-                        <button><i class="glyphicon glyphicon-cog"></i></button>
+                    <div class="settings js-tooltip">
+                        <button data-toggle="tooltip" data-placement="bottom">
+                            <i class="glyphicon glyphicon-cog"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -183,25 +185,32 @@
 </div>
 
 <footer>
-    <div class="row">
-        <div class="col-lg-3 col-centered">
-            <ul class="list-inline">
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="list-inline fg-10">
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 fg-9 small">
+                Session: 59 min left
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 fg-9 small copyright">
+                Copyright 2014 &copy; Virtusize AB
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-3 col-centered">
-            Copyright 2014 &copy; Virtusize AB
-        </div>
-    </div>
-
 </footer>
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//drnbmd8o2dh74.cloudfront.net/ajax/libs/less.js/1.7.0/less.min.js"></script>
+<script src="assets/js/dashboard.js"></script>
 </body>
