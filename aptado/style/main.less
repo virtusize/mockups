@@ -1,0 +1,852 @@
+@import "bootstrap/bootstrap";
+@import "variables";
+
+
+// Remove WebKit-style focus
+
+.tab-focus() {
+    // Default
+    outline: none;
+}
+
+
+// Grid =====================================================================
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1,
+.col-xs-2, .col-sm-2, .col-md-2, .col-lg-2,
+.col-xs-3, .col-sm-3, .col-md-3, .col-lg-3,
+.col-xs-4, .col-sm-4, .col-md-4, .col-lg-4,
+.col-xs-5, .col-sm-5, .col-md-5, .col-lg-5,
+.col-xs-6, .col-sm-6, .col-md-6, .col-lg-6,
+.col-xs-7, .col-sm-7, .col-md-7, .col-lg-7,
+.col-xs-8, .col-sm-8, .col-md-8, .col-lg-8,
+.col-xs-9, .col-sm-9, .col-md-9, .col-lg-9,
+.col-xs-10, .col-sm-10, .col-md-10, .col-lg-10,
+.col-xs-11, .col-sm-11, .col-md-11, .col-lg-11,
+.col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+
+    &.col-no-padding {
+        padding: 0;
+    }
+}
+
+// Navbar =====================================================================
+
+.navbar {
+    filter: none;
+    .box-shadow(0 1px 10px rgba(0, 0, 0, 0.1));
+    background-image: none;
+    border: none;
+
+    &-default {
+        .navbar-nav > li.dimmed > a {
+            opacity: 0.6;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .badge {
+            background-color: #fff;
+            color: @navbar-default-bg;
+        }
+    }
+
+    &-inverse {
+        filter: none;
+        border-bottom: 1px solid darken(@navbar-inverse-bg, 10%);
+
+        .badge {
+            background-color: #fff;
+            color: @navbar-inverse-bg;
+        }
+    }
+
+    .navbar-nav > li > a,
+    &-brand {
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    }
+    
+    .dropdown.open {
+        .dropdown-toggle {
+            z-index: 9999999;
+            box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown-menu {
+            box-shadow: 0 0px 4px rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+
+@media (max-width: @grid-float-breakpoint-max) {
+
+    .navbar {
+
+        .dropdown-header {
+            color: #fff;
+        }
+    }
+}
+
+// Buttons ====================================================================
+
+//Override Bootstrap button mixin to get different hoover effect
+.button-variant(@color; @background; @border) {
+    color: @color;
+    background-color: @background;
+    border-color: @border;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active,
+    .open > .dropdown-toggle& {
+        color: @color;
+        background-color: lighten(@background, 1%);
+        border-color: lighten(@border, 0%);
+    }
+    &:active,
+    &.active,
+    .open > .dropdown-toggle& {
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: @background;
+            border-color: @border;
+        }
+    }
+
+    .badge {
+        color: @background;
+        background-color: @color;
+    }
+}
+
+
+.btn {
+
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
+    .caret {
+        border-top-color: #fff;
+    }
+}
+
+.btn-inverse {
+    .button-variant(@color-15; @color-6; @color-6);
+}
+
+.btn-xl {
+    // line-height: ensure even-numbered height of button next to large input
+    .button-size(@padding-large-vertical; 2*@padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+}
+
+.btn.btn-lg,
+.btn.btn-xl {
+    &.btn-rounded {
+        border-radius: @padding-large-vertical + @font-size-large;
+    }
+}
+
+.btn.btn-rounded {
+    border-radius: @padding-base-vertical + @font-size-base;
+}
+
+.btn-default {
+
+    &:hover {
+        color: @btn-default-color;
+    }
+
+    .caret {
+        border-top-color: @text-color;
+    }
+}
+
+*:focus {
+    outline: none;
+}
+
+
+
+
+.modal .modal-dialog .modal-content .modal-body {
+    overflow: hidden;
+    padding: 0;
+
+    p {
+        padding: 20px;
+    }
+
+    .btn.btn-block.split-2 {
+        width: 50%;
+        float: left;
+
+        & + .btn.btn-block.split-2 {
+            margin-top: 0;
+        }
+    }
+}
+
+// Typography =================================================================
+
+.page-header {
+    border: none;
+}
+
+*, *:after, *:before {
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.fg-0  {color: @color-0;}
+//.fg-1 {color: @color-1;}
+//.fg-2 {color: @color-2;}
+//.fg-3 {color: @color-3;}
+.fg-4 {color: @color-4;}
+.fg-5 {color: @color-5;}
+.fg-6 {color: @color-6;}
+.fg-7  {color: @color-7;}
+.fg-8  {color: @color-8;}
+.fg-9  {color: @color-9;}
+.fg-10 {color: @color-10;}
+.fg-11 {color: @color-11;}
+.fg-12 {color: @color-12;}
+.fg-13 {color: @color-13;}
+.fg-14 {color: @color-14;}
+.fg-15 {color: @color-15;}
+
+.font-size-0 {font-size: 10px;}
+.font-size-1 {font-size: 12px;}
+.font-size-2 {font-size: 14px;}
+.font-size-3 {font-size: 18px;}
+.font-size-4 {font-size: 24px; font-weight: 100}
+.font-size-5 {font-size: 30px; font-weight: 100}
+.font-size-6 {font-size: 48px; font-weight: 100}
+
+.font-weight-bold {font-weight: 700;}
+.font-weight-semibold {font-weight: 600;}
+.font-weight-regular {font-weight: 400;}
+.font-weight-light {font-weight: 100;}
+
+
+
+// Tables =====================================================================
+
+// Forms ======================================================================
+
+//Reset bootstraps stupid box shadow on focus.
+.form-control {
+    box-shadow: none;
+
+     // Customize the `:focus` state to imitate native WebKit styles.
+    &:focus {
+        border-color: @input-border;
+        box-shadow: none;
+    }
+}
+// Navs =======================================================================
+
+// Indicators =================================================================
+
+// Progress bars ==============================================================
+
+// Containers =================================================================
+
+.bg-0  {background: @color-0;}
+//.bg-1 {background: @color-1;}
+//.bg-2 {background: @color-2;}
+//.bg-3 {background: @color-3;}
+.bg-4 {background: @color-4;}
+.bg-5 {background: @color-5;}
+.bg-6 {background: @color-6;}
+.bg-7  {background: @color-7;}
+.bg-8  {background: @color-8;}
+.bg-9  {background: @color-9;}
+.bg-10 {background: @color-10;}
+.bg-11 {background: @color-11;}
+.bg-12 {background: @color-12;}
+.bg-13 {background: @color-13;}
+.bg-14 {background: @color-14;}
+.bg-15 {background: @color-15;}
+
+
+.panel-primary,
+.panel-success,
+.panel-warning,
+.panel-danger,
+.panel-info {
+
+    .panel-heading,
+    .panel-title {
+        color: #fff;
+    }
+}
+
+footer {
+    background-color: @color-6;
+    color: #c8c8c8;
+    padding: 55px 0;
+
+    a {
+        color: inherit;
+    }
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.container.vertical-spaced {
+    padding-top: 125px;
+}
+
+.row.vertical-spaced {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.container.vertical-spaced-bottom {
+    padding-bottom: 25px;
+}
+
+//== Wells
+//
+//##
+.well {
+    padding: 0;
+
+    > div {
+        padding: 19px;
+    }
+
+    > h1, > h2, > h3, > h4, > h5, > h6,
+    > .h1, > .h2, > .h3, > .h4, > .h5, > .h6 {
+        border-bottom: 1px solid @color-11;
+        padding: 17px 12px 18px;
+        margin: 0;
+    }
+}
+
+.well-lg {
+    padding: 0;
+
+    > div {
+        padding: 24px;
+    }
+}
+.well-sm {
+    padding: 0;
+
+    > div {
+        padding: 9px;
+    }
+}
+
+.well > div.statistics-number {
+    padding: 10px;
+}
+
+.well.float-container {
+    overflow: hidden;
+}
+
+.well footer {
+    background-color: transparent;
+    color: inherit;
+    padding: 17px;
+}
+
+//== Settings buttons and help symbols
+//
+//##
+.relative {
+    position: relative;
+
+    .settings {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 11px;
+
+        &.settings-bottom {
+            top:auto;
+            bottom: 0;
+        }
+
+        &.left {
+            right: auto;
+            left: 0;
+        }
+
+        &.btn-group button {
+            color: @color-10;
+            font-size: 10px;
+            line-height: 10px;
+            padding: 9px 12px;
+            width: 45px;
+            z-index: 0;
+
+            &:hover {
+                z-index: 0;
+            }
+
+            &.btn-primary {
+                background-color: @btn-primary-bg;
+                border-color: @btn-primary-bg;
+                color: @color-15;
+            }
+
+            &.btn:first-child {
+                border-right: none;
+            }
+            &.btn:last-child {
+                border-left: none;
+            }
+        }
+
+
+        > button {
+            background: #fff;
+            border: 1px solid @color-11;
+            border-radius: 20px;
+            min-width: 27px;
+            line-height: 18px;
+            padding-top: 4px;
+
+            &.spaced {
+                line-height: 20px;
+                padding: 4px 14px;
+            }
+
+            &.centered-small-char {
+                padding-top: 2px;
+                padding-bottom: 6px;
+            }
+
+            &.btn-primary {
+                background-color: @btn-primary-bg;
+                border-color: @btn-primary-bg;
+                color: @color-15;
+            }
+
+            &:hover {
+                background: @color-14;
+                border-color: @color-10;
+            }
+        }
+
+        &.help {
+            padding: 4px 11px;
+            border-radius: 20px;
+            margin: 5px;
+            border: 1px solid @color-11;
+        }
+    }
+
+    &.well-no-border .settings {
+        padding: 0;
+    }
+
+    &.well-no-border .breadcrumbs + .settings {
+        .btn {
+            padding: 8px 18px;
+        }
+
+        .btn-group {
+            margin-left: 1px;
+        }
+   }
+}
+
+//== Tables
+//
+//## Customizes the `.table` component for use in wells.
+@table-bg-accent: @color-13;
+
+thead tr th {
+    font-weight: inherit;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td {
+    border-bottom-width: 1px;
+}
+
+.table-bordered.table-inner-border {
+    border: none;
+    margin: 0;
+
+    > thead > tr > th:last-child,
+    > thead > tr > td:last-child {
+        border-right-width: 0;
+    }
+
+    > tbody > tr > td {
+        border-top: none;
+        border-bottom: none;
+    }
+}
+
+.table-striped-even {
+    > tbody > tr:nth-child(even) {
+        > td {
+            background-color: @table-bg-accent;
+        }
+
+    }
+
+    > thead > tr > th {
+        background-color: @table-bg-accent;
+    }
+}
+
+col.one-char {
+    width: 30px;
+}
+
+//== Buttons
+//
+//## Custom buttons.
+button.glyphicon {
+    background: transparent;
+    border: none;
+
+    &:hover {
+        color: @color-10;
+    }
+}
+
+div.row > div > div:not(.well) .btn {
+    margin-bottom: 50px;
+}
+
+//== Specific elements
+//
+//## Style rules to specific elements.
+.breadcrumbs {
+    word-spacing: 6px;
+    color: @color-7;
+}
+
+.loadmore {
+    margin-bottom: 50px;
+}
+
+.copyright {
+    margin-top: 12px;
+}
+
+.top-border {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: inherit;
+}
+
+.fixed-height-0 {
+    height: 195px;
+    overflow-y: hidden;
+}
+
+.well.fixed-height-0 > div.statistics-number {
+    padding: 37px 10px;
+}
+
+.product-table {
+    thead th {
+        text-align: center;
+        font-weight: 100;
+        font-size: 12px;
+    }
+
+    colgroup {
+        col.identifier {
+            width: 150px;
+        }
+
+        col.timestamp {
+            width: 150px;
+        }
+
+        col.tools {
+            width: 108px;
+        }
+    }
+
+    tbody tr td:first-child {
+        text-align: center;
+    }
+
+    .product-type,
+    .date {
+        color: @color-7;
+    }
+}
+
+.measurements-table {
+    thead th {
+        text-align: center;
+    }
+
+    tbody td {
+        color: @color-7;
+    }
+}
+
+
+.well > div.product-illustration {
+    float: left;
+    height: 100px;
+    min-width: 100px;
+    padding: 0;
+    text-align: center;
+    color: @color-7;
+    background-color: @color-15;
+    box-sizing: content-box;
+    border: 1px solid @color-12;
+    margin: -1px;
+
+    &:hover {
+        color: @color-15;
+        background-color: @brand-primary;
+        cursor: pointer;
+    }
+
+    .vicons {
+        font-size: 48px;
+    }
+}
+
+@media (min-width: @screen-xs-min) {
+    .product-illustration {
+        width: 100%/4;
+    }
+
+    .measure-guide-image {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+    .product-illustration {
+        width: 100%/5;
+    }
+}
+
+@media (min-width: @screen-md-min) {
+    .product-illustration {
+        width: 100%/7;
+    }
+
+    .measure-guide-instructions {
+        width: 516px;
+    }
+
+    .measure-guide-image {
+        width: auto;
+        text-align: auto;
+    }
+}
+
+@media (min-width: @screen-lg-min) {
+    .product-illustration {
+        width: 100%/9;
+    }
+
+    .measure-guide-instructions {
+        width: 716px;
+    }
+}
+
+// Symbols font
+@font-face {
+    font-family: 'viconsregular';
+    src: url('fonts/vicons-regular-webfont.eot');
+    src: local('â—º'),
+    url('fonts/vicons-regular-webfont.woff') format('woff'),
+    url('fonts/vicons-regular-webfont.ttf') format('truetype'),
+    url('fonts/vicons-regular-webfont.svg#viconsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.vicons {
+    font-family: viconsregular;
+    font-weight: 100;
+}
+
+button.margin-left {
+    margin-left: 10px;
+}
+
+.rotate-90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.cancel-submit-group button {
+    width: 175px;
+}
+
+.measure-guide-instructions {
+    h5 {
+        margin-bottom: 25px;
+    }
+
+    table {
+        tbody tr td {
+            vertical-align: top;
+            padding: 8px 12px;
+        }
+
+        margin-bottom: 25px;
+    }
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+// Tooltips
+.tooltip {
+
+    &.bright {
+
+        &.bottom .tooltip-arrow {
+//            border-bottom-color: @color-14;
+            border: none;
+            margin-left: -20px;
+            height: 8px;
+            overflow: hidden;
+            width: 40px;
+            top: -2px;
+
+            &:after {
+                top: 4px;
+                content: "";
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                background: #fafafa;
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                transform: rotate(45deg);
+                left: 50%;
+                box-shadow: 0 0 10px -2px rgba(0,0,0,0.6);
+                margin-left: -8px;
+            }
+        }
+
+        .tooltip-inner {
+            .box-shadow(0 0 10px -2px rgba(0, 0, 0, 0.6));
+            color: @color-0;
+            background-color: @color-14;
+            overflow: hidden;
+
+            .padding-left {
+                padding-left: 3px;
+            }
+            .padding-right {
+                padding-right: 3px;
+            }
+
+            .vertical-margin {
+                margin: 30px 0 20px;
+            }
+
+            label {
+                margin-top: 15px;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .tooltip-inner {
+        max-width: 250px;
+        padding: 0;
+        text-align: left;
+
+        > div {
+            width: 225px;
+            padding: 5px 17px 17px;
+
+            input {
+                width: 100%;
+            }
+        }
+
+        .btn.split-2 {
+            width: 50%;
+            float: left;
+        }
+
+        div.split-2 {
+            width: 50%;
+            float: left;
+
+            label, input {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.waterfall-container .item {
+    > img {
+        margin-bottom: 5px;
+    }
+
+    p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-bottom: 0;
+    }
+}
+
+.waterfall-container .item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    padding: 23px;
+
+    p {
+        color: #fff;
+        padding-top: 30px;
+        font-weight: 100;
+    }
+}
+
+@-webkit-keyframes fadein {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes fadein {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-o-keyframes fadein {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fadein {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.waterfall-container .item:hover .overlay {
+    display: block;
+    .animation(~"fadein 100ms ease-in");
+}
