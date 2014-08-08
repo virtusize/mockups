@@ -811,6 +811,12 @@ button.margin-left {
         overflow: hidden;
         text-overflow: ellipsis;
         margin-bottom: 0;
+
+        &.from-shop {
+            color: #aaa;
+            font-weight: 400;
+            font-size: 12px;
+        }
     }
 }
 
@@ -849,4 +855,30 @@ button.margin-left {
 .waterfall-container .item:hover .overlay {
     display: block;
     .animation(~"fadein 100ms ease-in");
+}
+
+.navbar-fixed-bottom {
+    .navbar-toggle {
+        float: none;
+        width: 49%;
+        margin-right: 0;
+        color: #fff;
+    }
+
+    .nav.navbar-nav.tiled {
+        padding-left: 10px;
+
+        > li {
+            width: 135px;
+            float: left;
+
+            > a {
+                padding: 5px;
+
+                .thumb {
+                    font: 100 48px/50px viconsregular;
+                }
+            }
+        }
+    }
 }
