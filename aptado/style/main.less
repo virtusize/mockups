@@ -1,4 +1,7 @@
 @import "bootstrap/bootstrap";
+@import "jasny-bootstrap/less/variables";
+@import "jasny-bootstrap/less/navmenu";
+@import "jasny-bootstrap/less/offcanvas";
 @import "variables";
 
 
@@ -881,4 +884,41 @@ button.margin-left {
             }
         }
     }
+}
+
+@media (min-width: @grid-float-breakpoint) {
+    .navbar-fixed-bottom {
+        display: none;
+    }
+}
+@media (max-width: @grid-float-breakpoint) {
+
+    .navmenu-fixed-left.offcanvas.navmenu-handle {
+        display: none;
+    }
+}
+
+.navmenu-fixed-left.offcanvas.navmenu-handle {
+    overflow-y: visible;
+
+    .navmenu-handle {
+        width: 25px;
+        background-color: inherit;
+        position: absolute;
+        right: -25px;
+        top: 50%;
+        margin-top: -26px;
+        border-width: 1px 1px 1px 0;
+        border-color: inherit;
+        border-style: inherit;
+        color: inherit;
+    }
+}
+
+.vertical-icon-bar {
+    float: right;
+    height: 20px;
+    width: 2px;
+    margin: 15px 4px 15px 0;
+    background-color: @navbar-default-toggle-icon-bar-bg;
 }

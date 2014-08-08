@@ -411,6 +411,35 @@
 @navbar-inverse-toggle-border-color:        transparent;
 
 
+// Inverted navmenu
+//
+// Reset inverted navmenu basics
+@navmenu-inverse-color:                      #fff;
+@navmenu-inverse-bg:                         darken(@navbar-default-bg, 10%);
+@navmenu-inverse-border:                     darken(@navmenu-inverse-bg, 2%);
+
+// Inverted navmenu links
+@navmenu-inverse-link-color:                 #fff;
+@navmenu-inverse-link-hover-color:           #fff;
+@navmenu-inverse-link-hover-bg:              lighten(@navmenu-inverse-bg, 1%);;
+@navmenu-inverse-link-active-color:          @navmenu-inverse-link-hover-color;
+@navmenu-inverse-link-active-bg:             darken(@navmenu-inverse-bg, 10%);
+@navmenu-inverse-link-disabled-color:        #444;
+@navmenu-inverse-link-disabled-bg:           transparent;
+
+// Inverted navmenu brand label
+@navmenu-inverse-brand-color:                @navmenu-inverse-link-color;
+@navmenu-inverse-brand-hover-color:          #fff;
+@navmenu-inverse-brand-hover-bg:             transparent;
+
+// Inverted navmenu search
+// Normal navmenu needs no special styles or vars
+@navmenu-inverse-search-bg:                  lighten(@navmenu-inverse-bg, 25%);
+@navmenu-inverse-search-bg-focus:            #fff;
+@navmenu-inverse-search-border:              @navmenu-inverse-bg;
+@navmenu-inverse-search-placeholder-color:   #ccc;
+
+
 //== Navs
 //
 //##
