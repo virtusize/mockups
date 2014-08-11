@@ -1,7 +1,7 @@
 @import "bootstrap/bootstrap";
-@import "jasny-bootstrap/less/variables";
-@import "jasny-bootstrap/less/navmenu";
-@import "jasny-bootstrap/less/offcanvas";
+//@import "jasny-bootstrap/less/variables";
+//@import "jasny-bootstrap/less/navmenu";
+//@import "jasny-bootstrap/less/offcanvas";
 @import "variables";
 
 
@@ -893,27 +893,90 @@ button.margin-left {
 }
 @media (max-width: @grid-float-breakpoint) {
 
-    .navmenu-fixed-left.offcanvas.navmenu-handle {
+    .navmenu-fixed-right.offcanvas.navmenu-handle {
         display: none;
     }
 }
 
-.navmenu-fixed-left.offcanvas.navmenu-handle {
-    overflow-y: visible;
+.navmenu-fixed-right.offcanvas {
+    /* Collapsed */
+    width: 0;
+    transition: width 0.3s ease;
 
-    .navmenu-handle {
-        width: 25px;
-        background-color: inherit;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+
+}
+
+#filter-nav:target {
+    width: 300px;
+}
+
+.navmenu {
+    color: @navmenu-inverse-color;//:                      #fff;
+    background: @navmenu-inverse-bg;//:                         darken(@navbar-default-bg, 10%);
+    border: 1px solid @navmenu-inverse-border;//:                     darken(@navmenu-inverse-bg, 2%);
+    z-index: 1050;
+
+    // Inverted navmenu links
+    li > a {
+        color: @navmenu-inverse-link-color;//:                 #fff;
+
+        &:hover {
+            color: @navmenu-inverse-link-hover-color;//:           #fff;
+            background: @navmenu-inverse-link-hover-bg;//:              lighten(@navmenu-inverse-bg, 1%);;
+        }
+
+        &.active {
+            color: @navmenu-inverse-link-active-color;//:          @navmenu-inverse-link-hover-color;
+            background: @navmenu-inverse-link-active-bg;//:             darken(@navmenu-inverse-bg, 10%);
+        }
+
+        &.disabled {
+            color: @navmenu-inverse-link-disabled-color;//:        #444;
+            background: @navmenu-inverse-link-disabled-bg;//:           transparent;
+        }
+
+        span.thumb {
+            font: 100 14px/14px viconsregular;
+        }
+    }
+
+    .top-container {
         position: absolute;
-        right: -25px;
-        top: 50%;
-        margin-top: -26px;
-        border-width: 1px 1px 1px 0;
-        border-color: inherit;
-        border-style: inherit;
-        color: inherit;
+        top: 0;
+        left: 0;
+
+        .close-container {
+            width: 300px;
+            padding: 10px 20px 5px;
+
+            .navmenu-close {
+                color: @navmenu-inverse-link-color;
+                font: 100 18px/36px viconsregular;
+                text-decoration: none;
+            }
+        }
     }
 }
+
+a.navmenu-toggle {
+    display: block;
+    float: right;
+    padding: 15px;
+    color: @navbar-default-link-color;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        background-color: @navbar-default-link-hover-bg;
+    }
+}
+
+
 
 .vertical-icon-bar {
     float: right;
@@ -921,4 +984,32 @@ button.margin-left {
     width: 2px;
     margin: 15px 4px 15px 0;
     background-color: @navbar-default-toggle-icon-bar-bg;
+}
+
+.sort-menu {
+    min-height: 186px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.category-menu {
+    overflow-y: hidden;
+}
+
+.dynamic-top {
+    height: 100%;
+//    border-bottom: 186px solid green;
+    padding-top: 90px;
+    padding-bottom: 198px;
+    overflow: hidden;
+}
+
+.section-header {
+    font-weight: 600;
+    padding-left: 15px;
+    border-bottom: 1px solid lighten(@navmenu-inverse-bg, 5%);
+    margin-bottom: 5px;
+    line-height: 32px;
 }

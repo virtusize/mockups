@@ -136,3 +136,5 @@ $('#product-list').waterfall({
         return 'data/data.json';
     }
 });
+
+$('#scrollbar1').tinyscrollbar();
