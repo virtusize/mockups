@@ -912,7 +912,7 @@ button.margin-left {
 }
 
 #filter-nav:target {
-    width: 300px;
+    width: 385px;
 }
 
 .navmenu {
@@ -940,8 +940,10 @@ button.margin-left {
             background: @navmenu-inverse-link-disabled-bg;//:           transparent;
         }
 
-        span.thumb {
-            font: 100 14px/14px viconsregular;
+        div.thumb {
+            font: 100 39px/39px viconsregular;
+            float: left;
+            margin-right: 6px;
         }
     }
 
@@ -949,9 +951,10 @@ button.margin-left {
         position: absolute;
         top: 0;
         left: 0;
+        width: 100%;
 
         .close-container {
-            width: 300px;
+            width: 383px;
             padding: 10px 20px 5px;
 
             .navmenu-close {
@@ -959,6 +962,20 @@ button.margin-left {
                 font: 100 18px/36px viconsregular;
                 text-decoration: none;
             }
+        }
+    }
+}
+
+.navmenu-nav.navmenu-thumbnails {
+    li {
+        display: block;
+        width: 50%;
+        float: left;
+        height: 60px;
+
+        &:hover {
+            color: @navmenu-inverse-link-hover-color;//:           #fff;
+            background: @navmenu-inverse-link-hover-bg;//:              lighten(@navmenu-inverse-bg, 1%);;
         }
     }
 }

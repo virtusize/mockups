@@ -137,4 +137,6 @@ $('#product-list').waterfall({
     }
 });
 
-$('#scrollbar1').tinyscrollbar();
+$('#scrollbar1').tinyscrollbar({
+    scrollInvert  : true
+});
