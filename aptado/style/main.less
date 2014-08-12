@@ -893,7 +893,8 @@ button.margin-left {
 }
 @media (max-width: @grid-float-breakpoint) {
 
-    .navmenu-fixed-right.offcanvas.navmenu-handle {
+    .navmenu-fixed-right,
+    a.navmenu-toggle.offcanvas-toggle {
         display: none;
     }
 }
@@ -911,7 +912,7 @@ button.margin-left {
 
 }
 
-#filter-nav:target {
+#filter-nav.open {
     width: 385px;
 }
 
@@ -1030,3 +1031,16 @@ a.navmenu-toggle {
     margin-bottom: 5px;
     line-height: 32px;
 }
+
+
+// Hacks for ie8
+/*
+.ie8 {
+    .navbar-fixed-bottom {
+        display: none;
+    }
+}
+*/
+
+
+

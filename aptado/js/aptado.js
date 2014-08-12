@@ -140,3 +140,12 @@ $('#product-list').waterfall({
 $('#scrollbar1').tinyscrollbar({
     scrollInvert  : true
 });
+
+$('.offcanvas-toggle').on('click', function () {
+    $('#filter-nav').addClass('open');
+});
+$('.navmenu-close').on('click', function () {
+    $('#filter-nav').removeClass('open');
+});
+
+
