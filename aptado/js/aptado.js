@@ -148,4 +148,13 @@ $('.navmenu-close').on('click', function () {
     $('#filter-nav').removeClass('open');
 });
 
+function setMenuHeight () {
+    $('.navbar-fixed-bottom .navbar-collapse').css('max-height', window.innerHeight - $('.js-navbar-bottom').height());
+}
+
+$(window).resize(function () {
+    setMenuHeight();
+});
+
+setMenuHeight();
 
