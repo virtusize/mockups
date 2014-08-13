@@ -6745,12 +6745,12 @@ fieldset[disabled] .btn-inverse.active {
 .panel-info .panel-title {
   color: #fff;
 }
-footer {
+div.footer {
   background-color: #575757;
   color: #c8c8c8;
   padding: 55px 0;
 }
-footer a {
+div.footer a {
   color: inherit;
 }
 .col-centered {
@@ -7222,6 +7222,13 @@ button.margin-left {
     display: none;
   }
 }
+/*
+@media  (max-height: 400px)  {
+    .navbar-fixed-bottom {
+        display: none;
+    }
+}
+*/
 @media (max-width: 768px) {
   .navmenu-fixed-right,
   a.navmenu-toggle.offcanvas-toggle {

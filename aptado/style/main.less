@@ -1,8 +1,6 @@
 @import "bootstrap/bootstrap";
-//@import "jasny-bootstrap/less/variables";
-//@import "jasny-bootstrap/less/navmenu";
-//@import "jasny-bootstrap/less/offcanvas";
 @import "variables";
+@import "animations";
 
 
 // Remove WebKit-style focus
@@ -14,6 +12,7 @@
 
 
 // Grid =====================================================================
+/*
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1,
 .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2,
 .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3,
@@ -31,6 +30,7 @@
         padding: 0;
     }
 }
+*/
 
 // Navbar =====================================================================
 
@@ -142,10 +142,11 @@
         border-top-color: #fff;
     }
 }
-
+/*
 .btn-inverse {
-    .button-variant(@color-15; @color-6; @color-6);
+    .button-variant(@color-15, @color-6, @color-6);
 }
+*/
 
 .btn-xl {
     // line-height: ensure even-numbered height of button next to large input
@@ -176,27 +177,6 @@
 
 *:focus {
     outline: none;
-}
-
-
-
-
-.modal .modal-dialog .modal-content .modal-body {
-    overflow: hidden;
-    padding: 0;
-
-    p {
-        padding: 20px;
-    }
-
-    .btn.btn-block.split-2 {
-        width: 50%;
-        float: left;
-
-        & + .btn.btn-block.split-2 {
-            margin-top: 0;
-        }
-    }
 }
 
 // Typography =================================================================
@@ -293,7 +273,7 @@
     }
 }
 
-footer {
+div.footer {
     background-color: @color-6;
     color: #c8c8c8;
     padding: 55px 0;
@@ -312,364 +292,6 @@ footer {
     padding-top: 125px;
 }
 
-.row.vertical-spaced {
-    margin-top: 25px;
-    margin-bottom: 25px;
-}
-
-.container.vertical-spaced-bottom {
-    padding-bottom: 25px;
-}
-
-//== Wells
-//
-//##
-.well {
-    padding: 0;
-
-    > div {
-        padding: 19px;
-    }
-
-    > h1, > h2, > h3, > h4, > h5, > h6,
-    > .h1, > .h2, > .h3, > .h4, > .h5, > .h6 {
-        border-bottom: 1px solid @color-11;
-        padding: 17px 12px 18px;
-        margin: 0;
-    }
-}
-
-.well-lg {
-    padding: 0;
-
-    > div {
-        padding: 24px;
-    }
-}
-.well-sm {
-    padding: 0;
-
-    > div {
-        padding: 9px;
-    }
-}
-
-.well > div.statistics-number {
-    padding: 10px;
-}
-
-.well.float-container {
-    overflow: hidden;
-}
-
-.well footer {
-    background-color: transparent;
-    color: inherit;
-    padding: 17px;
-}
-
-//== Settings buttons and help symbols
-//
-//##
-.relative {
-    position: relative;
-
-    .settings {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 11px;
-
-        &.settings-bottom {
-            top:auto;
-            bottom: 0;
-        }
-
-        &.left {
-            right: auto;
-            left: 0;
-        }
-
-        &.btn-group button {
-            color: @color-10;
-            font-size: 10px;
-            line-height: 10px;
-            padding: 9px 12px;
-            width: 45px;
-            z-index: 0;
-
-            &:hover {
-                z-index: 0;
-            }
-
-            &.btn-primary {
-                background-color: @btn-primary-bg;
-                border-color: @btn-primary-bg;
-                color: @color-15;
-            }
-
-            &.btn:first-child {
-                border-right: none;
-            }
-            &.btn:last-child {
-                border-left: none;
-            }
-        }
-
-
-        > button {
-            background: #fff;
-            border: 1px solid @color-11;
-            border-radius: 20px;
-            min-width: 27px;
-            line-height: 18px;
-            padding-top: 4px;
-
-            &.spaced {
-                line-height: 20px;
-                padding: 4px 14px;
-            }
-
-            &.centered-small-char {
-                padding-top: 2px;
-                padding-bottom: 6px;
-            }
-
-            &.btn-primary {
-                background-color: @btn-primary-bg;
-                border-color: @btn-primary-bg;
-                color: @color-15;
-            }
-
-            &:hover {
-                background: @color-14;
-                border-color: @color-10;
-            }
-        }
-
-        &.help {
-            padding: 4px 11px;
-            border-radius: 20px;
-            margin: 5px;
-            border: 1px solid @color-11;
-        }
-    }
-
-    &.well-no-border .settings {
-        padding: 0;
-    }
-
-    &.well-no-border .breadcrumbs + .settings {
-        .btn {
-            padding: 8px 18px;
-        }
-
-        .btn-group {
-            margin-left: 1px;
-        }
-   }
-}
-
-//== Tables
-//
-//## Customizes the `.table` component for use in wells.
-@table-bg-accent: @color-13;
-
-thead tr th {
-    font-weight: inherit;
-}
-
-.table-bordered > thead > tr > th,
-.table-bordered > thead > tr > td {
-    border-bottom-width: 1px;
-}
-
-.table-bordered.table-inner-border {
-    border: none;
-    margin: 0;
-
-    > thead > tr > th:last-child,
-    > thead > tr > td:last-child {
-        border-right-width: 0;
-    }
-
-    > tbody > tr > td {
-        border-top: none;
-        border-bottom: none;
-    }
-}
-
-.table-striped-even {
-    > tbody > tr:nth-child(even) {
-        > td {
-            background-color: @table-bg-accent;
-        }
-
-    }
-
-    > thead > tr > th {
-        background-color: @table-bg-accent;
-    }
-}
-
-col.one-char {
-    width: 30px;
-}
-
-//== Buttons
-//
-//## Custom buttons.
-button.glyphicon {
-    background: transparent;
-    border: none;
-
-    &:hover {
-        color: @color-10;
-    }
-}
-
-div.row > div > div:not(.well) .btn {
-    margin-bottom: 50px;
-}
-
-//== Specific elements
-//
-//## Style rules to specific elements.
-.breadcrumbs {
-    word-spacing: 6px;
-    color: @color-7;
-}
-
-.loadmore {
-    margin-bottom: 50px;
-}
-
-.copyright {
-    margin-top: 12px;
-}
-
-.top-border {
-    border-top-width: 1px;
-    border-top-style: solid;
-    border-top-color: inherit;
-}
-
-.fixed-height-0 {
-    height: 195px;
-    overflow-y: hidden;
-}
-
-.well.fixed-height-0 > div.statistics-number {
-    padding: 37px 10px;
-}
-
-.product-table {
-    thead th {
-        text-align: center;
-        font-weight: 100;
-        font-size: 12px;
-    }
-
-    colgroup {
-        col.identifier {
-            width: 150px;
-        }
-
-        col.timestamp {
-            width: 150px;
-        }
-
-        col.tools {
-            width: 108px;
-        }
-    }
-
-    tbody tr td:first-child {
-        text-align: center;
-    }
-
-    .product-type,
-    .date {
-        color: @color-7;
-    }
-}
-
-.measurements-table {
-    thead th {
-        text-align: center;
-    }
-
-    tbody td {
-        color: @color-7;
-    }
-}
-
-
-.well > div.product-illustration {
-    float: left;
-    height: 100px;
-    min-width: 100px;
-    padding: 0;
-    text-align: center;
-    color: @color-7;
-    background-color: @color-15;
-    box-sizing: content-box;
-    border: 1px solid @color-12;
-    margin: -1px;
-
-    &:hover {
-        color: @color-15;
-        background-color: @brand-primary;
-        cursor: pointer;
-    }
-
-    .vicons {
-        font-size: 48px;
-    }
-}
-
-@media (min-width: @screen-xs-min) {
-    .product-illustration {
-        width: 100%/4;
-    }
-
-    .measure-guide-image {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-@media (min-width: @screen-sm-min) {
-    .product-illustration {
-        width: 100%/5;
-    }
-}
-
-@media (min-width: @screen-md-min) {
-    .product-illustration {
-        width: 100%/7;
-    }
-
-    .measure-guide-instructions {
-        width: 516px;
-    }
-
-    .measure-guide-image {
-        width: auto;
-        text-align: auto;
-    }
-}
-
-@media (min-width: @screen-lg-min) {
-    .product-illustration {
-        width: 100%/9;
-    }
-
-    .measure-guide-instructions {
-        width: 716px;
-    }
-}
-
 // Symbols font
 @font-face {
     font-family: 'viconsregular';
@@ -685,39 +307,6 @@ div.row > div > div:not(.well) .btn {
 .vicons {
     font-family: viconsregular;
     font-weight: 100;
-}
-
-button.margin-left {
-    margin-left: 10px;
-}
-
-.rotate-90 {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
-
-.cancel-submit-group button {
-    width: 175px;
-}
-
-.measure-guide-instructions {
-    h5 {
-        margin-bottom: 25px;
-    }
-
-    table {
-        tbody tr td {
-            vertical-align: top;
-            padding: 8px 12px;
-        }
-
-        margin-bottom: 25px;
-    }
-}
-
-.overflow-hidden {
-    overflow: hidden;
 }
 
 // Tooltips
@@ -804,62 +393,51 @@ button.margin-left {
     }
 }
 
-.waterfall-container .item {
-    > img {
-        margin-bottom: 5px;
-    }
+// Waterfall image grid plugin
+.waterfall-container {
+    position: relative;
 
-    p {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin-bottom: 0;
+    .item {
+        > img {
+            margin-bottom: 5px;
+        }
 
-        &.from-shop {
-            color: #aaa;
-            font-weight: 400;
-            font-size: 12px;
+        p {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 0;
+
+            &.from-shop {
+                color: @color-9;
+                font-weight: 400;
+                font-size: 12px;
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            padding: 23px;
+
+            p {
+                color: #fff;
+                padding-top: 30px;
+                font-weight: 100;
+            }
+        }
+
+        &:hover .overlay {
+            display: block;
+            .animation(~"fadein 100ms ease-in");
         }
     }
 }
 
-.waterfall-container .item .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    padding: 23px;
-
-    p {
-        color: #fff;
-        padding-top: 30px;
-        font-weight: 100;
-    }
-}
-
-@-webkit-keyframes fadein {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-}
-@-moz-keyframes fadein {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-}
-@-o-keyframes fadein {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-}
-@keyframes fadein {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-.waterfall-container .item:hover .overlay {
-    display: block;
-    .animation(~"fadein 100ms ease-in");
-}
-
+//Bottom navbar for mobile
 .navbar-fixed-bottom {
     .navbar-toggle {
         float: none;
@@ -881,41 +459,17 @@ button.margin-left {
                 .thumb {
                     font: 100 48px/50px viconsregular;
                 }
+
+                .all-symbol {
+                    font-size: 48px;
+                    line-height: 50px
+                }
             }
         }
     }
 }
 
-@media (min-width: @grid-float-breakpoint) {
-    .navbar-fixed-bottom {
-        display: none;
-    }
-}
-@media (max-width: @grid-float-breakpoint) {
-
-    .navmenu-fixed-right,
-    a.navmenu-toggle.offcanvas-toggle {
-        display: none;
-    }
-}
-
-.navmenu-fixed-right.offcanvas {
-    /* Collapsed */
-    width: 0;
-    transition: width 0.3s ease;
-
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-
-}
-
-#filter-nav.open {
-    width: 385px;
-}
-
+// A navbar that works vertically
 .navmenu {
     color: @navmenu-inverse-color;//:                      #fff;
     background: @navmenu-inverse-bg;//:                         darken(@navbar-default-bg, 10%);
@@ -945,6 +499,14 @@ button.margin-left {
             font: 100 39px/39px viconsregular;
             float: left;
             margin-right: 6px;
+        }
+
+        div.all-symbol {
+            font-size: 39px;
+            line-height: 32px;
+            float: left;
+            margin-right: 13px;
+            margin-left: 8px;
         }
     }
 
@@ -994,16 +556,47 @@ a.navmenu-toggle {
     }
 }
 
+// Offcanvas menu for desktop
+.navmenu-fixed-right.offcanvas {
+    width: 0;
+    transition: width 0.3s ease;
 
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
 
-.vertical-icon-bar {
-    float: right;
-    height: 20px;
-    width: 2px;
-    margin: 15px 4px 15px 0;
-    background-color: @navbar-default-toggle-icon-bar-bg;
+    &.open {
+        width: 385px;
+    }
 }
 
+//Desktop
+@media (min-width: @grid-float-breakpoint) { //and (min-height: 1400px){
+    .navbar-fixed-bottom {
+        display: none;
+    }
+}
+
+//Mobile
+@media (max-width: @grid-float-breakpoint){//, (max-height: 400px) {
+
+    .navmenu-fixed-right,
+    a.navmenu-toggle.offcanvas-toggle {
+        display: none;
+    }
+}
+
+// A dynamic container with static sections at the top and bottom
+.dynamic-top {
+    height: 100%;
+    padding-top: 90px;
+    padding-bottom: 198px;
+    overflow: hidden;
+}
+
+// A static sort menu placed on the bottom of the off canvas menu.
 .sort-menu {
     min-height: 186px;
     position: absolute;
@@ -1016,14 +609,6 @@ a.navmenu-toggle {
     overflow-y: hidden;
 }
 
-.dynamic-top {
-    height: 100%;
-//    border-bottom: 186px solid green;
-    padding-top: 90px;
-    padding-bottom: 198px;
-    overflow: hidden;
-}
-
 .section-header {
     font-weight: 600;
     padding-left: 15px;
@@ -1031,16 +616,6 @@ a.navmenu-toggle {
     margin-bottom: 5px;
     line-height: 32px;
 }
-
-
-// Hacks for ie8
-/*
-.ie8 {
-    .navbar-fixed-bottom {
-        display: none;
-    }
-}
-*/
 
 
 
