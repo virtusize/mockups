@@ -117,7 +117,7 @@ $('#product-list').waterfall({
 
             if ( resultNum < 20) {
                 $('#container').waterfall('pause', function() {
-                    $('#waterfall-message').html('<p style="color:#666;">no more data...</p>')
+                    $('#waterfall-message').html('<p style="color:#666;">no more data...</p>');
                     //alert('no more data');
                 });
             }
