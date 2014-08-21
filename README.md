@@ -2,8 +2,9 @@
 
 ## Demo
 
-[virtusize.github.io/mockups/purchase-history/](http://virtusize.github.io/mockups/purchase-history/)  
-[virtusize.github.io/mockups/vector-rendering/](http://virtusize.github.io/mockups/vector-rendering/) (Snap)  
+[virtusize.github.io/mockups/aptado/start.html](http://virtusize.github.io/mockups/aptado/start.html)
+[virtusize.github.io/mockups/purchase-history/](http://virtusize.github.io/mockups/purchase-history/)
+[virtusize.github.io/mockups/vector-rendering/](http://virtusize.github.io/mockups/vector-rendering/) (Snap)
 [virtusize.github.io/mockups/vector-rendering/raphael.html](http://virtusize.github.io/mockups/vector-rendering/raphael.html) (Raphaël)  
 Widget v5 panels: [Start](http://virtusize.github.io/mockups/v5/) - [Compare](http://virtusize.github.io/mockups/v5/compare.html) - [Wardrobe](http://virtusize.github.io/mockups/v5/wardrobe.html)
 
@@ -11,6 +12,14 @@ Widget v5 panels: [Start](http://virtusize.github.io/mockups/v5/) - [Compare](ht
 
 There is a  `gh-pages` branch, which holds the published version.
 Everything merged and pushed to that branch will automatically be released.
+
+## Mockup structure for Aptado
+
+- Standalone
+- Mostly static
+- Frontend only: HTML, CSS and JavaScript
+- Focus on mobile and tablet
+- To use on IE8, compile main.less and variables.less and update references in html files
 
 ## Mockup structure for purchase history
 
