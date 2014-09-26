@@ -203,6 +203,26 @@
     }
 }
 
+.dropdown-menu.dropdown-menu-inverse {
+    background-color: @color-6;
+    border: 1px solid @color-6;
+    right: 0;
+    left: inherit;
+    max-height: 500px;
+    overflow: auto;
+
+    > li > a {
+        text-align: center;
+        border: 2px solid rgba(255,255,255,0.2);
+        margin: 5px 25px;
+        width: 160px;
+
+        &:hover {
+            background-color: @color-7;
+        }
+    }
+}
+
 .btn-xl {
     // line-height: ensure even-numbered height of button next to large input
     .button-size(@padding-large-vertical; 2*@padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
