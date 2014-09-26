@@ -91,25 +91,40 @@
         </div>
 
         <div class="row">
+            <div class="col-lg-12">
+                You can use this for to test your product measurements feed
+            </div>
+        </div>
+
+        <div class="row vertical-spaced">
+            <form role="form">
             <div class="col-lg-10">
                 <div>
-                    <h2 class="font-weight-light">Feed URL</h2>
-                    <input type="text"/>
+                    <h3 class="font-weight-light">Feed URL</h3>
+                    <input type="text" class="form-control font-size-4"/>
                 </div>
             </div>
             <div class="col-lg-2">
+                <h3 class="font-weight-light">Feed format</h3>
+                <div class="btn-group btn-block">
+                    <button type="button" class="btn btn-select btn-block dropdown-toggle font-size-4" data-toggle="dropdown">
+                        Json <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu select-menu full-width font-size-4" role="menu">
+                        <li><a href="#">Json</a></li>
+                        <li><a href="#">XML</a></li>
+                        <li><a href="#">CSV</a></li>
+                        <li><a href="#">TSV</a></li>
+                    </ul>
+                </div>
+            </div>
+            </form>
+        </div>
+
+        <div class="row vertical-spaced">
+            <div class="col-lg-2 col-centered">
                 <div>
-                    <h2 class="font-weight-light">Feed format</h2>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                            Action <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                        </ul>
-                    </div>
+                    <button type="button" class="btn btn-primary btn-block">Test file</button>
                 </div>
             </div>
         </div>
@@ -122,7 +137,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="well bs-component relative">
-                    <h5 class="text-center">Failed in last 7 days</h5>
+                    <h5 class="text-center">Test result</h5>
                     <table class="table table-bordered table-inner-border table-striped-even product-table text-center">
                         <colgroup>
                             <col>
@@ -130,212 +145,47 @@
                             <col>
                             <col>
                             <col>
-                            <col>
-                            <col class="tools-2">
                         </colgroup>
                         <thead>
                         <tr>
-                            <th>Product ID</th>
-                            <th>Version</th>
-                            <th>Created</th>
-                            <th>Updated</th>
-                            <th>Status</th>
-                            <th>Attempts</th>
-                            <th>Action</th>
+                            <th>Result</th>
+                            <th>HTTP status code</th>
+                            <th>Content type</th>
+                            <th>Encoding</th>
+                            <th>Product</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>12962121</td>
-                            <td>20130905</td>
-                            <td>2014-09-25 19:14</td>
-                            <td>2014-09-26 09:44</td>
-                            <td>invalid format</td>
-                            <td>100</td>
-                            <td>
-                                <button class="glyphicon glyphicon-refresh"></button>
-                                <button class="glyphicon glyphicon-search"></button>
-                            </td>
+                            <td class="fg-danger">Invalid format</td>
+                            <td class="fg-8">200</td>
+                            <td class="fg-8">application/json; charset=utf-8</td>
+                            <td class="fg-8">utf-8</td>
+                            <td class="fg-danger">invalid</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-error flush-bottom">
+                        <thead class=" font-size-1">
+                        <tr>
+                            <td>Validation error</td>
+                        </tr>
+                        </thead>
+                        <tbody  class=" font-size-2">
+                        <tr>
+                            <td>S is missing required measurement: bust</td>
                         </tr>
                         <tr>
-                            <td>12962121</td>
-                            <td>20130905</td>
-                            <td>2014-09-25 19:14</td>
-                            <td>2014-09-26 09:44</td>
-                            <td>invalid format</td>
-                            <td>100</td>
-                            <td>
-                                <button class="glyphicon glyphicon-refresh"></button>
-                                <button class="glyphicon glyphicon-search"></button>
-                            </td>
+                            <td>M is missing required measurement: bust</td>
                         </tr>
                         <tr>
-                            <td>12962121</td>
-                            <td>20130905</td>
-                            <td>2014-09-25 19:14</td>
-                            <td>2014-09-26 09:44</td>
-                            <td>invalid format</td>
-                            <td>100</td>
-                            <td>
-                                <button class="glyphicon glyphicon-refresh"></button>
-                                <button class="glyphicon glyphicon-search"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12962121</td>
-                            <td>20130905</td>
-                            <td>2014-09-25 19:14</td>
-                            <td>2014-09-26 09:44</td>
-                            <td>invalid format</td>
-                            <td>100</td>
-                            <td>
-                                <button class="glyphicon glyphicon-refresh"></button>
-                                <button class="glyphicon glyphicon-search"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12962121</td>
-                            <td>20130905</td>
-                            <td>2014-09-25 19:14</td>
-                            <td>2014-09-26 09:44</td>
-                            <td>invalid format</td>
-                            <td>100</td>
-                            <td>
-                                <button class="glyphicon glyphicon-refresh"></button>
-                                <button class="glyphicon glyphicon-search"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12962121</td>
-                            <td>20130905</td>
-                            <td>2014-09-25 19:14</td>
-                            <td>2014-09-26 09:44</td>
-                            <td>invalid format</td>
-                            <td>100</td>
-                            <td>
-                                <button class="glyphicon glyphicon-refresh"></button>
-                                <button class="glyphicon glyphicon-search"></button>
-                            </td>
+                            <td>L is missing required measurement: bust</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container vertical-spaced">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="well bs-component relative">
-                    <h5 class="text-center">Failed in last 7 days</h5>
-                    <table class="table table-bordered table-inner-border table-striped-even product-table text-center">
-                        <colgroup>
-                            <col>
-                            <col>
-                            <col>
-                            <col>
-                            <col>
-                            <col>
-                            <col class="tools-2">
-                        </colgroup>
-                        <thead>
-                        <tr>
-                            <th>Product ID</th>
-                            <th>Version</th>
-                            <th>Created</th>
-                            <th>Updated</th>
-                            <th>Status</th>
-                            <th>Attempts</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>12962121</td>
-                            <td>20130905</td>
-                            <td>2014-09-25 19:14</td>
-                            <td>2014-09-26 09:44</td>
-                            <td>invalid format</td>
-                            <td>100</td>
-                            <td>
-                                <button class="glyphicon glyphicon-refresh"></button>
-                                <button class="glyphicon glyphicon-search"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12962121</td>
-                            <td>20130905</td>
-                            <td>2014-09-25 19:14</td>
-                            <td>2014-09-26 09:44</td>
-                            <td>invalid format</td>
-                            <td>100</td>
-                            <td>
-                                <button class="glyphicon glyphicon-refresh"></button>
-                                <button class="glyphicon glyphicon-search"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12962121</td>
-                            <td>20130905</td>
-                            <td>2014-09-25 19:14</td>
-                            <td>2014-09-26 09:44</td>
-                            <td>invalid format</td>
-                            <td>100</td>
-                            <td>
-                                <button class="glyphicon glyphicon-refresh"></button>
-                                <button class="glyphicon glyphicon-search"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12962121</td>
-                            <td>20130905</td>
-                            <td>2014-09-25 19:14</td>
-                            <td>2014-09-26 09:44</td>
-                            <td>invalid format</td>
-                            <td>100</td>
-                            <td>
-                                <button class="glyphicon glyphicon-refresh"></button>
-                                <button class="glyphicon glyphicon-search"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12962121</td>
-                            <td>20130905</td>
-                            <td>2014-09-25 19:14</td>
-                            <td>2014-09-26 09:44</td>
-                            <td>invalid format</td>
-                            <td>100</td>
-                            <td>
-                                <button class="glyphicon glyphicon-refresh"></button>
-                                <button class="glyphicon glyphicon-search"></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>12962121</td>
-                            <td>20130905</td>
-                            <td>2014-09-25 19:14</td>
-                            <td>2014-09-26 09:44</td>
-                            <td>invalid format</td>
-                            <td>100</td>
-                            <td>
-                                <button class="glyphicon glyphicon-refresh"></button>
-                                <button class="glyphicon glyphicon-search"></button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-2 col-centered">
-                <div class="loadmore">
-                    <button type="button" class="btn btn-primary btn-block">Load more</button>
-                </div>
-            </div>
-        </div>
-
-
     </div>
 </div>
 

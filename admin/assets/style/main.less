@@ -144,9 +144,39 @@
     .button-variant(@color-15; @color-6; @color-6);
 }
 
+.btn-select {
+    .button-variant(@color-0; @color-15; @color-10);
+    text-align: left;
+    border-width: 2px;
+
+    .caret {
+        border-top-color: @color-0;
+        float: right;
+        margin-top: 16px;
+    }
+}
+
+.dropdown-menu.select-menu {
+    background-color: @color-15;
+    border: 2px solid @color-10;
+
+    > li > a {
+        color: @color-0;
+        font-weight: inherit;
+
+        &:hover {
+            background-color: @color-14;
+        }
+    }
+}
+
 .btn-xl {
     // line-height: ensure even-numbered height of button next to large input
     .button-size(@padding-large-vertical; 2*@padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+}
+
+.btn-block {
+    width: 100%;
 }
 
 .btn.btn-lg,
@@ -175,7 +205,9 @@
     outline: none;
 }
 
-
+.btn-group.open .dropdown-toggle {
+    .box-shadow(none);
+}
 
 
 .modal .modal-dialog .modal-content .modal-body {
@@ -222,6 +254,7 @@
 .fg-13 {color: @color-13;}
 .fg-14 {color: @color-14;}
 .fg-15 {color: @color-15;}
+.fg-danger {color: @brand-danger}
 
 .font-size-0 {font-size: 10px;}
 .font-size-1 {font-size: 12px;}
@@ -245,6 +278,9 @@
 //Reset bootstraps stupid box shadow on focus.
 .form-control {
     box-shadow: none;
+    border-width: 2px;
+    padding: 10px 18px;
+    height: inherit;
 
      // Customize the `:focus` state to imitate native WebKit styles.
     &:focus {
@@ -252,6 +288,7 @@
         box-shadow: none;
     }
 }
+
 // Navs =======================================================================
 
 // Indicators =================================================================
@@ -316,6 +353,10 @@ footer {
 
 .container.vertical-spaced-bottom {
     padding-bottom: 25px;
+}
+
+.full-width {
+    width: 100%;
 }
 
 //== Wells
@@ -509,6 +550,35 @@ thead tr th {
     }
 }
 
+.table-error {
+    background-color: @brand-danger;
+    color: @color-15;
+    text-align: center;
+
+    > thead > tr > td {
+        border-bottom: 1px solid @color-15;
+    }
+
+    > tbody > tr {
+        > td {
+            border-top: none;
+            padding: 2px;
+        }
+
+        &:first-child > td {
+            padding-top: 10px;
+        }
+
+        &:last-child > td {
+            padding-bottom: 10px;
+        }
+    }
+}
+
+.table.flush-bottom {
+    margin-bottom: 0;
+}
+
 col.one-char {
     width: 30px;
 }
@@ -525,7 +595,7 @@ button.glyphicon {
     }
 }
 
-div.row > div > div:not(.well) .btn {
+.btn.bottom-spaced {
     margin-bottom: 50px;
 }
 
