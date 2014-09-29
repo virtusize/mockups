@@ -24,17 +24,25 @@
             <ul class="nav navbar-nav">
 
                 <li class="dimmed">
-                    <a href="#"><i class="glyphicon glyphicon-dashboard"></i> Overview</a>
+                    <a href="../dashboard.html"><i class="glyphicon glyphicon-dashboard"></i> Overview</a>
                 </li>
                 <li class="dimmed">
-                    <a href="#"><i class="glyphicon glyphicon-book"></i> Products</a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-book"></i> Products</a>
+                    <ul class="dropdown-menu" aria-labelledby="products">
+                        <li><a href="../products/latest.html">Latest</a></li>
+                        <li><a href="../products/details.html">Details</a></li>
+                        <li><a href="../products/bulk-upload.html">Bulk upload</a></li>
+                        <li><a href="../products/edit.html">Edit</a></li>
+                        <li><a href="../products/measure-guide.html">Measure guide</a></li>
+                        <li><a href="../products/search.html">Search</a></li>
+                    </ul>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="glyphicon glyphicon-import"></i> Feed</a>
                     <ul class="dropdown-menu" aria-labelledby="stores">
-                        <li><a href="#">Feed status</a></li>
-                        <li><a href="#">Feed settings</a></li>
-                        <li><a href="#">Feed tester</a></li>
+                        <li><a href="status.html">Feed status</a></li>
+                        <li><a href="settings.html">Feed settings</a></li>
+                        <li><a href="tester.html">Feed tester</a></li>
                     </ul>
                 </li>
             </ul>
@@ -84,7 +92,7 @@
             <div class="col-lg-12">
                 <div class="well well-no-border well-sm bs-component">
                     <div class="breadcrumbs">
-                        <span class="glyphicon glyphicon-home"></span> Home › Products › Feed status
+                        <span class="glyphicon glyphicon-home"></span> Home › Products › Feed settings
                     </div>
                 </div>
             </div>
