@@ -1,0 +1,637 @@
+@import "bootstrap/bootstrap";
+@import "variables";
+@import "animations";
+
+
+// Remove WebKit-style focus
+
+.tab-focus() {
+    // Default
+    outline: none;
+}
+
+
+// Grid =====================================================================
+/*
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1,
+.col-xs-2, .col-sm-2, .col-md-2, .col-lg-2,
+.col-xs-3, .col-sm-3, .col-md-3, .col-lg-3,
+.col-xs-4, .col-sm-4, .col-md-4, .col-lg-4,
+.col-xs-5, .col-sm-5, .col-md-5, .col-lg-5,
+.col-xs-6, .col-sm-6, .col-md-6, .col-lg-6,
+.col-xs-7, .col-sm-7, .col-md-7, .col-lg-7,
+.col-xs-8, .col-sm-8, .col-md-8, .col-lg-8,
+.col-xs-9, .col-sm-9, .col-md-9, .col-lg-9,
+.col-xs-10, .col-sm-10, .col-md-10, .col-lg-10,
+.col-xs-11, .col-sm-11, .col-md-11, .col-lg-11,
+.col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+
+    &.col-no-padding {
+        padding: 0;
+    }
+}
+*/
+
+// Navbar =====================================================================
+
+.navbar {
+    filter: none;
+    .box-shadow(0 1px 10px rgba(0, 0, 0, 0.1));
+    background-image: none;
+    border: none;
+
+    &-default {
+        .navbar-nav > li.dimmed > a {
+            opacity: 0.6;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .badge {
+            background-color: #fff;
+            color: @navbar-default-bg;
+        }
+    }
+
+    &-inverse {
+        filter: none;
+        border-bottom: 1px solid darken(@navbar-inverse-bg, 10%);
+
+        .badge {
+            background-color: #fff;
+            color: @navbar-inverse-bg;
+        }
+    }
+
+    .navbar-nav > li > a,
+    &-brand {
+        text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    }
+    
+    .dropdown.open {
+        .dropdown-toggle {
+            z-index: 9999999;
+            box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown-menu {
+            box-shadow: 0 0px 4px rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+
+@media (max-width: @grid-float-breakpoint-max) {
+
+    .navbar {
+
+        .dropdown-header {
+            color: #fff;
+        }
+    }
+}
+
+// Buttons ====================================================================
+
+//Override Bootstrap button mixin to get different hoover effect
+.button-variant(@color; @background; @border) {
+    color: @color;
+    background-color: @background;
+    border-color: @border;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active,
+    .open > .dropdown-toggle& {
+        color: @color;
+        background-color: lighten(@background, 1%);
+        border-color: lighten(@border, 0%);
+    }
+    &:active,
+    &.active,
+    .open > .dropdown-toggle& {
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: @background;
+            border-color: @border;
+        }
+    }
+
+    .badge {
+        color: @background;
+        background-color: @color;
+    }
+}
+
+
+.btn {
+
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+
+    .caret {
+        border-top-color: #fff;
+    }
+}
+/*
+.btn-inverse {
+    .button-variant(@color-15, @color-6, @color-6);
+}
+*/
+
+.btn-xl {
+    // line-height: ensure even-numbered height of button next to large input
+    .button-size(@padding-large-vertical; 2*@padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+}
+
+.btn.btn-lg,
+.btn.btn-xl {
+    &.btn-rounded {
+        border-radius: @padding-large-vertical + @font-size-large;
+    }
+}
+
+.btn.btn-rounded {
+    border-radius: @padding-base-vertical + @font-size-base;
+}
+
+.btn-default {
+
+    &:hover {
+        color: @btn-default-color;
+    }
+
+    .caret {
+        border-top-color: @text-color;
+    }
+}
+
+*:focus {
+    outline: none;
+}
+
+// Typography =================================================================
+
+.page-header {
+    border: none;
+}
+
+*, *:after, *:before {
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.fg-0  {color: @color-0;}
+//.fg-1 {color: @color-1;}
+//.fg-2 {color: @color-2;}
+//.fg-3 {color: @color-3;}
+.fg-4 {color: @color-4;}
+.fg-5 {color: @color-5;}
+.fg-6 {color: @color-6;}
+.fg-7  {color: @color-7;}
+.fg-8  {color: @color-8;}
+.fg-9  {color: @color-9;}
+.fg-10 {color: @color-10;}
+.fg-11 {color: @color-11;}
+.fg-12 {color: @color-12;}
+.fg-13 {color: @color-13;}
+.fg-14 {color: @color-14;}
+.fg-15 {color: @color-15;}
+
+.font-size-0 {font-size: 10px;}
+.font-size-1 {font-size: 12px;}
+.font-size-2 {font-size: 14px;}
+.font-size-3 {font-size: 18px;}
+.font-size-4 {font-size: 24px; font-weight: 100}
+.font-size-5 {font-size: 30px; font-weight: 100}
+.font-size-6 {font-size: 48px; font-weight: 100}
+
+.font-weight-bold {font-weight: 700;}
+.font-weight-semibold {font-weight: 600;}
+.font-weight-regular {font-weight: 400;}
+.font-weight-light {font-weight: 100;}
+
+
+
+// Tables =====================================================================
+
+// Forms ======================================================================
+
+//Reset bootstraps stupid box shadow on focus.
+.form-control {
+    box-shadow: none;
+
+     // Customize the `:focus` state to imitate native WebKit styles.
+    &:focus {
+        border-color: @input-border;
+        box-shadow: none;
+    }
+}
+// Navs =======================================================================
+
+// Indicators =================================================================
+
+// Progress bars ==============================================================
+
+// Containers =================================================================
+
+.bg-0  {background: @color-0;}
+//.bg-1 {background: @color-1;}
+//.bg-2 {background: @color-2;}
+//.bg-3 {background: @color-3;}
+.bg-4 {background: @color-4;}
+.bg-5 {background: @color-5;}
+.bg-6 {background: @color-6;}
+.bg-7  {background: @color-7;}
+.bg-8  {background: @color-8;}
+.bg-9  {background: @color-9;}
+.bg-10 {background: @color-10;}
+.bg-11 {background: @color-11;}
+.bg-12 {background: @color-12;}
+.bg-13 {background: @color-13;}
+.bg-14 {background: @color-14;}
+.bg-15 {background: @color-15;}
+
+
+.panel-primary,
+.panel-success,
+.panel-warning,
+.panel-danger,
+.panel-info {
+
+    .panel-heading,
+    .panel-title {
+        color: #fff;
+    }
+}
+
+div.footer {
+    background-color: @color-6;
+    color: #c8c8c8;
+    padding: 55px 0;
+
+    a {
+        color: inherit;
+    }
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.container.vertical-spaced {
+    padding-top: 125px;
+}
+
+// Symbols font
+@font-face {
+    font-family: 'viconsregular';
+    src: url('fonts/vicons-regular-webfont.eot');
+    src: local('â—º'),
+    url('fonts/vicons-regular-webfont.woff') format('woff'),
+    url('fonts/vicons-regular-webfont.ttf') format('truetype'),
+    url('fonts/vicons-regular-webfont.svg#viconsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.vicons {
+    font-family: viconsregular;
+    font-weight: 100;
+}
+
+// Tooltips
+.tooltip {
+
+    &.bright {
+
+        &.bottom .tooltip-arrow {
+//            border-bottom-color: @color-14;
+            border: none;
+            margin-left: -20px;
+            height: 8px;
+            overflow: hidden;
+            width: 40px;
+            top: -2px;
+
+            &:after {
+                top: 4px;
+                content: "";
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                background: #fafafa;
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                transform: rotate(45deg);
+                left: 50%;
+                box-shadow: 0 0 10px -2px rgba(0,0,0,0.6);
+                margin-left: -8px;
+            }
+        }
+
+        .tooltip-inner {
+            .box-shadow(0 0 10px -2px rgba(0, 0, 0, 0.6));
+            color: @color-0;
+            background-color: @color-14;
+            overflow: hidden;
+
+            .padding-left {
+                padding-left: 3px;
+            }
+            .padding-right {
+                padding-right: 3px;
+            }
+
+            .vertical-margin {
+                margin: 30px 0 20px;
+            }
+
+            label {
+                margin-top: 15px;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .tooltip-inner {
+        max-width: 250px;
+        padding: 0;
+        text-align: left;
+
+        > div {
+            width: 225px;
+            padding: 5px 17px 17px;
+
+            input {
+                width: 100%;
+            }
+        }
+
+        .btn.split-2 {
+            width: 50%;
+            float: left;
+        }
+
+        div.split-2 {
+            width: 50%;
+            float: left;
+
+            label, input {
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Waterfall image grid plugin
+.waterfall-container {
+    position: relative;
+
+    .item {
+        > img {
+            margin-bottom: 5px;
+        }
+
+        p {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 0;
+
+            &.from-shop {
+                color: @color-9;
+                font-weight: 400;
+                font-size: 12px;
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            padding: 23px;
+
+            p {
+                color: #fff;
+                padding-top: 30px;
+                font-weight: 100;
+            }
+        }
+
+        &:hover .overlay {
+            display: block;
+            .animation(~"fadein 100ms ease-in");
+        }
+    }
+}
+
+//Bottom navbar for mobile
+.navbar-fixed-bottom {
+    .navbar-toggle {
+        float: none;
+        width: 49%;
+        margin-right: 0;
+        color: #fff;
+    }
+
+    .nav.navbar-nav.tiled {
+        padding-left: 10px;
+
+        > li {
+            width: 135px;
+            float: left;
+
+            > a {
+                padding: 5px;
+
+                .thumb {
+                    font: 100 48px/50px viconsregular;
+                }
+
+                .all-symbol {
+                    font-size: 48px;
+                    line-height: 50px
+                }
+            }
+        }
+    }
+}
+
+// A navbar that works vertically
+.navmenu {
+    color: @navmenu-inverse-color;//:                      #fff;
+    background: @navmenu-inverse-bg;//:                         darken(@navbar-default-bg, 10%);
+    border: 1px solid @navmenu-inverse-border;//:                     darken(@navmenu-inverse-bg, 2%);
+    z-index: 1050;
+
+    // Inverted navmenu links
+    li > a {
+        color: @navmenu-inverse-link-color;//:                 #fff;
+
+        &:hover {
+            color: @navmenu-inverse-link-hover-color;//:           #fff;
+            background: @navmenu-inverse-link-hover-bg;//:              lighten(@navmenu-inverse-bg, 1%);;
+        }
+
+        &.active {
+            color: @navmenu-inverse-link-active-color;//:          @navmenu-inverse-link-hover-color;
+            background: @navmenu-inverse-link-active-bg;//:             darken(@navmenu-inverse-bg, 10%);
+        }
+
+        &.disabled {
+            color: @navmenu-inverse-link-disabled-color;//:        #444;
+            background: @navmenu-inverse-link-disabled-bg;//:           transparent;
+        }
+
+        div.thumb {
+            font: 100 39px/39px viconsregular;
+            float: left;
+            margin-right: 6px;
+        }
+
+        div.all-symbol {
+            font-size: 39px;
+            line-height: 32px;
+            float: left;
+            margin-right: 13px;
+            margin-left: 8px;
+        }
+    }
+
+    .top-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        .close-container {
+            width: 383px;
+            padding: 10px 20px 5px;
+
+            .navmenu-close {
+                color: @navmenu-inverse-link-color;
+                font: 100 18px/36px viconsregular;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.navmenu-nav.navmenu-thumbnails {
+    li {
+        display: block;
+        width: 50%;
+        float: left;
+        height: 60px;
+
+        &:hover {
+            color: @navmenu-inverse-link-hover-color;//:           #fff;
+            background: @navmenu-inverse-link-hover-bg;//:              lighten(@navmenu-inverse-bg, 1%);;
+        }
+    }
+}
+
+a.navmenu-toggle {
+    display: block;
+    float: right;
+    padding: 15px;
+    color: @navbar-default-link-color;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        background-color: @navbar-default-link-hover-bg;
+    }
+}
+
+// Offcanvas menu for desktop
+.navmenu-fixed-right.offcanvas {
+    width: 0;
+    transition: width 0.3s ease;
+
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+
+    &.open {
+        width: 385px;
+    }
+}
+
+//Desktop
+@media (min-width: @grid-float-breakpoint) { //and (min-height: 1400px){
+    .navbar-fixed-bottom {
+        display: none;
+    }
+}
+
+//Mobile
+@media (max-width: @grid-float-breakpoint){//, (max-height: 400px) {
+
+    .navmenu-fixed-right,
+    a.navmenu-toggle.offcanvas-toggle {
+        display: none;
+    }
+}
+
+// A dynamic container with static sections at the top and bottom
+.dynamic-top {
+    height: 100%;
+    padding-top: 90px;
+    padding-bottom: 198px;
+    overflow: hidden;
+}
+
+// A static sort menu placed on the bottom of the off canvas menu.
+.sort-menu {
+    min-height: 186px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.category-menu {
+    overflow-y: hidden;
+}
+
+.section-header {
+    font-weight: 600;
+    padding-left: 15px;
+    border-bottom: 1px solid lighten(@navmenu-inverse-bg, 5%);
+    margin-bottom: 5px;
+    line-height: 32px;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 210px;
+    background: #aaa;
+}
+
+.container.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -585px;
+    margin-top: -155px;
+
+    a {
+        display: block;
+        padding: 10px   ;
+    }
+}
