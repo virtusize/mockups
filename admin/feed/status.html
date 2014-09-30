@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Virtusize Client Admin</title>
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="assets/css/main.css">-->
+
+    <link href="../assets/style/variables.less" rel="stylesheet/less">
+    <link href="../assets/style/main.less" rel="stylesheet/less">
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand">Virtusize</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav">
+
+                <li class="dimmed">
+                    <a href="../dashboard.html"><i class="glyphicon glyphicon-dashboard"></i> Overview</a>
+                </li>
+                <li class="dimmed">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-book"></i> Products</a>
+                    <ul class="dropdown-menu" aria-labelledby="products">
+                        <li><a href="../products/latest.html">Latest</a></li>
+                        <li><a href="../products/details.html">Details</a></li>
+                        <li><a href="../products/bulk-upload.html">Bulk upload</a></li>
+                        <li><a href="../products/edit.html">Edit</a></li>
+                        <li><a href="../products/measure-guide.html">Measure guide</a></li>
+                        <li><a href="../products/search.html">Search</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><i class="glyphicon glyphicon-import"></i> Feed</a>
+                    <ul class="dropdown-menu" aria-labelledby="stores">
+                        <li><a href="status.html">Feed status</a></li>
+                        <li><a href="settings.html">Feed settings</a></li>
+                        <li><a href="tester.html">Feed tester</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Stores <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="stores">
+                        <li><a href="#">ASOS</a></li>
+                        <li><a href="#">Custom store</a></li>
+                        <li><a href="#">Kocksgatan 17</a></li>
+                        <li><a href="#">Nelly</a></li>
+                        <li><a href="#">Nordljus</a></li>
+                        <li><a href="#">Stayhard</a></li>
+                        <li><a href="#">Test store</a></li>
+                        <li><a href="#">Virtusize store</a></li>
+                        <li><a href="#">WeSC</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="user-menu">Björn Ekengren <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="user-menu">
+                        <li><a href="#">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <div class="container">
+
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Acne Studios</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well well-no-border well-sm bs-component">
+                    <div class="breadcrumbs">
+                        <span class="glyphicon glyphicon-home"></span> Home › Products › Feed status
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="well bs-component">
+                    <h5 class="text-center font-weight-semibold">URL</h5>
+                    <div class="bg-14 font-size-2 text-center box-height-0">http://stayhard.se/api/virtusize-measurement?id=PRODUCT_ID</div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="well bs-component">
+                    <h5 class="text-center font-weight-semibold">Total added</h5>
+                    <div class="bg-14 font-size-4 text-center box-height-0">1160</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="bg-5">
+    <div class="container vertical-spaced">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well bs-component relative">
+                    <h5 class="text-center">Failed in last 7 days</h5>
+                    <table class="table table-bordered table-inner-border table-striped-even product-table text-center">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col class="tools-2">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Version</th>
+                            <th>Created</th>
+                            <th>Updated</th>
+                            <th>Status</th>
+                            <th>Attempts</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>12962121</td>
+                            <td>20130905</td>
+                            <td>2014-09-25 19:14</td>
+                            <td>2014-09-26 09:44</td>
+                            <td>invalid format</td>
+                            <td>100</td>
+                            <td>
+                                <button class="glyphicon glyphicon-refresh"></button>
+                                <button class="glyphicon glyphicon-search"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12962121</td>
+                            <td>20130905</td>
+                            <td>2014-09-25 19:14</td>
+                            <td>2014-09-26 09:44</td>
+                            <td>invalid format</td>
+                            <td>100</td>
+                            <td>
+                                <button class="glyphicon glyphicon-refresh"></button>
+                                <button class="glyphicon glyphicon-search"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12962121</td>
+                            <td>20130905</td>
+                            <td>2014-09-25 19:14</td>
+                            <td>2014-09-26 09:44</td>
+                            <td>invalid format</td>
+                            <td>100</td>
+                            <td>
+                                <button class="glyphicon glyphicon-refresh"></button>
+                                <button class="glyphicon glyphicon-search"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12962121</td>
+                            <td>20130905</td>
+                            <td>2014-09-25 19:14</td>
+                            <td>2014-09-26 09:44</td>
+                            <td>invalid format</td>
+                            <td>100</td>
+                            <td>
+                                <button class="glyphicon glyphicon-refresh"></button>
+                                <button class="glyphicon glyphicon-search"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12962121</td>
+                            <td>20130905</td>
+                            <td>2014-09-25 19:14</td>
+                            <td>2014-09-26 09:44</td>
+                            <td>invalid format</td>
+                            <td>100</td>
+                            <td>
+                                <button class="glyphicon glyphicon-refresh"></button>
+                                <button class="glyphicon glyphicon-search"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12962121</td>
+                            <td>20130905</td>
+                            <td>2014-09-25 19:14</td>
+                            <td>2014-09-26 09:44</td>
+                            <td>invalid format</td>
+                            <td>100</td>
+                            <td>
+                                <button class="glyphicon glyphicon-refresh"></button>
+                                <button class="glyphicon glyphicon-search"></button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container vertical-spaced">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well bs-component relative">
+                    <h5 class="text-center">Failed in last 7 days</h5>
+                    <table class="table table-bordered table-inner-border table-striped-even product-table text-center">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col class="tools-2">
+                        </colgroup>
+                        <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Version</th>
+                            <th>Created</th>
+                            <th>Updated</th>
+                            <th>Status</th>
+                            <th>Attempts</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>12962121</td>
+                            <td>20130905</td>
+                            <td>2014-09-25 19:14</td>
+                            <td>2014-09-26 09:44</td>
+                            <td>invalid format</td>
+                            <td>100</td>
+                            <td>
+                                <button class="glyphicon glyphicon-refresh"></button>
+                                <button class="glyphicon glyphicon-search"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12962121</td>
+                            <td>20130905</td>
+                            <td>2014-09-25 19:14</td>
+                            <td>2014-09-26 09:44</td>
+                            <td>invalid format</td>
+                            <td>100</td>
+                            <td>
+                                <button class="glyphicon glyphicon-refresh"></button>
+                                <button class="glyphicon glyphicon-search"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12962121</td>
+                            <td>20130905</td>
+                            <td>2014-09-25 19:14</td>
+                            <td>2014-09-26 09:44</td>
+                            <td>invalid format</td>
+                            <td>100</td>
+                            <td>
+                                <button class="glyphicon glyphicon-refresh"></button>
+                                <button class="glyphicon glyphicon-search"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12962121</td>
+                            <td>20130905</td>
+                            <td>2014-09-25 19:14</td>
+                            <td>2014-09-26 09:44</td>
+                            <td>invalid format</td>
+                            <td>100</td>
+                            <td>
+                                <button class="glyphicon glyphicon-refresh"></button>
+                                <button class="glyphicon glyphicon-search"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12962121</td>
+                            <td>20130905</td>
+                            <td>2014-09-25 19:14</td>
+                            <td>2014-09-26 09:44</td>
+                            <td>invalid format</td>
+                            <td>100</td>
+                            <td>
+                                <button class="glyphicon glyphicon-refresh"></button>
+                                <button class="glyphicon glyphicon-search"></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12962121</td>
+                            <td>20130905</td>
+                            <td>2014-09-25 19:14</td>
+                            <td>2014-09-26 09:44</td>
+                            <td>invalid format</td>
+                            <td>100</td>
+                            <td>
+                                <button class="glyphicon glyphicon-refresh"></button>
+                                <button class="glyphicon glyphicon-search"></button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2 col-centered">
+                <div class="loadmore">
+                    <button type="button" class="btn btn-primary btn-block">Load more</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="list-inline fg-10">
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 fg-9 small">
+            Session: 59 min left
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-lg-12 fg-9 small copyright">
+                Copyright 2014 &copy; Virtusize AB
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p class="text-center">
+                    Are you sure you want to remove<br>
+                    <span class="font-weight-semibold">College Slogan Old Pink Sweater</span>?
+                </p>
+                <button type="button" class="btn btn-default btn-block split-2" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary btn-block split-2">Yes, remove</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//drnbmd8o2dh74.cloudfront.net/ajax/libs/less.js/1.7.0/less.min.js"></script>
+</body>

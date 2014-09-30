@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="dc.css" media="screen"/>
+</head>
+<body>
+
+<div id="chart-ring-year"></div>
+<div id="g-chart-ring-quarter"></div>
+<div id="chart-ring-status"></div>
+<div id="g-chart-line"></div>
+<div id="g-composite-chart-line"></div>
+<div id="chart-line-hitsperday"></div>
+<div style='clear:both;'>
+    <table id="dc-data-table">
+        <thead>
+        <tr class="header">
+            <th>Day</th>
+            <th>Status 200</th>
+            <th>Status 302</th>
+            <th>Status 404</th>
+            <th>TPS Total</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.js"></script>
+<script type="text/javascript" src="js/melt.js"></script>
+<script type="text/javascript" src="js/crossfilter.js"></script>
+<script type="text/javascript" src="js/d3.js"></script>
+<script type="text/javascript" src="js/dc.js"></script>
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript" src="fluxcapacitor.js"></script>
+</body>
