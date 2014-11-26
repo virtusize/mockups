@@ -1,0 +1,77 @@
+/*
+    FORMS
+ */
+
+.input {
+
+    & > div {
+        width: 200px;
+        overflow: hidden;
+
+        input {
+            border: none;
+            width: 125px;
+            float: left;
+            display: block;
+        }
+    }
+
+    & > input,
+    & > div {
+        border: 2px solid @widget-color-5;
+    }
+
+    input {
+        color: @widget-color-6;
+        padding: 3px 0 3px 10px;
+        outline: none;
+        line-height: 27px;
+        width: 100%;
+        font-weight: 400;
+    }
+
+    label {
+        color: @widget-color-8;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+
+    &.regular.focused {
+        & > div,
+        & > input {
+            border-color: @widget-color-6;
+        }
+    }
+
+    &.warning {
+        & > div,
+        & > input {
+            border-color: @widget-color-14;
+        }
+
+        input {
+            color: @widget-color-14;
+
+            &:focus {
+                color: @widget-color-6;
+            }
+        }
+    }
+
+    &.error {
+        & > div,
+        & > input {
+            border-color: @widget-color-13;
+        }
+
+        input {
+            color: @widget-color-13;
+
+            &:focus {
+                color: @widget-color-6;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.detached {
+    background: @widget-color-6;
+
+    #widget-container {
+        width: auto;
+        height: auto;
+        margin: 0;
+    }
+
+    #widget {
+        margin: auto;
+        .box-shadow(0 0 0 0 rgba(0, 0, 0, 0));
+        width: @widget-detached-width;
+    }
+
+    #close-container {
+        display: none;
+    }
+
+    .compare {
+
+        > .left,
+        > .right {
+            width: 180px;
+
+            .product-pane {
+                left: 0;
+            }
+        }
+    }
+}
+

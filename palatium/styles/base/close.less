@@ -1,0 +1,35 @@
+/*
+    CLOSE ICON
+ */
+
+#close-container {
+    width: @pane-header-height;
+    height: @pane-header-height;
+    float: right;
+    background: @widget-color-8;
+
+    &:hover {
+        background: lighten(@widget-color-8, 10%);
+        cursor: pointer;
+    }
+
+    .close {
+        width: @pane-header-height;
+        height: @pane-header-height;
+        background: inherit;
+        overflow: hidden;
+        text-indent: -60px;
+
+        &:after {
+            content: "h";
+            font: 13px viconsregular;
+            color: @widget-color-1;
+            text-transform: lowercase;
+            display: block;
+            position: absolute;
+            top: 13px;
+            right: -11px;
+            cursor: pointer;
+        }
+    }
+}

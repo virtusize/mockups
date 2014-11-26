@@ -1,0 +1,131 @@
+/* Core */
+@import "base/mixins";
+@import "base/normalize";
+@import "base/const";
+
+/* Base */
+@import "base/reset";
+@import "base/variables";
+@import "base/colors";
+@import "base/layouts";
+@import "base/notifications";
+@import "base/type";
+@import "base/proxies";
+@import "base/forms";
+@import "base/dropdowns";
+@import "base/component-animations";
+@import "base/close";
+@import "base/buttons";
+@import "base/tooltip";
+@import "base/scrollbar";
+@import "base/utilities";
+@import "base/components";
+@import "base/browser-hacks";
+@import "base/detached";
+
+/* Modules */
+@import "modules/nogarment/nogarment";
+
+/* Components */
+@import "components/header/header";
+
+/*
+    COLORS
+ */
+
+@widget-color-1:  #ffffff;  // white
+@widget-color-2:  #fafafa;  // white gray
+@widget-color-3:  #ececec;  // light gray
+@widget-color-4:  #dedede;  // semi light gray
+@widget-color-5:  #c8c8c8;  // medium gray
+@widget-color-6:  #737373;  // semi dark gray
+@widget-color-7:  #575757;  // dark gray
+@widget-color-8:  #3a3a3a;  // black gray
+@widget-color-9:  #000000;  // black
+@widget-color-10: #16c6b9;  // turquoise dark
+@widget-color-11: #0098e6;  // blue
+@widget-color-12: #005580;  // marine blue
+@widget-color-13: #e65d5d;  // red
+@widget-color-14: #debb41;  // gold
+@widget-color-15: #6fc1d2;  // grey blue
+@widget-color-16: #7dc692;  // grey green
+@widget-color-17: #a5a5a5;  // disabled button text
+
+
+
+
+.panel .content {
+    width: 960px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 35px 160px;
+    text-align: center;
+
+    button {
+        background: #16c6b9;
+        color: #fff;
+        border: none;
+        padding: 15px 40px;
+        margin: 40px 0;
+        font-size: 14px;
+        font-weight: 100;
+    }
+}
+
+/*
+h1 {
+    color: #16c6b9;
+    font-weight: 100;
+    font-size: 20px;
+    margin-bottom: 25px;
+    margin-top: 0;
+}
+*/
+
+.progress-bar {
+    background: #fff;
+    text-align: center;
+    position: relative;
+
+    .step {
+        display: inline-block;
+        width: 180px;
+        position: relative;
+        padding: 30px 0 25px;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 10px;
+        margin-top: 25px;
+
+        &:after {
+            content: "";
+            width: 12px;
+            height: 12px;
+            border: 2px solid #c8c8c8;
+            border-radius: 6px;
+            position: absolute;
+            left: 90px;
+            margin-left: -6px;
+            top: 8px;
+            -webkit-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 1);
+            -moz-box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 1);
+            box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 1);
+            background: #fff;
+            z-index: 10;
+        }
+
+        &.active:after {
+            border-color: #16c6b9;
+        }
+    }
+
+    .line {
+        position: absolute;
+        border: 1px solid #c8c8c8;
+        top: 38px;
+        left: 50%;
+        margin-left: -180px;
+        width: 360px;
+
+    }
+}

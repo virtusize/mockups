@@ -1,0 +1,49 @@
+/*
+    SCROLLBAR
+ */
+
+.scrollable {
+    position: relative;
+
+    .scrollbar {
+        position: relative;
+        float: right;
+        width: 4px;
+        margin: 0 5px;
+
+        .track {
+            position: relative;
+            height: 100%;
+            background-color: @widget-color-5;
+            border: none;
+            border-radius: 2px;
+        }
+
+        .thumb {
+            position: relative;
+            width: 4px;
+            border-radius: 2px;
+            background-color: @widget-color-7;
+            cursor: pointer;
+        }
+
+        &.disable {
+            display: none;
+        }
+    }
+
+    .viewport {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .overview {
+        .position-relative(0, 0);
+        padding: 0;
+    }
+}
+
+.scrollbar.disable {
+    display: none;
+}
+

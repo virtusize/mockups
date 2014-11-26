@@ -1,0 +1,415 @@
+
+/* ==========================================================================
+   LESS mixins
+   ========================================================================== */
+
+//============================================================
+//
+// linear-gradient
+//
+// @param dir                 :  top, left, 90deg
+// @param start-color         :  #000, rgba(255,255,255,0.5)
+// @param end-color           :  #000, rgba(255,255,255,0.5)
+//
+// NOTE: The direction for the IE gradient is automagically
+// worked out for you based either on the direction or the
+// angle that you pass in. Obviously it will only be a
+// horizontal or vertical gradient, but it's still awesome.
+//
+// ALSO: Support for rgba is covered in IE too. Values are
+// converted to aRGB.
+//
+// @example .linear-gradient(50deg,  #eee, #aaa); (IE auto included)
+//
+// OR
+//
+// @example .linear-gradient-multi(~'top, #eee 0%, #aaa 50%, #eee 100%');
+//          .linear-gradient-ie(top, #eee, #aaa);
+//
+//
+// @see http://dev.w3.org/csswg/css3-images/#linear-gradients
+//
+//============================================================
+
+.linear-gradient( @dir: top, @start-color: #eee, @end-color: #aaa ) {
+    background: -webkit-linear-gradient(@dir, @start-color 0%, @end-color 100%);
+    background: -moz-linear-gradient(@dir, @start-color 0%, @end-color 100%);
+    background: -ms-linear-gradient(@dir, @start-color 0%, @end-color 100%);
+    background: -o-linear-gradient(@dir, @start-color 0%, @end-color 100%);
+    background: linear-gradient(@dir, @start-color 0%, @end-color 100%);
+    .linear-gradient-ie( @dir, @start-color, @end-color);
+}
+
+.linear-gradient-multi( ... ) {
+    background-image: -webkit-linear-gradient(@arguments);
+    background-image: -moz-linear-gradient(@arguments);
+    background-image: -ms-linear-gradient(@arguments);
+    background-image: -o-linear-gradient(@arguments);
+    background-image: linear-gradient(@arguments);
+}
+
+.linear-gradient-ie( @dir, @start-color, @end-color) when (@dir = top),
+    not ( isstring(@dir) ) and ( @dir >= 225 ) and ( @dir < 315 ),
+    not ( isstring(@dir) ) and ( @dir >= -135 ) and ( @dir < -45 ) {
+    .linear-gradient-ie-filter(@start-color, @end-color, 0);
+}
+.linear-gradient-ie( @dir, @start-color, @end-color) when (@dir = right),
+    not ( isstring(@dir) ) and ( @dir >= 135 ) and ( @dir < 225 ),
+    not ( isstring(@dir) ) and ( @dir >= -225 ) and ( @dir < -135 ) {
+    .linear-gradient-ie-filter(@end-color, @start-color, 1);
+}
+.linear-gradient-ie( @dir, @start-color, @end-color) when (@dir = bottom),
+    not ( isstring(@dir) ) and ( @dir >= 45 ) and ( @dir < 135 ),
+    not ( isstring(@dir) ) and ( @dir >= -315 ) and ( @dir < -225 ) {
+    .linear-gradient-ie-filter(@end-color, @start-color, 0);
+}
+.linear-gradient-ie( @dir, @start-color, @end-color) when (@dir = left),
+    not ( isstring(@dir) ) and ( @dir >= 315 ) and ( @dir < 360 ),
+    not ( isstring(@dir) ) and ( @dir >= -45 ) and ( @dir < 45 ),
+    not ( isstring(@dir) ) and ( @dir < -315 ) and ( @dir >= -360 ) {
+    .linear-gradient-ie-filter(@start-color, @end-color, 1);
+}
+
+.linear-gradient-ie-filter(@start: #eee, @end: #aaa, @type: 1) {
+    @c-start: argb(@start);
+    @c-end:   argb(@end);
+    filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{c-start}', endColorstr='@{c-end}', GradientType=@{type})";
+    -ms-filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{c-start}',endColorstr='@{c-end}',GradientType=@{type}, GradientType=0)";
+}
+
+
+//============================================================
+//
+//  Mixin to make transparent background that is ie8 compatible
+//
+//============================================================
+.alpha-bg(@colour, @alpha) {
+    @alphaColour: hsla(hue(@colour), saturation(@colour), lightness(@colour), @alpha);
+    @ieAlphaColour: argb(@alphaColour);
+
+    background-color: @colour; // Fallback for older browsers
+
+    // IE hacks
+    zoom: 1; // hasLayout
+    background-color: transparent\9;
+    -ms-filter:  ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{ieAlphaColour}', endColorstr='@{ieAlphaColour}')"; // IE 8+
+    filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='@{ieAlphaColour}', endColorstr='@{ieAlphaColour}', GradientType=0)"; // IE 6 & 7
+
+    background-color: @alphaColour;
+
+}
+
+//============================================================
+//
+//  DEPRECATED GRADIENT FUNCTION THANT CANNOT HANDLE < IE9 and alpha
+//
+//============================================================
+
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF, @begin: 0%, @end: 100%) {
+    background: @color;
+    background-image: -moz-linear-gradient(top, @start @begin, @stop @end); /* FF3.6+ */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(@begin, @start), color-stop(@end, @stop)); /* Chrome,Safari4+ */
+    background-image: -webkit-linear-gradient(top, @start @begin, @stop @end); /* Chrome10+,Safari5.1+ */
+    background-image: -o-linear-gradient(top, @start @begin, @stop @end); /* Opera 11.10+ */
+    background-image: -ms-linear-gradient(top, @start @begin, @stop @end); /* IE10+ */
+    background-image: linear-gradient(top, @start @begin, @stop @end); /* W3C */
+    filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorStr='@{start}', EndColorStr='@{stop}', GradientType=0)"; /* IE8+ */
+}
+
+.bw-gradient(@color: #F5F5F5, @start: 0, @stop: 255) {
+  background: @color;
+  background: -webkit-gradient(linear,
+                               left bottom,
+                               left top,
+                               color-stop(0, rgb(@start,@start,@start)),
+                               color-stop(1, rgb(@stop,@stop,@stop)));
+  background: -ms-linear-gradient(bottom,
+                                  rgb(@start,@start,@start) 0%,
+                                  rgb(@start,@start,@start) 100%);
+  background: -moz-linear-gradient(center bottom,
+                                   rgb(@start,@start,@start) 0%,
+                                   rgb(@stop,@stop,@stop) 100%);
+}
+
+.bordered(@top-color: #EEE, @right-color: #EEE, @bottom-color: #EEE, @left-color: #EEE) {
+    border-top: solid 1px @top-color;
+    border-left: solid 1px @left-color;
+    border-right: solid 1px @right-color;
+    border-bottom: solid 1px @bottom-color;
+}
+
+.border-radius(@radius: 5px, @clip: padding-box) {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+    -moz-background-clip: @clip;
+    -webkit-background-clip: @clip;
+    background-clip: @clip; 
+}
+
+.border-radius-left(@radius: 5px) {
+    -moz-border-radius: 0;
+    -moz-border-radius-topleft: @radius;
+    -moz-border-radius-bottomleft: @radius;
+    -webkit-border-radius: 0;
+    -webkit-border-top-left-radius: @radius;
+    -webkit-border-bottom-left-radius: @radius;
+    border-radius: 0;
+    border-top-left-radius: @radius;
+    border-bottom-left-radius: @radius;
+}
+
+.border-radius-right(@radius: 5px) {
+    -moz-border-radius: 0;
+    -moz-border-radius-topright: @radius;
+    -moz-border-radius-bottomright: @radius;
+    -webkit-border-radius: 0;
+    -webkit-border-top-right-radius: @radius;
+    -webkit-border-bottom-right-radius: @radius;
+    border-radius: 0;
+    border-top-right-radius: @radius;
+    border-bottom-right-radius: @radius;
+}
+
+.border-radius-top(@radius: 5px) {
+    -moz-border-radius: 0;
+    -moz-border-radius-topleft: @radius;
+    -moz-border-radius-topright: @radius;
+    -webkit-border-radius: 0;
+    -webkit-border-top-left-radius: @radius;
+    -webkit-border-top-right-radius: @radius;
+    border-radius: 0;
+    border-top-left-radius: @radius;
+    border-top-right-radius: @radius;
+}
+
+.border-radius-bottom(@radius: 5px) {
+    -moz-border-radius: 0;
+    -moz-border-radius-bottomleft: @radius;
+    -moz-border-radius-bottomright: @radius;
+    -webkit-border-radius: 0;
+    -webkit-border-bottom-left-radius: @radius;
+    -webkit-border-bottom-right-radius: @radius;
+    border-radius: 0;
+    border-bottom-left-radius: @radius;
+    border-bottom-right-radius: @radius;
+}
+
+.border-radius-sw(@radius: 5px) {
+    -moz-border-radius: 0;
+    -moz-border-radius-bottomleft: @radius;
+    -webkit-border-radius: 0;
+    -webkit-border-bottom-left-radius: @radius;
+    border-radius: 0;
+    border-bottom-left-radius: @radius;
+}
+
+.border-radius-nw(@radius: 5px) {
+    -moz-border-radius: 0;
+    -moz-border-radius-topleft: @radius;
+    -webkit-border-radius: 0;
+    -webkit-border-top-left-radius: @radius;
+    border-radius: 0;
+    border-top-left-radius: @radius;
+}
+
+.border-radius-se(@radius: 5px) {
+    -moz-border-radius: 0;
+    -moz-border-radius-bottomright: @radius;
+    -webkit-border-radius: 0;
+    -webkit-border-bottom-right-radius: @radius;
+    border-radius: 0;
+    border-bottom-right-radius: @radius;
+}
+
+.border-radius-ne(@radius: 5px) {
+    -moz-border-radius: 0;
+    -moz-border-radius-topright: @radius;
+    -webkit-border-radius: 0;
+    -webkit-border-top-right-radius: @radius;
+    border-radius: 0;
+    border-top-right-radius: @radius;
+}
+
+.border-radius-ne-se(@radius: 5px) {
+    -moz-border-radius: 0;
+    -moz-border-radius-topright: @radius;
+    -webkit-border-radius: 0;
+    -webkit-border-top-right-radius: @radius;
+    border-radius: 0;
+    border-top-right-radius: @radius;
+    border-bottom-right-radius: @radius;
+}
+
+.opacity(@opacity: 50) {
+    opacity: @opacity / 100;
+    filter: ~"alpha(opacity=@{opacity})";
+}
+
+.transition-duration(@duration: 0.2s) {
+    -moz-transition-duration: @duration;
+    -webkit-transition-duration: @duration;
+    transition-duration: @duration;
+}
+
+.transform-origin(@transform) {
+    -webkit-transform-origin: @transform;
+    -moz-transform-origin: @transform;
+    -ms-transform-origin: @transform;
+    -o-transform-origin: @transform;
+    transform-origin: @transform;
+}
+
+.rotation(@deg:5deg){
+    -webkit-transform: rotate(@deg);
+    -moz-transform: rotate(@deg);
+    transform: rotate(@deg);
+}
+
+.scale(@ratio:1.5){
+    -webkit-transform: scale(@ratio);
+    -moz-transform: scale(@ratio);
+    transform: scale(@ratio);
+}
+
+.transition(@transition) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+}
+
+.animation(@animation) {
+    -webkit-animation: @animation;
+    -moz-animation: @animation;
+    -o-animation: @animation;
+    animation: @animation;
+}
+
+/**
+ *  http://stackoverflow.com/questions/15974128/how-to-set-keyframes-name-in-less
+ */
+.keyframes (@name, @type, @from, @to, @blockend:"", @vendor:"") {
+    @keyf: ~"@{blockend}@@{vendor}keyframes @{name} { `'\n'`from ";
+    @{keyf} {
+        .from(@type,@from,@vendor);
+    }
+    to {
+        .to(@type,@to,@vendor);
+    }
+}
+
+.animation-keyframes (@name, @type, @from, @to) {
+    @blockend: "} `'\n'`";
+    .keyframes (@name, @type, @from, @to);
+    .keyframes (@name, @type, @from, @to, @blockend, -moz-);
+    .keyframes (@name, @type, @from, @to, @blockend, -webkit-);
+    .keyframes (@name, @type, @from, @to, @blockend, -o-);
+    @dummyblock: ~"} `'\n'`.dummyfillerclass";    /* Required for end bracket */
+    @{dummyblock} {
+        x:y;
+    }
+}
+
+.from (translateY, @value, -moz-) { -moz-transform: translateY(@value); }
+.to (translateY, @value, -moz-) { -moz-transform: translateY(@value); }
+.from (translateY, @value, -webkit-) { -webkit-transform: translateY(@value); }
+.to (translateY, @value, -webkit-) { -webkit-transform: translateY(@value); }
+.from (translateY, @value, -o-) { -o-transform: translateY(@value); }
+.to (translateY, @value, -o-) { -o-transform: translateY(@value); }
+.from (translateY, @value, "") { transform: translateY(@value); }
+.to (translateY, @value, "") { transform: translateY(@value); }
+
+.from (translateX, @value, -moz-) { -moz-transform: translateX(@value); }
+.to (translateX, @value, -moz-) { -moz-transform: translateX(@value); }
+.from (translateX, @value, -webkit-) { -webkit-transform: translateX(@value); }
+.to (translateX, @value, -webkit-) { -webkit-transform: translateX(@value); }
+.from (translateX, @value, -o-) { -o-transform: translateX(@value); }
+.to (translateX, @value, -o-) { -o-transform: translateX(@value); }
+.from (translateX, @value, "") { transform: translateX(@value); }
+.to (translateX, @value, "") { transform: translateX(@value); }
+
+.from (background-position, @value, @vendor) { background-position: @value; }
+.to (background-position, @value, @vendor) { background-position: @value; }
+
+.from (opacity, @value, @vendor) { opacity: @value; }
+.to (opacity, @value, @vendor) { opacity: @value; }
+
+.from (rotate, @value, -moz-) { -moz-transform: rotate(@value); }
+.to (rotate, @value, -moz-) { -moz-transform: rotate(@value); }
+.from (rotate, @value, -webkit-) { -webkit-transform: rotate(@value); }
+.to (rotate, @value, -webkit-) { -webkit-transform: rotate(@value); }
+.from (rotate, @value, -o-) { -o-transform: rotate(@value); }
+.to (rotate, @value, -o-) { -o-transform: rotate(@value); }
+.from (rotate, @value, "") { transform: rotate(@value); }
+.to (rotate, @value, "") { transform: rotate(@value); }
+
+.from (maxHeight, @value, @vendor) { max-height: @value; }
+.to (maxHeight, @value, @vendor) { max-height: @value; }
+
+
+.box-shadow(@args) {
+    -webkit-box-shadow: @args;
+    -moz-box-shadow: @args;
+    -ms-box-shadow: @args;
+    -o-box-shadow: @args;
+    box-shadow: @args;
+}
+
+.double-box-shadow(@iX, @iY, @iBlur, @iSpread, @iColor, @oX, @oY, @oBlur, @oSpread, @oColor) {
+    -webkit-box-shadow: inset @iX @iY @iBlur @iSpread @iColor, @oX @oY  @oBlur @oSpread @oColor;
+    -moz-box-shadow: inset @iX @iY @iBlur @iSpread @iColor, @oX @oY  @oBlur @oSpread @oColor;
+    -ms-box-shadow: inset @iX @iY @iBlur @iSpread @iColor, @oX @oY  @oBlur @oSpread @oColor;
+    -o-box-shadow: inset @iX @iY @iBlur @iSpread @iColor, @oX @oY  @oBlur @oSpread @oColor;
+    box-shadow: inset @iX @iY @iBlur @iSpread @iColor, @oX @oY  @oBlur @oSpread @oColor;
+}
+
+.box-sizing(@boxmodel) {
+    -webkit-box-sizing: @boxmodel;
+    -moz-box-sizing: @boxmodel;
+    box-sizing: @boxmodel;
+}
+
+.translate(@x:0, @y:0) {
+    -moz-transform: translate(@x, @y);
+    -webkit-transform: translate(@x, @y);
+    -o-transform: translate(@x, @y);
+    -ms-transform: translate(@x, @y);
+    transform: translate(@x, @y);
+}
+
+.position-absolute(@left: 0, @top: 0) {
+    position: absolute;
+    left: @left;
+    top: @top;
+}
+
+.position-relative(@left: 0, @top: 0) {
+    position: relative;
+    left: @left;
+    top: @top;
+}
+
+.no-select() {
+    user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.color-placeholder(@color: #999, @important) {
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        color: @color @important;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        color: @color @important;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: @color @important;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: @color @important;
+    }
+}

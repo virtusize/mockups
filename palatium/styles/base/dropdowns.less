@@ -1,0 +1,206 @@
+/*
+    DROPDOWNS
+ */
+
+@dropdown-width: 180px;
+
+.dropdown {
+    position: relative;
+    width: @dropdown-width;
+
+    &.type-dropdown {
+        width: 470px;
+    }
+
+    .scrollbar {
+        position: relative;
+        float: right;
+        width: 8px;
+
+        .track {
+            position: relative;
+            height: 100%;
+            background-color: @widget-color-1;
+            border-left: 1px solid @widget-color-5;
+        }
+
+        .thumb {
+            position: relative;
+            width: 7px;
+            background-color: @widget-color-8;
+            cursor: pointer;
+        }
+    }
+}
+
+.dropdown-menu {
+    .position-absolute(0, 100%);
+    z-index: 1000;
+    display: none;
+    float: left;
+    width: inherit;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: @widget-color-7;
+    color: @widget-color-1;
+
+    li.checked:hover a {
+        cursor: default;
+    }
+
+    li:hover a {
+        color: @widget-color-5;
+    }
+
+    .scrollbar {
+        .track {
+            background-color: @widget-color-7;
+
+            .thumb {
+                background-color: @widget-color-1;
+            }
+        }
+    }
+
+    .color-5 & {
+        background-color: @widget-color-5;
+        color: @widget-color-1;
+
+        li:hover a,
+        li.checked a {
+            color: @widget-color-7;
+        }
+
+        .scrollbar {
+            .track {
+                background-color: @widget-color-5;
+                border-left: 0;
+
+                .thumb {
+                    background-color: @widget-color-7;
+                }
+            }
+        }
+    }
+
+    .color-11 & {
+        background-color: @widget-color-11;
+        color: @widget-color-1;
+
+        li:hover a,
+        li.checked a {
+            color: @widget-color-12;
+        }
+
+        .scrollbar {
+            .track {
+                background-color: @widget-color-11;
+                border-left: 0;
+
+                .thumb {
+                    background-color: @widget-color-1;
+                }
+            }
+        }
+    }
+
+    li > a {
+        display: block;
+        padding: 11px 9px;
+        clear: both;
+        font-weight: 700;
+        line-height: 100%;
+        word-wrap: break-word;
+        overflow: hidden;
+        color: inherit;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+
+    li:hover a {
+        text-decoration: none;
+    }
+
+    .viewport {
+        position: relative;
+        width: @dropdown-width - 8;
+        max-height: 235px;
+        overflow: hidden;
+    }
+
+    .overview {
+        .position-relative(0, 0);
+        padding: 0;
+    }
+}
+
+.open .dropdown-menu {
+    display: block;
+    .animation(~"grow235 80ms cubic-bezier(.06,.59,.32,.99)");
+
+    .viewport,
+    .scrollbar {
+        .animation(~"grow235 80ms cubic-bezier(.06,.59,.32,.99)");
+    }
+}
+
+.dropdown-toggle {
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 100%;
+    border: none;
+    width: inherit;
+    height: 50px;
+    text-align: left;
+    padding: 0 20px;
+    background-color: @widget-color-7;
+    color: @widget-color-1;
+    position: relative;
+
+    &:hover,
+    &:active,
+    &:focus {
+        text-decoration: none;
+    }
+
+    .color-5 & {
+        background-color: @widget-color-5;
+        color: @widget-color-1;
+    }
+
+    .color-11 & {
+        background-color: @widget-color-11;
+        color: @widget-color-1;
+    }
+}
+
+.dropdown-toggle:active,
+.open .dropdown-toggle {
+    outline: 0;
+}
+
+.caret {
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    &:after {
+        content: "e";
+        font: 13px viconsregular;
+        color: @widget-color-8;
+        text-transform: lowercase;
+        display: block;
+        cursor: pointer;
+    }
+
+
+    &.white:after {
+        color: @widget-color-1;
+    }
+}

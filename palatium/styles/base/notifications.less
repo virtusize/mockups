@@ -1,0 +1,54 @@
+/*
+    NOTIFICATIONS
+ */
+
+.notification {
+    border: none;
+    text-align: center;
+    z-index: 50;
+    color: @widget-color-1;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    .animation(fadein 400ms ease-out);
+
+    &:hover:after {
+        content: "i";
+        font: 10px/20px viconsregular;
+        text-transform: lowercase;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 6px;
+        cursor: pointer;
+    }
+
+    p {
+        color: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        text-transform: inherit;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+        font: inherit;
+    }
+
+    &.info {
+        background-color: @widget-color-15;
+    }
+    &.success {
+        background-color: @widget-color-16;
+    }
+    &.error {
+        background-color: @widget-color-13;
+    }
+    &.warning {
+        background-color: @widget-color-14;
+    }
+}

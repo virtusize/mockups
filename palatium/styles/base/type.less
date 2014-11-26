@@ -1,0 +1,117 @@
+/*
+    TYPE
+ */
+
+h1, h2, h3, h4, h5, h6, header, p, a, div {
+    font-size: @vs-font-size;
+    font-weight: @font-weight-regular;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    &.size-5 {
+        font-size: 22px;
+    }
+    &.size-4 {
+        font-size: 18px;
+    }
+    &.size-3 {
+        font-size: 14px;
+    }
+    &.size-2 {
+        font-size: 12px;
+    }
+    &.size-1 {
+        font-size: 10px;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+    &.size-5 {
+        line-height: 24px;
+    }
+    &.size-4 {
+        line-height: 22px;
+    }
+    &.size-3 {
+        line-height: 18px;
+    }
+    &.size-2 {
+        line-height: 17px;
+    }
+}
+
+p, div {
+    &.size-5 {
+        line-height: 24px;
+    }
+    &.size-4 {
+        line-height: 22px;
+    }
+    &.size-3 {
+        line-height: 20px;
+    }
+    &.size-2 {
+        line-height: 16px;
+    }
+    &.size-1 {
+        line-height: 10px;
+    }
+}
+
+.bold {
+    font-weight: @font-weight-bold;
+}
+
+strong {
+    font-weight: @font-weight-bold;
+}
+
+.semibold {
+    font-weight: @font-weight-semibold;
+}
+
+.regular {
+    font-weight: @font-weight-regular;
+}
+
+.light {
+    font-weight: @font-weight-light;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.centered {
+    text-align: center;
+}
+
+.link {
+    text-decoration: underline;
+
+    &:hover {
+        border-bottom: 1px dotted @widget-color-10;
+    }
+}
+
+.link-light {
+    text-decoration: underline;
+    color: @widget-color-11;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Symbols font
+@font-face {
+    font-family: 'viconsregular';
+    src: url('styles/fonts/vicons-regular-webfont.eot');
+    src: local('â—º'),
+         url('styles/fonts/vicons-regular-webfont.woff') format('woff'),
+         url('styles/fonts/vicons-regular-webfont.ttf') format('truetype'),
+         url('styles/fonts/vicons-regular-webfont.svg#viconsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

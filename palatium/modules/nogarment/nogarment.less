@@ -1,0 +1,107 @@
+.panel.nogarment {
+
+    .content > p {
+        margin: 35px 0 65px;
+    }
+
+    .link-light {
+        text-transform: uppercase;
+    }
+}
+
+.type-dropdown {
+
+    &.dropdown {
+        position: relative;
+        margin: 30px auto;
+    }
+
+    .dropdown-toggle,
+    .dropdown-menu {
+        background-color: @widget-color-1;
+        color: @widget-color-8;
+        border: 1px solid @widget-color-5;
+    }
+
+    .dropdown-toggle {
+        padding: 15px 16px;
+        text-decoration: none;
+
+        .caret {
+            border-top-color: @widget-color-7;
+        }
+    }
+
+    .dropdown-menu {
+        width: 470px;
+
+        li {
+            border-top: 1px solid @widget-color-5;
+
+            &:first-child {
+                border: none;
+            }
+
+            &:hover {
+                background-color: @widget-color-2;
+            }
+
+            &.empty div {
+                color: @widget-color-5;
+            }
+
+            &.on:hover a {
+                color: @widget-color-8;
+            }
+
+            &.category {
+                padding: 3px 10px;
+                font-size: 11px;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+
+            a {
+                padding: 3px 10px 3px 5px;
+                text-decoration: none;
+                text-transform: none;
+            }
+
+            div {
+                float: left;
+                line-height: @wardrobe-icon-height;
+            }
+
+            .type-name {
+                margin-left: 20px;
+            }
+
+            .stock {
+                float: right;
+                margin-right: 10px;
+            }
+
+            .thumb {
+                width: @wardrobe-icon-width;
+                height: @wardrobe-icon-height;
+                font: 40px viconsregular;
+            }
+        }
+
+        .scrollbar {
+            .track {
+                background-color: @widget-color-1;
+
+                .thumb {
+                    background-color: @widget-color-7;
+                }
+            }
+        }
+
+        .viewport {
+            width: 470px - 8 - 2;
+            height: 10 * 33px;
+        }
+
+    }
+}

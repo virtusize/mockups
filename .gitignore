@@ -10,3 +10,8 @@ node_modules/**
 *.swp
 *.swo
 *.swn
+
+palatium/main.css.source-map.json
+palatium/main.min.css
+palatium/styles/components
+palatium/styles/modules

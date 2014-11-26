@@ -1,0 +1,75 @@
+/*
+    LAYOUTS
+ */
+
+*,
+*:after,
+*:before {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: @widget-color-3;
+    color: @widget-color-9;
+    font: @vs-font-weight @vs-font-size @vs-font-family;
+    line-height: @vs-line-height;
+    min-width: 960px;
+}
+
+#widget-container {
+    width: 1020px;
+    height: 640px;
+    margin: 0 auto;
+}
+
+#widget {
+    .box-shadow(0 5px 15px 0 rgba(0, 0, 0, 0.5));
+    margin: 15px auto 25px;
+    width: @widget-width;
+    height: @widget-height;
+    position: relative;
+    z-index: 200;
+}
+
+#widget-header {
+    overflow: hidden;
+    background: @widget-color-3;
+    height: @pane-header-height;
+
+    .left {
+        float: left;
+        line-height: @pane-header-height;
+        margin-left: 15px;
+    }
+
+    .center {
+        position: absolute;
+        left: 46%;
+        line-height: @pane-header-height;
+    }
+
+    .right {
+        float: right;
+        line-height: @pane-header-height;
+        margin-right: 15px;
+    }
+
+    .link {
+        color: @widget-color-7;
+        text-decoration: none;
+    }
+}
+
+#widget-content {
+    background: @widget-color-1;
+    position: relative;
+    width: 100%;
+    height: @pane-content-height;
+    overflow: hidden;
+
+    & > .viewport {
+        width: 100%;
+        height: 100%;
+    }
+}

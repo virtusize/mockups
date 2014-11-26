@@ -1,0 +1,93 @@
+/*
+    CANVAS
+ */
+
+.canvas-style {
+    display: none;
+
+    .item {
+        &.basic,
+        &.opaque-basic,
+        &.details,
+        &.opaque-details {
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        &.user.basic {
+            background-color: @widget-color-3;
+            border-color: @widget-color-5;
+        }
+
+        &.user.details {
+            border-color: @widget-color-5;
+        }
+
+        &.store.basic {
+            background-color: rgba(0,152,230,0.10);
+            /* to convert rgba to argb, use http://kilianvalkhof.com/2010/css-xhtml/how-to-use-rgba-in-ie/ */
+            filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr='#190098e6', endColorstr='#190098e6')"; /* IE8 */
+            border-color: @widget-color-11;
+        }
+
+        &.store.opaque-basic {
+            background-color: mix(@widget-color-11, @widget-color-1, 10%);
+            border-color: @widget-color-5;
+        }
+
+        &.store.opaque-details {
+            border-color: @widget-color-5;
+        }
+    }
+
+    .arrow {
+        border-width: 1px;
+        border-style: solid;
+
+        &.user {
+            background-color: @widget-color-8;
+            border-color: @widget-color-8;
+        }
+
+        &.store {
+            background-color: @widget-color-11;
+            border-color: @widget-color-11;
+        }
+    }
+
+    .label {
+        font: 700 10px @vs-font-family;
+
+        &.user {
+            background-color: @widget-color-8;
+            color: @widget-color-1;
+        }
+
+        &.store {
+            background-color: @widget-color-11;
+            color: @widget-color-1;
+        }
+    }
+
+    .legend {
+        border-width: 1px;
+        border-style: solid;
+        font: 400 12px @vs-font-family;
+
+        &.user {
+            background-color: @widget-color-8;
+            color: @widget-color-8;
+            border-color: @widget-color-8;
+        }
+
+        &.store {
+            background-color: @widget-color-11;
+            color: @widget-color-11;
+            border-color: @widget-color-11;
+        }
+    }
+
+    .mask {
+        background-color: @widget-color-1;
+    }
+}

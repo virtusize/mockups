@@ -1,0 +1,234 @@
+/*
+    BUGFIXES FOR IE
+ */
+
+.lt-ie9 {
+
+    #widget {
+        border: 2px solid @widget-color-9;
+        width: @widget-width + 4;
+        height: @widget-height + 4;
+    }
+
+    .detached #widget {
+        border: none;
+        height: @widget-height;
+    }
+
+    /* Password bullets do not show with Open Sans in IE8 on WinXP */
+    input[type="password"] {
+        font-family: @vs-font-family-no-open-sans;
+    }
+
+    #compare .title-container.measurements-view {
+        div.compare-symbol,
+        div.product-title.fg-5 {
+            display: none;
+        }
+    }
+
+    /* Close button */
+    #close-container .close:after {
+        right: -34px;
+    }
+}
+
+.lt-ie9,
+.ie9 {
+    /* Information tooltip arrow needs to be generated with border since IE8 doesnt support rotation */
+    .tooltip {
+
+        &.top    { padding: 5px 0; }
+        &.right  { padding: 0 5px; }
+        &.bottom { padding: 15px 0; }
+        &.left   { padding: 0 5px; }
+
+        .tooltip-inner {
+            font-size: 12px;
+            max-width: 300px;
+            text-align: left;
+            color: @tooltip-color;
+            background-color: @tooltip-background-oldie;
+            box-shadow: none;
+
+        }
+
+        .tooltip-arrow {
+            width: 0;
+            height: 0;
+            border-color: transparent;
+            border-style: solid;
+        }
+
+        &.top {
+            .tooltip-arrow {
+                bottom: 0;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px 5px 0;
+                border-top-color: @tooltip-background-oldie;
+            }
+        }
+
+        &.right {
+            .tooltip-arrow {
+                top: 50%;
+                left: 0;
+                margin-top: -5px;
+                border-width: 5px 5px 5px 0;
+                border-right-color: @tooltip-background-oldie;
+            }
+        }
+        &.left {
+            .tooltip-arrow {
+                top: 50%;
+                right: 0;
+                margin-top: -5px;
+                border-width: 5px 0 5px 5px;
+                border-left-color: @tooltip-background-oldie;
+            }
+        }
+        &.bottom {
+            .tooltip-arrow {
+                top: 0;
+                left: 50%;
+                margin-left: -15px;
+                border-width: 0 15px 15px;
+                border-bottom-color: @tooltip-background-oldie;
+            }
+        }
+
+        &.dark {
+            margin-top: -10px;
+
+            .tooltip-inner{
+                color: @tooltip-dark-color;
+                background-color: @tooltip-dark-background;
+            }
+
+            &.top .tooltip-arrow {
+                border-top-color: @tooltip-dark-background;
+            }
+
+            &.right .tooltip-arrow {
+                border-right-color: @tooltip-dark-background;
+            }
+
+            &.left .tooltip-arrow {
+                border-left-color: @tooltip-dark-background;
+            }
+
+            &.bottom .tooltip-arrow {
+                border-bottom-color: @tooltip-dark-background;
+            }
+        }
+    }
+
+    #new-from-measurements,
+    #edit-item {
+
+        .panel.right .tooltip .tooltip-inner {
+            width: 200px;
+        }
+    }
+
+    /* Product component top arrow needs to be generated with border on ie8 *//*
+    .product-component {
+        .arrow {
+            height: @header-height;
+            width: @header-height/2;
+            position: absolute;
+            top: 0;
+            border: @header-height/2 solid transparent;
+            background: transparent;
+
+
+        }
+
+        &.left-arrow .arrow {
+            border-left-width: 0;
+            left: -@header-height/2;
+
+            &.color-11 {
+                border-right-color: @widget-color-11;
+            }
+            &.color-5 {
+                border-right-color: @widget-color-5;
+            }
+        }
+
+        &.right-arrow .arrow {
+            border-right-width: 0;
+            right: -@header-height/2;
+
+            &.color-11 {
+                border-left-color: @widget-color-11;
+            }
+            &.color-5 {
+                border-left-color: @widget-color-5;
+            }
+        }
+    }*/
+
+    /* Animation sprite */
+    .compare-symbol:hover {
+        background-position: -969px 0px;
+    }
+
+    /* Product component hover */
+    .product-component .image {
+        .overlay {
+            display: none;
+
+            .button-panel .buttons .measure,
+            .button-panel .buttons .edit,
+            .button-panel .buttons .delete,
+            .hint-container .hint {
+                border: 1px solid @widget-color-6;
+
+                &:hover {
+                    background: @widget-color-6;
+                }
+            }
+        }
+
+        &:hover .overlay {
+            display: block;
+        }
+    }
+
+    .input input {
+        padding-bottom: 11px;
+    }
+
+    /* Close button */
+    #close-container .close {
+        background: @widget-color-8; /* inherit did not work */
+    }
+}
+
+/*
+    LANGUAGE SPECIFIC FONT OVERRIDES
+ */
+
+/* To solve tinyscrollbar issue (ge) */
+body.language-ja , body.language-ja .text {
+  line-height: 18px;
+}
+
+body.language-ja, body.language-ja .text, body.language-ja .header {
+    font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "Meiryo UI", "MS UI Gothic", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", @vs-font-family !important;
+}
+
+body.language-ko, body.language-ko .text, body.language-ko .header {
+    font-family: "돋움", Dotum, "Baekmuk Dotum", Undotum, "Apple Gothic", @vs-font-family !important;
+}
+
+body.language-th, body.language-th .text, body.language-th .header {
+    font-family: @vs-font-family-no-open-sans !important;
+}
+
+/* Western fonts are set before the Chinese, or English characters will look ugly. Sans-serif remains as the last fallback */
+body.language-zh, body.language-zh .text, body.language-zh .header {
+    font-family: @vs-font-family-no-generic, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "黑体", "\5b8b\4f53", sans-serif !important;
+}
