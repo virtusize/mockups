@@ -1,0 +1,98 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="shortcut icon" href="http://www.virtusize.com/site/images/favicon.ico"/>
+    <title>Virtusize: Live preview</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .example-items {
+            margin: 30px auto;
+            display: block;
+        }
+
+        .row > div {
+            margin: 0 auto;
+            float: none;
+        }
+
+        .row .panel {
+            margin-top: 70px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">1. Populate wardrobe</h3>
+          </div>
+          <div class="panel-body">
+            <button type="button" id="exampleItems" class="btn btn-primary btn-lg example-items">Add example items</button>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">2. Visit widget</h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+                <li><a href="http://www.acnestudios.com/" target="_blank">ACNE Studios</a></li>
+                <li><a href="http://www.ragtag.jp" target="_blank">Ragtag</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">3. Visit Fittingroom</h3>
+          </div>
+          <div class="panel-body">
+            <ul>
+                <li><a href="http://www.ragtag.jp/fittingroom.html" target="_blank">Ragtag</a></li>
+                <li><a href="https://stayhard.se/find-by-fit" target="_blank">Stayhard</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        var $btn = $('#exampleItems'),
+            cookieName = 'virtusize.bid',
+            bid = 'vs_example_demo';
+
+        if ($.cookie(cookieName) == bid) {
+            $btn.addClass('active');
+            $btn.prop('disabled', true);
+            $btn.prop('title', 'Already activated');
+        }
+
+        $btn.on('click', function(e) {
+            e.preventDefault();
+
+            $.cookie(cookieName, bid, { expires: 1, path: '/', domain: '.virtusize.com' });
+            $btn.addClass('active');
+            $btn.prop('disabled', true);
+        });
+
+    });
+</script>
+
+</body>
+</html>
